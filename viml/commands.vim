@@ -7,6 +7,6 @@ augroup end
 "automatically run tests on save
 augroup UltestRunner
   au!
-  au BufWritePost * UltestNearest
+  au BufWritePost * Ultest
 augroup END
 

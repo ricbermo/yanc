@@ -63,7 +63,8 @@ packer.startup(function(use)
   use {
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
-    config = function() require('config.nvimtree') end
+    config = function() require('config.nvimtree') end,
+    event = 'BufEnter',
   }
 
   use {
@@ -158,7 +159,7 @@ packer.startup(function(use)
     'rcarriga/vim-ultest',
     requires = {'vim-test/vim-test'},
     run = ':UpdateRemotePlugins',
-    config = function() require('config.testing') end,
+    setup = function() require('config.testing') end,
     event = 'BufEnter',
   }
 

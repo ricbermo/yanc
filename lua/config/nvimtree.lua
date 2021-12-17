@@ -1,4 +1,3 @@
-local g = vim.g
 local nvimtree = prequire("nvim-tree")
 if not nvimtree then return end
 
