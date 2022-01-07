@@ -34,7 +34,9 @@ local lsp_symbols = {
 
 cmp.setup({
   sources = {
-    {name = "buffer"}, {name = "nvim_lsp"}, {name = "luasnip"},
+    {name = "buffer"},
+    {name = "nvim_lsp"},
+    {name = "luasnip"},
     {name = 'path'}
   },
   mapping = {

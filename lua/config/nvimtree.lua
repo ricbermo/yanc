@@ -13,7 +13,7 @@ nvimtree.setup{
     }
   },
   update_focused_file = {
-    enable = true
+    enable = false
   },
   filters = {
     dotfiles = false,

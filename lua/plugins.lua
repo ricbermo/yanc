@@ -15,9 +15,9 @@ packer.startup(function(use)
   }
 
   use {
-    'folke/tokyonight.nvim',
+    'rebelot/kanagawa.nvim',
     event = 'VimEnter',
-    config = function() require('config.tokyonight') end
+    config = function() require('config.kanagawa') end
   }
 
   use {
@@ -107,13 +107,6 @@ packer.startup(function(use)
     after = 'nvim-lspconfig',
     disable = true,
     config = function() require('config.signature') end
-  }
-
-  use {
-    'VonHeikemen/searchbox.nvim',
-    requires = {
-      {'MunifTanjim/nui.nvim'}
-    }
   }
 
   use {'LionC/nest.nvim'}
