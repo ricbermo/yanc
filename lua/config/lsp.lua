@@ -40,11 +40,45 @@ local function on_attach(client, bufnr)
 
   if client.resolved_capabilities.document_formatting then
     cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()')
+  elseif client.resolved_capabilities.document_range_formatting then
+    cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.range_formatting()')
   end
 end
 
 local function set_custom_symbol(name, icon)
   vim.fn.sign_define("LspDiagnosticsSign" .. name, { text = icon, numhl = "LspDiagnosticsDefaul" .. name })
+end
+
+
+local function goto_definition(split_cmd)
+  local util = vim.lsp.util
+  local log = require("vim.lsp.log")
+  local api = vim.api
+
+  local handler = function(_, result, ctx)
+    if result == nil or vim.tbl_isempty(result) then
+      local _ = log.info() and log.info(ctx.method, "No location found")
+      return nil
+    end
+
+    if split_cmd then
+      vim.cmd(split_cmd)
+    end
+
+    if vim.tbl_islist(result) then
+      util.jump_to_location(result[1])
+
+      if #result > 1 then
+        util.set_qflist(util.locations_to_items(result))
+        api.nvim_command("copen")
+        api.nvim_command("wincmd p")
+      end
+    else
+      util.jump_to_location(result)
+    end
+  end
+
+  return handler
 end
 
 set_custom_symbol("Error", "")
@@ -54,18 +88,32 @@ set_custom_symbol("Warning", "")
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
   virtual_text = {
-    prefix = "",
+    prefix = "",
     spacing = 0,
   },
-  signs = false, -- disable icons in signcolum
+  signs = true, -- disable icons in signcolum
   underline = true,
   update_in_insert = false,
 })
 
-require( 'nvim-lsp-installer').on_server_ready(function(server)
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+  border = "single"
+})
+
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+  border = "single"
+})
+
+vim.lsp.handlers["textDocument/definition"] = goto_definition('split')
+
+require('nvim-lsp-installer').on_server_ready(function(server)
   local opts = {
     on_attach = on_attach,
     capabilities = capabilities,
+    root_dir = vim.loop.cwd,
+    flags = {
+      debounce_text_changes = 200,
+    }
   }
 
   if server.name == "eslint" then

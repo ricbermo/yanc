@@ -4,6 +4,7 @@ if not blankline then
 end
 
 blankline.setup {
+  indentLine_enabled = 1,
   char = "▏",
   space_char_blankline = " ",
   buftype_exclude = {"terminal"},

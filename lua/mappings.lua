@@ -19,7 +19,6 @@ local leader = {
   {"n", "<cmd>NvimTreeToggle<cr>"},
   {"x", "<cmd>bd<cr>"},
   {"q", "<cmd>noh<cr>"},
-  {"s", "<cmd>lua require('searchbox').incsearch()<cr>"},
 }
 
 local packer = {
