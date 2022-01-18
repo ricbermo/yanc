@@ -77,6 +77,17 @@ local lsp_installer = {
   {"i", "<cmd>LspInstallInfo<cr>"},
 }
 
+local git = {
+  name = "Git",
+  prefix = "<leader>h",
+  {"b", "<cmd>lua require('gitsigns').blame_line{full=true}<CR>"},
+  {"d", "<cmd>DiffviewOpen<cr>"},
+  {"t", "<cmd>DiffviewToggleFiles<cr>"},
+  {"c", "<cmd>DiffviewClose<cr>"},
+  {"f", "<cmd>DiffviewFocusFiles<cr>"},
+  {"r", "<cmd>DiffviewRefresh<cr>"},
+}
+
 register_groups({
   packer,
   leader,
@@ -84,7 +95,8 @@ register_groups({
   nvimtree,
   testing,
   window_movement,
-  lsp_installer
+  lsp_installer,
+  git
 })
 
 nest.applyKeymaps({"<leader>m", "<cmd>split | terminal<cr>"})
