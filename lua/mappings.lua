@@ -16,7 +16,7 @@ local leader = {
   prefix = "<leader>",
   {"l", "<cmd>luaf%<cr>"},
   {"b", vim.lsp.buf.formatting},
-  {"n", "<cmd>NvimTreeToggle<cr>"},
+  {"n", "<cmd>NeoTreeFocusToggle<cr>"},
   {"x", "<cmd>bd<cr>"},
   {"q", "<cmd>noh<cr>"},
 }
@@ -47,11 +47,11 @@ local telescope = {
   {"n", "<cmd>DashboardNewFile<cr>"},
 }
 
-local nvimtree = {
-  name = "nvimtree",
+local neotree = {
+  name = "neo-tree",
   prefix = "<leader>n",
-  {"r", "<cmd>NvimTreeRefresh<cr>"},
-  {"n", "<cmd>NvimTreeFindFile<cr>"}
+  {"r", "<cmd>NeoTreeReveal<cr>"},
+  {"n", "<cmd>NeoTreeShow<cr>"}
 }
 
 local testing = {
@@ -92,7 +92,7 @@ register_groups({
   packer,
   leader,
   telescope,
-  nvimtree,
+  neotree,
   testing,
   window_movement,
   lsp_installer,

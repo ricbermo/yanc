@@ -46,7 +46,11 @@ local function on_attach(client, bufnr)
 end
 
 local function set_custom_symbol(name, icon)
-  vim.fn.sign_define("LspDiagnosticsSign" .. name, { text = icon, numhl = "LspDiagnosticsDefaul" .. name })
+  vim.fn.sign_define("LspDiagnosticsSign" .. name, {
+    text = icon,
+    numhl = "LspDiagnosticsDefault" .. name,
+    texthl = "LspDiagnosticsSign" .. name,
+  })
 end
 
 

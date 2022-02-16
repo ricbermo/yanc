@@ -61,10 +61,14 @@ packer.startup(function(use)
   }
 
   use {
-    'kyazdani42/nvim-tree.lua',
-    requires = 'kyazdani42/nvim-web-devicons',
+    'nvim-neo-tree/neo-tree.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'kyazdani42/nvim-web-devicons',
+      'MunifTanjim/nui.nvim'
+    },
     event = 'VimEnter',
-    config = function() require('config.nvimtree') end,
+    config = function() require('config.neotree') end,
   }
 
   -- LSP & Completion
@@ -128,7 +132,7 @@ packer.startup(function(use)
 
   use {
     'steelsojka/pears.nvim',
-    event = 'BufRead',
+    event = 'InsertEnter',
     config = function() require('pears').setup() end
   }
 
