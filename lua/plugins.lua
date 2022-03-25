@@ -62,6 +62,7 @@ packer.startup(function(use)
 
   use {
     'nvim-neo-tree/neo-tree.nvim',
+    branch = "v1.x",
     requires = {
       'nvim-lua/plenary.nvim',
       'kyazdani42/nvim-web-devicons',
@@ -143,7 +144,7 @@ packer.startup(function(use)
   }
 
   use {
-    'blackCauldron7/surround.nvim',
+    'ur4ltz/surround.nvim',
     event = 'BufRead',
     config = function() require('config.surround') end
   }

@@ -6,7 +6,7 @@ g.ultest_fail_sign = ''
 g.ultest_running_sign = ''
 g.ultest_pass_sign = ''
 
-g['test#strategy'] = "kitty"
+g['test#strategy'] = "vimux"
 g['test#preserve_screen'] = 0
 g['test#javascript#jest#options'] = "--color=always"
 
