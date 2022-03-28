@@ -9,3 +9,14 @@ _G.prequire = function(plugin, verbose)
   end
   print(errmsg)
 end
+
+local M = {}
+
+function M.impatient()
+	local impatient_ok, _ = pcall(require, "impatient")
+	if impatient_ok then
+		require("impatient").enable_profile()
+	end
+end
+
+return M;

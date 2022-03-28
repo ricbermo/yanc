@@ -121,6 +121,8 @@ packer.startup(function(use)
 
   -- Utils
 
+  use {'lewis6991/impatient.nvim'}
+
   use {'LionC/nest.nvim'}
 
   use {'folke/which-key.nvim'}
