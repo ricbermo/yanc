@@ -56,8 +56,9 @@ packer.startup(function(use)
   }
 
   use {
-    'glepnir/dashboard-nvim',
-    config = function() require('config.dashboard') end
+    'goolord/alpha-nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
+    config = function() require('config.alpha') end
   }
 
   use {

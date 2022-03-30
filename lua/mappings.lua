@@ -44,7 +44,6 @@ local telescope = {
   {"w", "<cmd>Telescope live_grep<cr>"},
   {"b", "<cmd>Telescope buffers<cr>"},
   {"m", "<cmd>Telescope marks<cr>"},
-  {"n", "<cmd>DashboardNewFile<cr>"},
 }
 
 local neotree = {

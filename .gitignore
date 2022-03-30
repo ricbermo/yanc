@@ -1,2 +1,2 @@
 .DS_Store
-plugins
+plugin/packer_compiled.lua
