@@ -16,7 +16,7 @@ local leader = {
   prefix = "<leader>",
   {"l", "<cmd>luaf%<cr>"},
   {"b", vim.lsp.buf.formatting},
-  {"n", "<cmd>NeoTreeFocusToggle<cr>"},
+  {"n", "<cmd>Neotree toggle<cr>"},
   {"x", "<cmd>bd<cr>"},
   {"q", "<cmd>noh<cr>"},
 }
@@ -32,7 +32,8 @@ local packer = {
   {"p", "<cmd>PackerProfile<cr>"},
   {"t", "<cmd>PackerStatus<cr>"},
   {"d", "<cmd>PackerClean<cr>"},
-  {"o", "<cmd>PackerConfig<cr>"}
+  {"o", "<cmd>PackerConfig<cr>"},
+  {"r", "<cmd>UpdateRemotePlugin<cr>"},
 }
 
 local telescope = {
@@ -49,8 +50,7 @@ local telescope = {
 local neotree = {
   name = "neo-tree",
   prefix = "<leader>n",
-  {"r", "<cmd>NeoTreeReveal<cr>"},
-  {"n", "<cmd>NeoTreeShow<cr>"}
+  {"r", "<cmd>Neotree reveal<cr>"},
 }
 
 local testing = {
