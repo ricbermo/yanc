@@ -8,6 +8,7 @@
 
 #### Requirements for default config to work
 - [Nerd patched font](https://www.nerdfonts.com/) - used by nvim-web-devicons
+-- Recomended: `brew install --cask  font-fira-mono-nerd-font`
 - [ripgrep](https://github.com/BurntSushi/ripgrep) - default [telescope](#nvim-telescopetelescopenvim) grep searcher
 
 ### Installation
