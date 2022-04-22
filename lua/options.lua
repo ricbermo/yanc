@@ -34,8 +34,7 @@ g.loaded_node_provider = 0
 g.loaded_ruby_provider = 0
 g.loaded_perl_provider = 0
 
-g.python3_host_prog = '/Users/ricbermo/.asdf/shims/python'
-
+g.python3_host_prog = '/Users/ricardo/.asdf/shims/python'
 
 -- number stuff
 opt.number = true
@@ -104,3 +103,19 @@ local disabled_built_ins = {
 for _, plugin in pairs(disabled_built_ins) do
   g["loaded_" .. plugin] = 1
 end
+
+-- better filetype (0.7+)
+g.do_filetype_lua = 1
+g.did_load_filetypes = 0
+
+vim.filetype.add({
+  -- extension = {
+  --     foo = "fooscript",
+  -- },
+  filename = {
+      ['Podfile'] = 'ruby',
+  },
+  pattern = {
+      ['.*git/config'] = 'gitconfig',
+  }
+})

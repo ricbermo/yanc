@@ -177,10 +177,4 @@ packer.startup(function(use)
     requires = 'nvim-lua/plenary.nvim',
     cmd = 'DiffviewOpen',
   }
-
-  use {
-    'nathom/filetype.nvim',
-    config = function() require('config.filetype') end
-  }
-
 end)
