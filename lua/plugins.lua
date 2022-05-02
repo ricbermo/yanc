@@ -20,14 +20,14 @@ packer.startup(function(use)
   }
 
   use {
-    'NTBBloodbath/galaxyline.nvim',
-    after = "nvim-web-devicons",
-    config = function() require('galaxyline.themes.eviline') end
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    config = function() require('config.lualine') end
   }
 
   use {
     'akinsho/bufferline.nvim',
-    after = 'galaxyline.nvim',
+    after = 'lualine.nvim',
     config = function() require('config.bufferline') end
   }
 
@@ -54,6 +54,8 @@ packer.startup(function(use)
     cmd = 'Telescope',
     config = function() require('config.telescope') end
   }
+
+  -- startup page
 
   use {
     'goolord/alpha-nvim',

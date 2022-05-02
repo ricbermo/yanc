@@ -3,13 +3,16 @@ if not neotree then
   return
 end
 
-vim.fn.sign_define("DiagnosticSignError", {text = "? ", texthl = "DiagnosticSignError"})
-vim.fn.sign_define("DiagnosticSignWarn", {text = "? ", texthl = "DiagnosticSignWarn"})
-vim.fn.sign_define("DiagnosticSignInfo", {text = "? ", texthl = "DiagnosticSignInfo"})
-vim.fn.sign_define("DiagnosticSignHint", {text = "?", texthl = "DiagnosticSignHint"})
+local signs = require("utils").signs
+
+vim.fn.sign_define("DiagnosticSignError", {text = signs.Error, texthl = "DiagnosticSignError"})
+vim.fn.sign_define("DiagnosticSignWarn", {text = signs.Warn, texthl = "DiagnosticSignWarn"})
+vim.fn.sign_define("DiagnosticSignInfo", {text = signs.Info, texthl = "DiagnosticSignInfo"})
+vim.fn.sign_define("DiagnosticSignHint", {text = signs.Hint, texthl = "DiagnosticSignHint"})
 
 neotree.setup({
   popup_border_style = "rounded",
+  enable_git_status = true,
   default_component_configs = {
     icon = {
       folder_closed = "",
@@ -19,9 +22,9 @@ neotree.setup({
     git_status = {
       symbols = {
         -- Change type
-        added     = "✚",
-        deleted   = "✖",
-        modified  = "",
+        added     = signs.GitAdded,
+        deleted   = signs.GitRemoved,
+        modified  = signs.GitModified,
         renamed   = "",
         -- Status type
         untracked = "",

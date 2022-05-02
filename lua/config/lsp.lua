@@ -39,7 +39,7 @@ local function on_attach(client, bufnr)
   buf_set_keymap("n", "]d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
 
   if client.resolved_capabilities.document_formatting then
-    cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()')
+    cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 1000)')
   elseif client.resolved_capabilities.document_range_formatting then
     cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.range_formatting()')
   end
@@ -85,10 +85,12 @@ local function goto_definition(split_cmd)
   return handler
 end
 
-set_custom_symbol("Error", "")
-set_custom_symbol("Information", "")
-set_custom_symbol("Hint", "")
-set_custom_symbol("Warning", "")
+local signs = require("utils").signs
+
+set_custom_symbol("Error", signs.Error)
+set_custom_symbol("Information", signs.Info)
+set_custom_symbol("Hint", signs.Hint)
+set_custom_symbol("Warning", signs.Warn)
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
   virtual_text = {
