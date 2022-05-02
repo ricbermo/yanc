@@ -4,7 +4,7 @@ if not packer then
 
   local fn = vim.fn
   local install_path = fn.stdpath("data") ..
-  "/site/pack/packer/start/packer.nvim"
+      "/site/pack/packer/start/packer.nvim"
 
   if fn.empty(fn.glob(install_path)) > 0 then
     print("Installing packer")
@@ -26,11 +26,11 @@ packer.reset()
 packer.init({
   display = {
     open_fn = function()
-      return require("packer.util").float({border = "single"})
+      return require("packer.util").float({ border = "single" })
     end,
     prompt_border = "single"
   },
-  profile = {enable = true},
+  profile = { enable = true },
   compile_on_sync = true
 })
 

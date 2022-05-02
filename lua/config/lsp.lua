@@ -14,6 +14,7 @@ local function on_attach(client, bufnr)
   local function buf_set_keymap(...)
     vim.api.nvim_buf_set_keymap(bufnr, ...)
   end
+
   local function buf_set_option(...)
     vim.api.nvim_buf_set_option(bufnr, ...)
   end
@@ -52,7 +53,6 @@ local function set_custom_symbol(name, icon)
     texthl = "LspDiagnosticsSign" .. name,
   })
 end
-
 
 local function goto_definition(split_cmd)
   local util = vim.lsp.util
@@ -123,7 +123,7 @@ require('nvim-lsp-installer').on_server_ready(function(server)
   }
 
   if server.name == "eslint" then
-    opts.on_attach = function (client, bufnr)
+    opts.on_attach = function(client, bufnr)
       client.resolved_capabilities.document_formatting = true
       on_attach(client, bufnr)
     end
@@ -134,7 +134,7 @@ require('nvim-lsp-installer').on_server_ready(function(server)
   end
 
   if server.name == "tsserver" then
-    opts.on_attach = function (client, bufnr)
+    opts.on_attach = function(client, bufnr)
       client.resolved_capabilities.document_formatting = false
       on_attach(client, bufnr)
     end

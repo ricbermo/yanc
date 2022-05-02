@@ -34,14 +34,14 @@ local lsp_symbols = {
 
 cmp.setup({
   sources = {
-    {name = "buffer"},
-    {name = "nvim_lsp"},
-    {name = "luasnip"},
-    {name = "path"},
-    {name = "nvim_lsp_signature_help"}
+    { name = "buffer" },
+    { name = "nvim_lsp" },
+    { name = "luasnip" },
+    { name = "path" },
+    { name = "nvim_lsp_signature_help" }
   },
   mapping = {
-    ["<cr>"] = cmp.mapping.confirm({select = true}),
+    ["<cr>"] = cmp.mapping.confirm({ select = true }),
     ["<s-tab>"] = cmp.mapping.select_prev_item(),
     ["<tab>"] = cmp.mapping.select_next_item()
   },
@@ -58,5 +58,5 @@ cmp.setup({
       return item
     end
   },
-  snippet = {expand = function(args) luasnip.lsp_expand(args.body) end}
+  snippet = { expand = function(args) luasnip.lsp_expand(args.body) end }
 })

@@ -2,7 +2,7 @@ local nvimtree = prequire("nvim-tree")
 if not nvimtree then return end
 
 
-nvimtree.setup{
+nvimtree.setup {
   diagnostics = {
     enable = true,
     icons = {
@@ -20,4 +20,4 @@ nvimtree.setup{
   },
 }
 
-require'nvim-tree.view'.View.winopts.relativenumber = true
+require 'nvim-tree.view'.View.winopts.relativenumber = true

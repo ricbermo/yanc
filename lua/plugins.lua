@@ -4,7 +4,7 @@ local packer = prequire("config.packer")
 if not packer then return end
 
 packer.startup(function(use)
-  use {'wbthomason/packer.nvim', event = 'VimEnter'}
+  use { 'wbthomason/packer.nvim', event = 'VimEnter' }
 
   -- Eye Candy
 
@@ -37,6 +37,12 @@ packer.startup(function(use)
     config = function() require('config.blankline') end
   }
 
+  use {
+    'https://gitlab.com/yorickpeterse/nvim-pqf.git',
+    event = "BufRead",
+    config = function() require('config.pqf') end
+  }
+
   -- File Management
 
   use {
@@ -49,7 +55,7 @@ packer.startup(function(use)
   use {
     'nvim-telescope/telescope.nvim',
     requires = {
-      {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+      { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
     },
     cmd = 'Telescope',
     config = function() require('config.telescope') end
@@ -77,7 +83,7 @@ packer.startup(function(use)
 
   -- LSP & Completion
 
-  use {'rafamadriz/friendly-snippets'}
+  use { 'rafamadriz/friendly-snippets' }
 
   use {
     'L3MON4D3/LuaSnip',
@@ -89,11 +95,11 @@ packer.startup(function(use)
     'hrsh7th/nvim-cmp',
     after = 'LuaSnip',
     requires = {
-      {'hrsh7th/cmp-buffer', after = 'nvim-cmp'},
-      {'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp'},
-      {'hrsh7th/cmp-path', after = 'nvim-cmp'},
-      {'hrsh7th/cmp-nvim-lsp-signature-help', after = 'nvim-cmp'},
-      {'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp'}
+      { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-nvim-lsp-signature-help', after = 'nvim-cmp' },
+      { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' }
     },
     config = function() require('config.cmp') end
   }
@@ -124,11 +130,11 @@ packer.startup(function(use)
 
   -- Utils
 
-  use {'lewis6991/impatient.nvim'}
+  use { 'lewis6991/impatient.nvim' }
 
-  use {'LionC/nest.nvim'}
+  use { 'LionC/nest.nvim' }
 
-  use {'folke/which-key.nvim'}
+  use { 'folke/which-key.nvim' }
 
   use {
     'karb94/neoscroll.nvim',
@@ -156,7 +162,7 @@ packer.startup(function(use)
 
   use {
     'rcarriga/vim-ultest',
-    requires = {'vim-test/vim-test'},
+    requires = { 'vim-test/vim-test' },
     run = ':UpdateRemotePlugins',
     setup = function() require('config.testing') end,
     event = 'BufRead',
@@ -167,10 +173,12 @@ packer.startup(function(use)
     event = 'BufRead',
   }
 
+  -- Git
+
   use {
     'lewis6991/gitsigns.nvim',
     event = 'BufRead',
-    requires = {'nvim-lua/plenary.nvim'},
+    requires = { 'nvim-lua/plenary.nvim' },
     config = function() require('config.gitsigns') end
   }
 
@@ -179,4 +187,11 @@ packer.startup(function(use)
     requires = 'nvim-lua/plenary.nvim',
     cmd = 'DiffviewOpen',
   }
+
+  use {
+    'akinsho/git-conflict.nvim',
+    event = 'BufRead',
+    config = function() require('git-conflict').setup() end
+  }
+
 end)

@@ -3,7 +3,7 @@ if not bufferline then return end
 
 bufferline.setup {
   options = {
-    offsets = {{filetype = "alpha", text = "", padding = 1}},
+    offsets = { { filetype = "alpha", text = "", padding = 1 } },
     buffer_close_icon = "",
     modified_icon = "",
     close_icon = "",

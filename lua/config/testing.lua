@@ -9,4 +9,3 @@ g.ultest_pass_sign = ''
 g['test#strategy'] = "vimux"
 g['test#preserve_screen'] = 0
 g['test#javascript#jest#options'] = "--color=always"
-
