@@ -6,3 +6,6 @@ luasnip.config.set_config {
 }
 
 require("luasnip/loaders/from_vscode").lazy_load()
+
+luasnip.filetype_extend("ruby", { "rails" })
+luasnip.filetype_extend("typescript", { "javascript" })
