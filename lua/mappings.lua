@@ -2,15 +2,7 @@ local nest = prequire("nest")
 local wk = prequire("which-key")
 if not nest and wk then return end
 
-local register_groups = function(maps)
-  for _, map in pairs(maps) do
-    if map.name or map.prefix then
-      wk.register({ [map.prefix] = { name = map.name } })
-    end
-
-    nest.applyKeymaps(map)
-  end
-end
+local utils = require("utils")
 
 local leader = {
   prefix = "<leader>",
@@ -19,6 +11,7 @@ local leader = {
   { "n", "<cmd>Neotree toggle<cr>" },
   { "x", "<cmd>bd<cr>" },
   { "q", "<cmd>noh<cr>" },
+  { "d", utils.toggle_diagnostics },
 }
 
 local packer = {
@@ -87,7 +80,7 @@ local git = {
   { "r", "<cmd>DiffviewRefresh<cr>" },
 }
 
-register_groups({
+utils.register_groups({
   packer,
   leader,
   telescope,

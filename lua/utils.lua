@@ -15,20 +15,20 @@ local M = {}
 
 M.powerline = {
   circle = {
-      left = "",
-      right = "",
+    left = "",
+    right = "",
   },
   arrow = {
-      left = "",
-      right = "",
+    left = "",
+    right = "",
   },
   triangle = {
-      left = " ",
-      right = "",
+    left = " ",
+    right = "",
   },
   none = {
-      left = "",
-      right = "",
+    left = "",
+    right = "",
   },
 }
 
@@ -76,17 +76,42 @@ M.colors = {
 
 function M.setSpacesSize(filetypes)
   for filetype, size in pairs(filetypes) do
-      vim.cmd(string.format("autocmd FileType %s set sw=%s", filetype, size))
-      vim.cmd(string.format("autocmd FileType %s set ts=%s", filetype, size))
-      vim.cmd(string.format("autocmd FileType %s set sts=%s", filetype, size))
+    vim.cmd(string.format("autocmd FileType %s set sw=%s", filetype, size))
+    vim.cmd(string.format("autocmd FileType %s set ts=%s", filetype, size))
+    vim.cmd(string.format("autocmd FileType %s set sts=%s", filetype, size))
   end
 end
 
 function M.impatient()
-	local impatient_ok, _ = pcall(require, "impatient")
-	if impatient_ok then
-		require("impatient").enable_profile()
-	end
+  local impatient_ok, _ = pcall(require, "impatient")
+  if impatient_ok then
+    require("impatient").enable_profile()
+  end
+end
+
+M.diagnostics_active = true
+
+function M.toggle_diagnostics()
+  M.diagnostics_active = not M.diagnostics_active
+  if M.diagnostics_active then
+    vim.diagnostic.show()
+  else
+    vim.diagnostic.hide()
+  end
+end
+
+function M.register_groups(maps)
+  local nest = prequire("nest")
+  local wk = prequire("which-key")
+  if not nest and wk then return end
+
+  for _, map in pairs(maps) do
+    if map.name or map.prefix then
+      wk.register({ [map.prefix] = { name = map.name } })
+    end
+
+    nest.applyKeymaps(map)
+  end
 end
 
 return M;
