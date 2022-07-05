@@ -161,9 +161,13 @@ packer.startup(function(use)
   }
 
   use {
-    'rcarriga/vim-ultest',
-    requires = { 'vim-test/vim-test' },
-    run = ':UpdateRemotePlugins',
+    'nvim-neotest/neotest',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-treesitter/nvim-treesitter',
+      'antoinemadec/FixCursorHold.nvim',
+      'haydenmeade/neotest-jest'
+    },
     setup = function() require('config.testing') end,
     event = 'BufRead',
   }

@@ -39,7 +39,10 @@ M.signs = {
   Info = "",
   GitAdded = "",
   GitModified = "",
-  GitRemoved = ""
+  GitRemoved = "",
+  Running = "",
+  PassCheck = "",
+  Forbidden = ""
 }
 
 M.colors = {

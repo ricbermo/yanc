@@ -1,11 +1,26 @@
-local g = vim.g
+local neotest = prequire("neotest")
+if not neotest then return end
 
-g.ultest_use_pty = 1
-g.ultest_output_on_line = 0
-g.ultest_fail_sign = ''
-g.ultest_running_sign = ''
-g.ultest_pass_sign = ''
+local signs = require("utils").signs
 
-g['test#strategy'] = "vimux"
-g['test#preserve_screen'] = 0
-g['test#javascript#jest#options'] = "--color=always"
+neotest.setup({
+  adapters = {
+    require('neotest-jest')({
+      jestCommand = "npm test --"
+    }),
+  },
+  icons = {
+    child_indent = "│",
+    child_prefix = "├",
+    collapsed = "─",
+    expanded = "╮",
+    failed = signs.Error,
+    final_child_indent = " ",
+    final_child_prefix = "╰",
+    non_collapsible = "─",
+    passed = signs.PassCheck,
+    running = signs.Running,
+    skipped = signs.Forbidden,
+    unknown = ""
+  },
+})

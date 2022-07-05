@@ -49,9 +49,9 @@ local neotree = {
 local testing = {
   name = "testing",
   prefix = "<leader>t",
-  { "f", "<cmd>TestFile<cr>" },
-  { "u", "<cmd>Ultest<cr>" },
-  { "s", "<cmd>UltestSummary<cr>" },
+  { "f", "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>" },
+  { "o", "<cmd>lua require('neotest').output.open({enter = true})<cr>" },
+  { "s", "<cmd>lua require('neotest').summary.toggle()<cr>" },
 }
 
 local window_movement = {

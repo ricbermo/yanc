@@ -4,9 +4,3 @@ augroup packer_user_config
   autocmd BufWritePost plugins.lua source <afile> | PackerCompile
 augroup end
 
-"automatically run tests on save
-augroup UltestRunner
-  au!
-  au BufWritePost * Ultest
-augroup END
-
