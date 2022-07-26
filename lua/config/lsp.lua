@@ -1,7 +1,7 @@
 local lspconfig = prequire("lspconfig")
-local lsp_installer = prequire("nvim-lsp-installer")
+local mason = prequire("mason")
 
-if not (lspconfig or lsp_installer) then
+if not (lspconfig or mason) then
   return
 end
 
