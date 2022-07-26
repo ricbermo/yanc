@@ -155,7 +155,7 @@ packer.startup(function(use)
   }
 
   use {
-    'ur4ltz/surround.nvim',
+    'kylechui/nvim-surround',
     event = 'BufRead',
     config = function() require('config.surround') end
   }

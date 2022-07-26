@@ -76,7 +76,7 @@ opt.updatetime = 250
 
 -- blankline support
 opt.list = true
-opt.listchars:append({space = "⋅"})
+opt.listchars:append({ space = "⋅" })
 
 -- disable built-in plugins
 local disabled_built_ins = {
@@ -113,9 +113,9 @@ vim.filetype.add({
   --     foo = "fooscript",
   -- },
   filename = {
-      ['Podfile'] = 'ruby',
+    ['Podfile'] = 'ruby',
   },
   pattern = {
-      ['.*git/config'] = 'gitconfig',
+    ['.*git/config'] = 'gitconfig',
   }
 })
