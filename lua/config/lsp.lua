@@ -25,7 +25,7 @@ local function on_attach(client, bufnr)
 
   buf_set_keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", opts)
   buf_set_keymap("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
-  buf_set_keymap("v", "<leader>ca", "<cmd>Lspsaga range_code_action<CR>", opts)
+  buf_set_keymap("v", "<leader>ca", "<cmd><C-U>Lspsaga range_code_action<CR>", opts)
   buf_set_keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
   -- scroll down hover doc or scroll in definition preview
   buf_set_keymap("n", "<C-f>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>", opts)
