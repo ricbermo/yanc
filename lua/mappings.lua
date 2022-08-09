@@ -40,6 +40,15 @@ local telescope = {
   { "m", "<cmd>Telescope marks<cr>" },
 }
 
+local catppuccin = {
+  name = "Catppuccin",
+  prefix = "<leader>w",
+  { "l", "<cmd>Catppuccin latte<cr>" },
+  { "f", "<cmd>Catppuccin frappe<cr>" },
+  { "m", "<cmd>Catppuccin macchiato<cr>" },
+  { "c", "<cmd>Catppuccin mocha<cr>" },
+}
+
 local neotree = {
   name = "neo-tree",
   prefix = "<leader>n",
@@ -88,7 +97,8 @@ utils.register_groups({
   testing,
   window_movement,
   lsp_installer,
-  git
+  git,
+  catppuccin
 })
 
 nest.applyKeymaps({ "<TAB>", "<cmd>BufferLineCycleNext<cr>" })

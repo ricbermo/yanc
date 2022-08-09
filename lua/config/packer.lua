@@ -31,7 +31,8 @@ packer.init({
     prompt_border = "single"
   },
   profile = { enable = true },
-  compile_on_sync = true
+  compile_on_sync = true,
+  auto_reload_compiled = true,
 })
 
 return packer
