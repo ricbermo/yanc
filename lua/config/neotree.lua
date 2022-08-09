@@ -15,9 +15,9 @@ neotree.setup({
   enable_git_status = true,
   default_component_configs = {
     icon = {
-      folder_closed = "",
-      folder_open = "",
-      folder_empty = "",
+      folder_closed = signs.FolderClosed,
+      folder_open = signs.FolderOpen,
+      folder_empty = signs.FolderEmpty,
     },
     git_status = {
       symbols = {

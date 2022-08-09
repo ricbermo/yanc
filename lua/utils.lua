@@ -42,7 +42,10 @@ M.signs = {
   GitRemoved = "",
   Running = "",
   PassCheck = "",
-  Forbidden = ""
+  Forbidden = "",
+  FolderClosed = "",
+  FolderOpen = "",
+  FolderEmpty = "",
 }
 
 M.colors = {

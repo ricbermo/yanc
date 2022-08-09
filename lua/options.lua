@@ -119,3 +119,6 @@ vim.filetype.add({
     ['.*git/config'] = 'gitconfig',
   }
 })
+
+-- Nice looking file diff
+opt.fillchars = 'diff:/'

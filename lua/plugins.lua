@@ -44,6 +44,7 @@ packer.startup(function(use)
     config = function() require('config.blankline') end
   }
 
+  -- better quickfix
   use {
     'https://gitlab.com/yorickpeterse/nvim-pqf.git',
     event = "BufRead",
@@ -129,12 +130,12 @@ packer.startup(function(use)
     config = function() require('config.lspsaga') end
   }
 
-  use {
-    'ray-x/lsp_signature.nvim',
-    after = 'nvim-lspconfig',
-    disable = true,
-    config = function() require('config.signature') end
-  }
+  -- use {
+  --   'ray-x/lsp_signature.nvim',
+  --   after = 'nvim-lspconfig',
+  --   disable = true,
+  --   config = function() require('config.signature') end
+  -- }
 
   -- Utils
 
@@ -198,6 +199,7 @@ packer.startup(function(use)
     'sindrets/diffview.nvim',
     requires = 'nvim-lua/plenary.nvim',
     cmd = 'DiffviewOpen',
+    config = function() require('config.diffview') end
   }
 
   use {

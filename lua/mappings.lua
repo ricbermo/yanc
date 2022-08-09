@@ -81,12 +81,12 @@ local lsp_installer = {
 local git = {
   name = "Git",
   prefix = "<leader>h",
-  { "b", "<cmd>lua require('gitsigns').blame_line{full=true}<CR>" },
+  { "b", "<cmd>lua require('gitsigns').blame_line{full=false}<CR>" },
   { "d", "<cmd>DiffviewOpen<cr>" },
   { "t", "<cmd>DiffviewToggleFiles<cr>" },
   { "c", "<cmd>DiffviewClose<cr>" },
   { "f", "<cmd>DiffviewFocusFiles<cr>" },
-  { "r", "<cmd>DiffviewRefresh<cr>" },
+  { "h", "<cmd>DiffviewFileHistory<cr>" },
 }
 
 utils.register_groups({
