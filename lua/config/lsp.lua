@@ -112,15 +112,17 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 
 vim.lsp.handlers["textDocument/definition"] = goto_definition('split')
 
-require('nvim-lsp-installer').on_server_ready(function(server)
-  local opts = {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    root_dir = vim.loop.cwd,
-    flags = {
-      debounce_text_changes = 200,
-    }
+local opts = {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  root_dir = vim.loop.cwd,
+  flags = {
+    debounce_text_changes = 200,
   }
+}
+
+require('nvim-lsp-installer').on_server_ready(function(server)
+  
 
   if server.name == "eslint" then
     opts.on_attach = function(client, bufnr)

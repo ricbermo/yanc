@@ -1,7 +1,8 @@
 local mason = prequire('mason')
 local autoinstaller = prequire('mason-tool-installer')
+local lspconfig = prequire('mason-lspconfig')
 
-if not (mason or autoinstaller) then
+if not (mason or autoinstaller or lspconfig) then
   return
 end
 
@@ -17,12 +18,21 @@ mason.setup {
   }
 }
 
+local servers = {
+  'sumneko_lua',
+  'tsserver',
+  'eslint',
+  'jsonls'
+}
+
+lspconfig.setup {
+  ensure_installed = servers,
+  automatic_installation = false,
+}
+
 autoinstaller.setup {
-  ensure_installed = {
-    'tsserver',
-    'eslint',
-    'jsonls'
-  },
+  ensure_installed = servers,
   auto_update = false,
-  run_on_start = true
+  run_on_start = true,
+  start_delay = 3000
 }
