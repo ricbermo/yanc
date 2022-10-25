@@ -39,9 +39,9 @@ local function on_attach(client, bufnr)
   buf_set_keymap("n", "[d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
   buf_set_keymap("n", "]d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
 
-  if client.resolved_capabilities.document_formatting then
+  if client.server_capabilities.document_formatting then
     cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 1000)')
-  elseif client.resolved_capabilities.document_range_formatting then
+  elseif client.server_capabilities.document_range_formatting then
     cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.range_formatting()')
   end
 end
@@ -124,7 +124,7 @@ require('nvim-lsp-installer').on_server_ready(function(server)
 
   if server.name == "eslint" then
     opts.on_attach = function(client, bufnr)
-      client.resolved_capabilities.document_formatting = true
+      client.server_capabilities.document_formatting = true
       on_attach(client, bufnr)
     end
 
@@ -135,7 +135,7 @@ require('nvim-lsp-installer').on_server_ready(function(server)
 
   if server.name == "tsserver" then
     opts.on_attach = function(client, bufnr)
-      client.resolved_capabilities.document_formatting = false
+      client.server_capabilities.document_formatting = false
       on_attach(client, bufnr)
     end
 

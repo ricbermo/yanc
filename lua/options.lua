@@ -104,9 +104,7 @@ for _, plugin in pairs(disabled_built_ins) do
   g["loaded_" .. plugin] = 1
 end
 
--- better filetype (0.7+)
 g.do_filetype_lua = 1
-g.did_load_filetypes = 0
 
 vim.filetype.add({
   -- extension = {
