@@ -120,4 +120,8 @@ function M.register_groups(maps)
   end
 end
 
+function M.format_sync()
+  vim.lsp.buf.format { async = true }
+end
+
 return M;

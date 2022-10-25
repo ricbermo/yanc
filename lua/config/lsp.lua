@@ -40,9 +40,9 @@ local function on_attach(client, bufnr)
   buf_set_keymap("n", "]d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
 
   if client.server_capabilities.document_formatting then
-    cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 1000)')
+    cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.format {async = true}')
   elseif client.server_capabilities.document_range_formatting then
-    cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.range_formatting()')
+    cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.range_format()')
   end
 end
 

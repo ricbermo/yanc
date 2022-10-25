@@ -7,7 +7,7 @@ local utils = require("utils")
 local leader = {
   prefix = "<leader>",
   { "l", "<cmd>luaf%<cr>" },
-  { "b", vim.lsp.buf.formatting },
+  { "b", utils.format_sync },
   { "n", "<cmd>Neotree toggle<cr>" },
   { "x", "<cmd>bd<cr>" },
   { "q", "<cmd>noh<cr>" },
