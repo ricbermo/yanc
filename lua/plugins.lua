@@ -113,29 +113,19 @@ packer.startup(function(use)
   }
 
   use {
-    'williamboman/nvim-lsp-installer',
-    config = function() require('config.lsp_installer') end,
-  }
-
-  use {
-    'neovim/nvim-lspconfig',
-    after = 'cmp-nvim-lsp',
-    config = function() require('config.lsp') end
+    'williamboman/mason.nvim',
+    requires = {
+      {'williamboman/mason-lspconfig.nvim'},
+      {'neovim/nvim-lspconfig'},
+    },
+    config = function() require('config.mason') end,
   }
 
   use {
     'glepnir/lspsaga.nvim',
     branch = 'main',
-    after = 'nvim-lspconfig',
     config = function() require('config.lspsaga') end
   }
-
-  -- use {
-  --   'ray-x/lsp_signature.nvim',
-  --   after = 'nvim-lspconfig',
-  --   disable = true,
-  --   config = function() require('config.signature') end
-  -- }
 
   -- Utils
 

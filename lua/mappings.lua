@@ -7,7 +7,6 @@ local utils = require("utils")
 local leader = {
   prefix = "<leader>",
   { "l", "<cmd>luaf%<cr>" },
-  { "b", utils.format_sync },
   { "n", "<cmd>Neotree toggle<cr>" },
   { "x", "<cmd>bd<cr>" },
   { "q", "<cmd>noh<cr>" },
@@ -72,10 +71,11 @@ local window_movement = {
   { "l>", "<C-W>l" },
 }
 
-local lsp_installer = {
+local lsp = {
   name = "LSP Install",
   prefix = "<leader>l",
-  { "i", "<cmd>LspInstallInfo<cr>" },
+  { "i", "<cmd>Mason<cr>" },
+  { "l", "<cmd>MasonLog<cr>" },
 }
 
 local git = {
@@ -96,7 +96,7 @@ utils.register_groups({
   neotree,
   testing,
   window_movement,
-  lsp_installer,
+  lsp,
   git,
   catppuccin
 })
