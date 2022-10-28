@@ -69,7 +69,7 @@ packer.startup(function(use)
     config = function() require('config.telescope') end
   }
 
-  -- startup page
+  -- Startup page
 
   use {
     'goolord/alpha-nvim',
@@ -115,8 +115,8 @@ packer.startup(function(use)
   use {
     'williamboman/mason.nvim',
     requires = {
-      {'williamboman/mason-lspconfig.nvim'},
-      {'neovim/nvim-lspconfig'},
+      { 'williamboman/mason-lspconfig.nvim' },
+      { 'neovim/nvim-lspconfig' },
     },
     config = function() require('config.mason') end,
   }

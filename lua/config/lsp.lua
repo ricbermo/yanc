@@ -12,6 +12,8 @@ local lsp_formatting = function(bufnr)
   })
 end
 
+local cmd = vim.api.nvim_command
+
 function M.on_attach(client, bufnr)
   local function buf_set_keymap(...)
     vim.api.nvim_buf_set_keymap(bufnr, ...)
@@ -52,13 +54,17 @@ function M.on_attach(client, bufnr)
       end,
     })
   end
+
+  if (client.name == "eslint") then
+    cmd('autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll')
+  end
 end
 
 function M.set_custom_symbol(name, icon)
-  vim.fn.sign_define("LspDiagnosticsSign" .. name, {
+  vim.fn.sign_define("DiagnosticsSign" .. name, {
     text = icon,
-    numhl = "LspDiagnosticsDefault" .. name,
-    texthl = "LspDiagnosticsSign" .. name,
+    numhl = "DiagnosticsDefault" .. name,
+    texthl = "DiagnosticsSign" .. name,
   })
 end
 

@@ -20,7 +20,12 @@ mason.setup({
 })
 
 mason_lsp.setup({
-  ensure_installed = { "sumneko_lua", "eslint", "tsserver", "jsonls" },
+  ensure_installed = {
+    "sumneko_lua",
+    "eslint",
+    "tsserver",
+    "jsonls",
+  },
   automatic_installation = true
 })
 
@@ -49,11 +54,11 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 })
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = "single"
+  border = "rounded"
 })
 
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-  border = "single"
+  border = "rounded"
 })
 
 vim.lsp.handlers["textDocument/definition"] = lspUtils.goto_definition('split')
