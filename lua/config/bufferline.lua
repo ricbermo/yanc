@@ -17,6 +17,10 @@ bufferline.setup {
     view = "multiwindow",
     show_buffer_close_icons = true,
     separator_style = "thin",
-    always_show_bufferline = true
+    always_show_bufferline = true,
+    indicator = {
+      style = 'underline',
+    },
+    diagnostics = 'nvim_lsp',
   }
 }

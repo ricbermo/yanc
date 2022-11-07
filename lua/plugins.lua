@@ -8,12 +8,6 @@ packer.startup(function(use)
 
   -- Eye Candy
 
-  -- use {
-  --   'rebelot/kanagawa.nvim',
-  --   event = 'VimEnter',
-  --   config = function() require('config.kanagawa') end
-  -- }
-  --
   use {
     'catppuccin/nvim',
     as = 'catppuccin',
