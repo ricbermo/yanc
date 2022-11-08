@@ -30,7 +30,7 @@ mason_lsp.setup({
 })
 
 mason_lsp.setup_handlers {
-  function (server_name)
+  function(server_name)
     lsp[server_name].setup {
       on_attach = lspUtils.on_attach,
       capabilities = lspUtils.capabilities
@@ -38,27 +38,32 @@ mason_lsp.setup_handlers {
   end
 }
 
-lspUtils.set_custom_symbol("Error", signs.Error)
-lspUtils.set_custom_symbol("Information", signs.Info)
-lspUtils.set_custom_symbol("Hint", signs.Hint)
-lspUtils.set_custom_symbol("Warning", signs.Warn)
+lspUtils.set_custom_symbol("DiagnosticsSignError", signs.Error)
+lspUtils.set_custom_symbol("DiagnosticsSignInfo", signs.Info)
+lspUtils.set_custom_symbol("DiagnosticsSignHint", signs.Hint)
+lspUtils.set_custom_symbol("DiagnosticsSignWarn", signs.Warn)
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-  virtual_text = {
-    prefix = "",
-    spacing = 0,
-  },
-  signs = true, -- disable icons in signcolum
-  underline = true,
+  virtual_text = false,
+  signs = true,
   update_in_insert = false,
+  underline = true,
+  severity_sort = true,
+  code_action_icon = signs.LightBulb,
+  float = {
+    focusable = false,
+    style = 'minimal',
+    border = 'rounded',
+    source = 'always',
+    header = '',
+    prefix = '',
+  },
 })
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = "rounded"
+  border = 'rounded'
 })
 
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-  border = "rounded"
+  border = 'rounded'
 })
-
-vim.lsp.handlers["textDocument/definition"] = lspUtils.goto_definition('split')

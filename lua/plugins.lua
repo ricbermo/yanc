@@ -38,11 +38,16 @@ packer.startup(function(use)
     config = function() require('config.blankline') end
   }
 
-  -- better quickfix
   use {
     'https://gitlab.com/yorickpeterse/nvim-pqf.git',
     event = "BufRead",
     config = function() require('config.pqf') end
+  }
+
+
+  use {
+    'glepnir/lspsaga.nvim',
+    config = function() require('config.lspsaga') end,
   }
 
   -- File Management
@@ -85,17 +90,16 @@ packer.startup(function(use)
 
   -- LSP & Completion
 
-  use { 'rafamadriz/friendly-snippets' }
-
   use {
     'L3MON4D3/LuaSnip',
-    after = 'friendly-snippets',
+    requires = {
+      'rafamadriz/friendly-snippets'
+    },
     config = function() require 'config.luasnip' end
   }
 
   use {
     'hrsh7th/nvim-cmp',
-    after = 'LuaSnip',
     requires = {
       { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
       { 'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp' },
@@ -113,12 +117,6 @@ packer.startup(function(use)
       { 'neovim/nvim-lspconfig' },
     },
     config = function() require('config.mason') end,
-  }
-
-  use {
-    'glepnir/lspsaga.nvim',
-    branch = 'main',
-    config = function() require('config.lspsaga') end
   }
 
   -- Utils
@@ -179,17 +177,17 @@ packer.startup(function(use)
     config = function() require('config.gitsigns') end
   }
 
-  use {
-    'sindrets/diffview.nvim',
-    requires = 'nvim-lua/plenary.nvim',
-    cmd = 'DiffviewOpen',
-    config = function() require('config.diffview') end
-  }
+  -- use {
+  --   'sindrets/diffview.nvim',
+  --   requires = 'nvim-lua/plenary.nvim',
+  --   cmd = 'DiffviewOpen',
+  --   config = function() require('config.diffview') end
+  -- }
 
-  use {
-    'akinsho/git-conflict.nvim',
-    event = 'BufRead',
-    config = function() require('git-conflict').setup() end
-  }
+  -- use {
+  --   'akinsho/git-conflict.nvim',
+  --   event = 'BufRead',
+  --   config = function() require('git-conflict').setup() end
+  -- }
 
 end)
