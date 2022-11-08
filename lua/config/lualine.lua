@@ -157,22 +157,26 @@ ins_left {
 }
 
 ins_right {
-  function()
-    local msg = "No Active Lsp"
-    local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-    local clients = vim.lsp.get_active_clients()
-    if next(clients) == nil then
+  function(msg)
+    msg = msg or "Inactive"
+    local buf_clients = vim.lsp.buf_get_clients()
+    if next(buf_clients) == nil then
+      if type(msg) == "boolean" or #msg == 0 then
+        return "Inactive"
+      end
       return msg
     end
-    for _, client in ipairs(clients) do
-      local filetypes = client.config.filetypes
-      if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 and client.name ~= "null-ls" then
-        return client.name
+    local buf_client_names = {}
+
+    for _, client in pairs(buf_clients) do
+      if client.name ~= "null-ls" then
+        table.insert(buf_client_names, client.name)
       end
     end
-    return msg
+
+    return table.concat(buf_client_names, ", ")
   end,
-  icon = "",
+  icon = signs.Config .. " ",
   cond = conditions.buffer_not_empty,
   color = { fg = colors.grey9 },
 }

@@ -46,7 +46,8 @@ M.signs = {
   FolderClosed = "",
   FolderOpen = "",
   FolderEmpty = "",
-  LightBulb = ""
+  LightBulb = "",
+  Config = "",
 }
 
 M.colors = {
