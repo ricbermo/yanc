@@ -73,10 +73,6 @@ local function ins_left_inactive(component)
   table.insert(config.inactive_sections.lualine_c, component)
 end
 
-local function ins_right_inactive(component)
-  table.insert(config.inactive_sections.lualine_x, component)
-end
-
 ins_left {
   function()
     vim.api.nvim_command("hi LualineViModeStart guibg=" .. mode_color[vim.fn.mode()])
@@ -122,17 +118,6 @@ ins_left {
   cond = conditions.buffer_not_empty,
   color = { fg = colors.grey9, gui = "italic" },
 }
-
-ins_left {
-  "filesize",
-  icon = "",
-  cond = conditions.buffer_not_empty,
-  color = { fg = colors.grey9 },
-}
-
-ins_left { "location", icon = "", color = { fg = colors.grey9 } }
-
-ins_left { "progress", color = { fg = colors.grey9, gui = "bold" } }
 
 ins_left {
   "diagnostics",
@@ -181,43 +166,11 @@ ins_right {
   color = { fg = colors.grey9 },
 }
 
--- Add components to right sections
-ins_right {
-  "o:encoding",
-  fmt = string.upper,
-  cond = conditions.buffer_not_empty,
-  color = { fg = colors.grey9 },
-}
-
-ins_right {
-  "fileformat",
-  fmt = string.upper,
-  cond = conditions.buffer_not_empty,
-  icons_enabled = true,
-  color = { fg = colors.grey9 },
-}
-
-ins_right {
-  function()
-    return vim.opt.tabstop:get()
-  end,
-  icon = "הּ",
-  cond = conditions.buffer_not_empty,
-  color = { fg = colors.grey9 },
-}
-
-ins_right {
-  function()
-    return powerline.left
-  end,
-  color = { fg = colors.grey14, bg = colors.grey13 },
-  cond = conditions.check_git_workspace,
-  padding = 0,
-}
+ins_right { "location", icon = "", color = { fg = colors.grey9 } }
 
 ins_right {
   "branch",
-  icon = "",
+  icon = signs.Branch,
   cond = conditions.check_git_workspace,
   color = { fg = colors.magenta, bg = colors.grey14, gui = "bold" },
 }

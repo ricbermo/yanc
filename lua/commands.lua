@@ -24,7 +24,7 @@ vim.api.nvim_create_autocmd("OptionSet", {
   end,
 })
 
-vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter', 'CursorMoved' }, {
+vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
   pattern = '*',
   callback = function() utils.config_winbar_or_statusline() end,
 })

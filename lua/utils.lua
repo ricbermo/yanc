@@ -23,7 +23,7 @@ M.powerline = {
     right = "",
   },
   triangle = {
-    left = " ",
+    left = "",
     right = "",
   },
   none = {
@@ -48,6 +48,7 @@ M.signs = {
   FolderEmpty = "",
   LightBulb = "",
   Config = "",
+  Branch = "",
 }
 
 M.colors = {
