@@ -6,60 +6,60 @@ local utils = require("utils")
 
 local leader = {
   prefix = "<leader>",
-  { "l", "<cmd>luaf%<cr>" },
-  { "n", "<cmd>Neotree toggle<cr>" },
-  { "x", "<cmd>bd<cr>" },
-  { "q", "<cmd>noh<cr>" },
+  { "l", "<cmd>luaf%<CR>" },
+  { "n", "<cmd>Neotree toggle<CR>" },
+  { "x", "<cmd>bd<CR>" },
+  { "q", "<cmd>noh<CR>" },
   { "d", utils.toggle_diagnostics },
 }
 
 local packer = {
   name = "packer",
   prefix = "<leader>p",
-  { "i", "<cmd>PackerInstall<cr>" },
-  { "S", "<cmd>PackerSource<cr>" },
-  { "s", "<cmd>PackerSync<cr>" },
-  { "u", "<cmd>PackerUpdate<cr>" },
-  { "c", "<cmd>PackerCompile<cr>" },
-  { "p", "<cmd>PackerProfile<cr>" },
-  { "t", "<cmd>PackerStatus<cr>" },
-  { "d", "<cmd>PackerClean<cr>" },
-  { "o", "<cmd>PackerConfig<cr>" },
-  { "r", "<cmd>UpdateRemotePlugin<cr>" },
+  { "i", "<cmd>PackerInstall<CR>" },
+  { "S", "<cmd>PackerSource<CR>" },
+  { "s", "<cmd>PackerSync<CR>" },
+  { "u", "<cmd>PackerUpdate<CR>" },
+  { "c", "<cmd>PackerCompile<CR>" },
+  { "p", "<cmd>PackerProfile<CR>" },
+  { "t", "<cmd>PackerStatus<CR>" },
+  { "d", "<cmd>PackerClean<CR>" },
+  { "o", "<cmd>PackerConfig<CR>" },
+  { "r", "<cmd>UpdateRemotePlugin<CR>" },
 }
 
 local telescope = {
   name = "telescope",
   prefix = "<leader>f",
-  { "t", "<cmd>Telescope<cr>" },
-  { "f", "<cmd>Telescope find_files<cr>" },
-  { "o", "<cmd>Telescope oldfiles<cr>" },
-  { "w", "<cmd>Telescope live_grep<cr>" },
-  { "b", "<cmd>Telescope buffers<cr>" },
-  { "m", "<cmd>Telescope marks<cr>" },
+  { "t", "<cmd>Telescope<CR>" },
+  { "f", "<cmd>Telescope find_files<CR>" },
+  { "o", "<cmd>Telescope oldfiles<CR>" },
+  { "w", "<cmd>Telescope live_grep<CR>" },
+  { "b", "<cmd>Telescope buffers<CR>" },
+  { "m", "<cmd>Telescope marks<CR>" },
 }
 
 local catppuccin = {
   name = "Catppuccin",
   prefix = "<leader>w",
-  { "l", "<cmd>Catppuccin latte<cr>" },
-  { "f", "<cmd>Catppuccin frappe<cr>" },
-  { "m", "<cmd>Catppuccin macchiato<cr>" },
-  { "c", "<cmd>Catppuccin mocha<cr>" },
+  { "l", "<cmd>Catppuccin latte<CR>" },
+  { "f", "<cmd>Catppuccin frappe<CR>" },
+  { "m", "<cmd>Catppuccin macchiato<CR>" },
+  { "c", "<cmd>Catppuccin mocha<CR>" },
 }
 
 local neotree = {
   name = "neo-tree",
   prefix = "<leader>n",
-  { "r", "<cmd>Neotree reveal<cr>" },
+  { "r", "<cmd>Neotree reveal<CR>" },
 }
 
 local testing = {
   name = "testing",
   prefix = "<leader>t",
-  { "f", "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>" },
-  { "o", "<cmd>lua require('neotest').output.open({enter = true})<cr>" },
-  { "s", "<cmd>lua require('neotest').summary.toggle()<cr>" },
+  { "f", "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>" },
+  { "o", "<cmd>lua require('neotest').output.open({enter = true})<CR>" },
+  { "s", "<cmd>lua require('neotest').summary.toggle()<CR>" },
 }
 
 local window_movement = {
@@ -74,19 +74,19 @@ local window_movement = {
 local lsp = {
   name = "LSP Install",
   prefix = "<leader>l",
-  { "i", "<cmd>Mason<cr>" },
-  { "l", "<cmd>MasonLog<cr>" },
+  { "i", "<cmd>Mason<CR>" },
+  { "l", "<cmd>MasonLog<CR>" },
 }
 
 local git = {
   name = "Git",
   prefix = "<leader>h",
   { "b", "<cmd>lua require('gitsigns').blame_line{full=false}<CR>" },
-  { "d", "<cmd>DiffviewOpen<cr>" },
-  { "t", "<cmd>DiffviewToggleFiles<cr>" },
-  { "c", "<cmd>DiffviewClose<cr>" },
-  { "f", "<cmd>DiffviewFocusFiles<cr>" },
-  { "h", "<cmd>DiffviewFileHistory<cr>" },
+  { "d", "<cmd>DiffviewOpen<CR>" },
+  { "t", "<cmd>DiffviewToggleFiles<CR>" },
+  { "c", "<cmd>DiffviewClose<CR>" },
+  { "f", "<cmd>DiffviewFocusFiles<CR>" },
+  { "h", "<cmd>DiffviewFileHistory<CR>" },
 }
 
 utils.register_groups({
@@ -98,8 +98,8 @@ utils.register_groups({
   window_movement,
   lsp,
   git,
-  catppuccin
+  catppuccin,
 })
 
-nest.applyKeymaps({ "<TAB>", "<cmd>BufferLineCycleNext<cr>" })
-nest.applyKeymaps({ "<S-TAB>", "<cmd>BufferLineCyclePrev<cr>" })
+nest.applyKeymaps({ "<TAB>", "<cmd>BufferLineCycleNext<CR>" })
+nest.applyKeymaps({ "<S-TAB>", "<cmd>BufferLineCyclePrev<CR>" })

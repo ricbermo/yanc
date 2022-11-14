@@ -27,10 +27,7 @@ end
 
 dashboard.section.buttons.val = {
   button("SPC n", "  File Browser"),
-  button("SPC f o", "  Recently Opened Files"),
   button("SPC f f", "  Find File"),
-  button("SPC f w", "  Find Word"),
-  button("SPC f m", "  Bookmarks"),
   button("SPC p u", "  Update Plugins"),
   button("q", "  Quit", "<Cmd>qa<CR>"),
 }
