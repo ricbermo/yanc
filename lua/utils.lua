@@ -42,6 +42,7 @@ M.signs = {
   GitRemoved = "",
   Running = "",
   PassCheck = "",
+  CheckAlt = " ",
   Forbidden = "",
   FolderClosed = "",
   FolderOpen = "",
@@ -49,6 +50,16 @@ M.signs = {
   LightBulb = "",
   Config = "",
   Branch = "",
+  Code = " ",
+  Package = " ",
+  Keyboard = " ",
+  File = " ",
+  Vim = " ",
+  QuestionMark = " ",
+  Loading = " ",
+  Cmd = " ",
+  Event = " ",
+  Init = " "
 }
 
 M.colors = {
@@ -91,13 +102,6 @@ function M.setSpacesSize(filetypes)
   end
 end
 
-function M.impatient()
-  local impatient_ok, _ = pcall(require, "impatient")
-  if impatient_ok then
-    require("impatient").enable_profile()
-  end
-end
-
 M.diagnostics_active = true
 
 function M.toggle_diagnostics()
@@ -110,8 +114,8 @@ function M.toggle_diagnostics()
 end
 
 function M.register_groups(maps)
-  local nest = prequire("nest")
-  local wk = prequire("which-key")
+  local nest = M.require("nest")
+  local wk = M.require("which-key")
   if not nest and wk then return end
 
   for _, map in pairs(maps) do
@@ -164,6 +168,38 @@ function M.config_winbar_or_statusline()
     -- if work in statusline
     vim.wo.stl = win_val
   end
+end
+
+function M.try(fn, ...)
+  local args = { ... }
+
+  return xpcall(function()
+    return fn(unpack(args))
+  end, function(err)
+    local lines = {}
+    table.insert(lines, err)
+    table.insert(lines, debug.traceback("", 3))
+
+    M.error(table.concat(lines, "\n"))
+    return err
+  end)
+end
+
+function M.require(mod)
+  local ok, ret = M.try(require, mod)
+  return ok and ret
+end
+
+function M.warn(msg, name)
+  vim.notify(msg, vim.log.levels.WARN, { title = name or "init.lua" })
+end
+
+function M.error(msg, name)
+  vim.notify(msg, vim.log.levels.ERROR, { title = name or "init.lua" })
+end
+
+function M.info(msg, name)
+  vim.notify(msg, vim.log.levels.INFO, { title = name or "init.lua" })
 end
 
 return M;
