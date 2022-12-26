@@ -1,10 +1,14 @@
 -- source lua files
-local utils = require("utils") -- functions I use frequently
+local util = require("utils")
+local require = util.require
 
-utils.impatient()
-
-
-require("plugins") -- plugin specs
 require("options") -- vim options
-require("mappings") -- nest mappings
-require("commands") -- auto-commands
+require("config.lazy") -- Lazy plugin manager
+
+vim.api.nvim_create_autocmd("User", {
+  pattern = "VeryLazy",
+  callback = function()
+    require("commands")
+    require("mappings")
+  end,
+})

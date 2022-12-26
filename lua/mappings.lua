@@ -6,26 +6,19 @@ local utils = require("utils")
 
 local leader = {
   prefix = "<leader>",
-  { "l", "<cmd>luaf%<CR>" },
   { "n", "<cmd>Neotree toggle<CR>" },
   { "x", "<cmd>bd<CR>" },
   { "q", "<cmd>noh<CR>" },
   { "d", utils.toggle_diagnostics },
 }
 
-local packer = {
-  name = "packer",
+local lazy = {
+  name = "Lazy",
   prefix = "<leader>p",
-  { "i", "<cmd>PackerInstall<CR>" },
-  { "S", "<cmd>PackerSource<CR>" },
-  { "s", "<cmd>PackerSync<CR>" },
-  { "u", "<cmd>PackerUpdate<CR>" },
-  { "c", "<cmd>PackerCompile<CR>" },
-  { "p", "<cmd>PackerProfile<CR>" },
-  { "t", "<cmd>PackerStatus<CR>" },
-  { "d", "<cmd>PackerClean<CR>" },
-  { "o", "<cmd>PackerConfig<CR>" },
-  { "r", "<cmd>UpdateRemotePlugin<CR>" },
+  { "i", "<cmd>Lazy install<CR>" },
+  { "u", "<cmd>Lazy update<CR>" },
+  { "c", "<cmd>Lazy clear<CR>" },
+  { "s", "<cmd>Lazy sync<CR>" },
 }
 
 local telescope = {
@@ -90,7 +83,7 @@ local git = {
 }
 
 utils.register_groups({
-  packer,
+  lazy,
   leader,
   telescope,
   neotree,

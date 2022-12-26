@@ -19,7 +19,7 @@ local function button(sc, txt, keybind, keybind_opts)
 end
 
 local function footer()
-  local plugins = #vim.tbl_keys(packer_plugins)
+  local plugins = require("lazy").stats().count
   local v = vim.version()
   local datetime = os.date " %d-%m-%Y   %H:%M:%S"
   return string.format(" %d   v%d.%d.%d  %s", plugins, v.major, v.minor, v.patch, datetime)
