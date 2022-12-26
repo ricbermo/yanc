@@ -18,5 +18,5 @@ Installation is as easy as cloning the YANC repository into your NeoVim configur
 
 - If you already have a `~/.config/nvim` folder, make a backup with `mv ~/.config/nvim ~/.config/NVIM.BAK`
 - Clone the repo with `git clone https://github.com/ricbermo/yanc ~/.config/nvim`
-- Run this to get all of the plugins intalled `nvim +'hi NormalFloat guibg=#1e222a' +PackerSync`
+- Run this to get all of the plugins installed `nvim --headless "+Lazy! sync" +qa`
 
