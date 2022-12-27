@@ -113,20 +113,6 @@ function M.toggle_diagnostics()
   end
 end
 
-function M.register_groups(maps)
-  local nest = M.require("nest")
-  local wk = M.require("which-key")
-  if not nest and wk then return end
-
-  for _, map in pairs(maps) do
-    if map.name or map.prefix then
-      wk.register({ [map.prefix] = { name = map.name } })
-    end
-
-    nest.applyKeymaps(map)
-  end
-end
-
 function M.format_sync()
   vim.lsp.buf.format { async = true }
 end

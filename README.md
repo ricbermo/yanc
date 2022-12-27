@@ -11,6 +11,7 @@
 -- Recomended: `brew install --cask  font-fira-mono-nerd-font`
 -- Recomended: https://github.com/shaunsingh/SFMono-Nerd-Font-Ligaturized
 - [ripgrep](https://github.com/BurntSushi/ripgrep) - default [telescope](#nvim-telescopetelescopenvim) grep searcher
+- gnu-sed (nvim-spectre requirement): `brew install gnu-sed`
 
 ### Installation
 

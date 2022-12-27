@@ -3,12 +3,13 @@ if not neotree then
   return
 end
 
-local signs = require("utils").signs
+local utils = require("utils")
+local signs = utils.signs
 
-vim.fn.sign_define("DiagnosticSignError", { text = signs.Error, texthl = "DiagnosticSignError" })
-vim.fn.sign_define("DiagnosticSignWarn", { text = signs.Warn, texthl = "DiagnosticSignWarn" })
-vim.fn.sign_define("DiagnosticSignInfo", { text = signs.Info, texthl = "DiagnosticSignInfo" })
-vim.fn.sign_define("DiagnosticSignHint", { text = signs.Hint, texthl = "DiagnosticSignHint" })
+utils.set_custom_symbol("DiagnosticsSignError", signs.Error)
+utils.set_custom_symbol("DiagnosticsSignInfo", signs.Info)
+utils.set_custom_symbol("DiagnosticsSignHint", signs.Hint)
+utils.set_custom_symbol("DiagnosticsSignWarn", signs.Warn)
 
 neotree.setup({
   popup_border_style = "rounded",

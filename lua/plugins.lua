@@ -43,6 +43,15 @@ return {
     config = function() require('config.lspsaga') end,
   },
 
+  {
+    'folke/trouble.nvim',
+    cmd = { 'TroubleToggle', 'Trouble' },
+    config = {
+      auto_open = false,
+      use_diagnostic_signs = true,
+    },
+  },
+
   -- File Management
 
   {
@@ -72,6 +81,8 @@ return {
     },
     config = function() require('config.neotree') end,
   },
+
+  { 'nvim-pack/nvim-spectre' },
 
   -- Startup page
 
@@ -128,8 +139,6 @@ return {
   },
 
   -- Utils
-
-  { 'LionC/nest.nvim' },
 
   { 'folke/which-key.nvim' },
 

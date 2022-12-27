@@ -1,3 +1,6 @@
+local wk = require("which-key")
+local util = require("utils")
+
 local M = {}
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -21,26 +24,7 @@ function M.on_attach(client, bufnr)
 
   local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-  local map = function(m, lhs, rhs)
-    local opts = { remap = false, silent = true, buffer = bufnr }
-    vim.keymap.set(m, lhs, rhs, opts)
-  end
-
-  map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>')
-  map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
-  map('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>')
-  map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>')
-  map('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
-  map('n', 'gr', '<cmd>Lspsaga lsp_finder<cr>')
-  map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
-  map('n', '<F2>', '<cmd>Lspsaga rename<cr>')
-  map('n', 'ca', '<cmd>Lspsaga code_action<cr>')
-  map('x', 'ca', '<cmd>Lspsaga code_action<cr>')
-
-  -- Diagnostics
-  map('n', 'gl', '<cmd>Lspsaga show_line_diagnostics<cr>')
-  map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
-  map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
+  M.set_keys(client, bufnr)
 
   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
@@ -60,12 +44,63 @@ function M.on_attach(client, bufnr)
   end
 end
 
-function M.set_custom_symbol(name, icon)
-  vim.fn.sign_define(name, {
-    text = icon,
-    texthl = name,
-    numhl = '',
-  })
+M.autoformat = true
+
+function M.format()
+  if M.autoformat then
+    if vim.lsp.buf.format then
+      vim.lsp.buf.format()
+    else
+      vim.lsp.buf.formatting_sync()
+    end
+  end
+end
+
+function M.set_keys(client, buffer)
+  local cap = client.server_capabilities
+
+  local keymap = {
+    buffer = buffer,
+    ["<leader>"] = {
+      c = {
+        name = "+code",
+        r = { "<CMD>Lspsaga rename<CR>", "Rename" },
+        a = {
+          { "<CMD>Lspsaga code_action<CR>", "Code Action" },
+          { "<CMD>Lspsaga code_action<CR>", "Code Action", mode = "v" },
+        },
+        f = {
+          {
+            M.format,
+            "Format Document",
+            cond = cap.documentFormatting,
+          },
+          {
+            M.format,
+            "Format Range",
+            cond = cap.documentRangeFormatting,
+            mode = "v",
+          },
+        },
+        d = { "<CMD>Lspsaga show_line_diagnostics<CR>", "Line Diagnostics" },
+        g = {
+          name = "+goto",
+          d = { "<CMD>Telescope lsp_definitions<CR>", "Goto Definition" },
+          r = { "<CMD>Lspsaga lsp_finder<CR>", "References" },
+          R = { "<CMD>Trouble lsp_references<CR>", "Trouble References" },
+          D = { "<CMD>Telescope lsp_declarations<CR>", "Goto Declaration" },
+          I = { "<CMD>Telescope lsp_implementations<CR>", "Goto Implementation" },
+          t = { "<CMD>Telescope lsp_type_definitions<CR>", "Goto Type Definition" },
+        },
+      },
+    },
+    ["<C-k>"] = { "<CMD>lua vim.lsp.buf.signature_help()<CR>", "Signature Help", mode = { "n", "i" } },
+    ["K"] = { "<CMD>lua vim.lsp.buf.hover()<CR>", "Hover" },
+    ["[d"] = { "<CMD>lua vim.diagnostic.goto_prev()<CR>", "Next Diagnostic" },
+    ["]d"] = { "<CMD>lua vim.diagnostic.goto_next()<CR>", "Prev Diagnostic" },
+  }
+
+  wk.register(keymap)
 end
 
 return M

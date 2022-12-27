@@ -5,7 +5,8 @@ if not mason_lsp then
   return
 end
 
-local signs = require("utils").signs
+local utils = require("utils")
+local signs = utils.signs
 local lspUtils = require("config.lsp_utils")
 
 mason_lsp.setup({
@@ -26,11 +27,6 @@ mason_lsp.setup_handlers {
     }
   end
 }
-
-lspUtils.set_custom_symbol("DiagnosticsSignError", signs.Error)
-lspUtils.set_custom_symbol("DiagnosticsSignInfo", signs.Info)
-lspUtils.set_custom_symbol("DiagnosticsSignHint", signs.Hint)
-lspUtils.set_custom_symbol("DiagnosticsSignWarn", signs.Warn)
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
   virtual_text = false,
@@ -56,3 +52,8 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
   border = 'rounded'
 })
+
+vim.fn.sign_define("DiagnosticSignError", { text = signs.Error, texthl = "DiagnosticSignError" })
+vim.fn.sign_define("DiagnosticSignWarn", { text = signs.Warn, texthl = "DiagnosticSignWarn" })
+vim.fn.sign_define("DiagnosticSignInfo", { text = signs.Info, texthl = "DiagnosticSignInfo" })
+vim.fn.sign_define("DiagnosticSignHint", { text = signs.Hint, texthl = "DiagnosticSignHint" })

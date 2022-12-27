@@ -26,9 +26,9 @@ local function footer()
 end
 
 dashboard.section.buttons.val = {
-  button("SPC n", "  File Browser"),
-  button("SPC f f", "  Find File"),
-  button("SPC p u", "  Update Plugins"),
+  button("SPC nn", "  File Browser"),
+  button("SPC ff", "  Find File"),
+  button("SPC hp", "  Update Plugins"),
   button("q", "  Quit", "<Cmd>qa<CR>"),
 }
 
