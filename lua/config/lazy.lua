@@ -34,7 +34,7 @@ require("lazy").setup("plugins", {
       },
     },
   },
-  debug = false,
+  debug = true,
   ui = {
     size = { width = 0.8, height = 0.8 },
     border = "rounded",

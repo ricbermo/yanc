@@ -6,9 +6,9 @@ local utils = require("utils")
 
 local leader = {
   prefix = "<leader>",
-  { "n", "<cmd>Neotree toggle<CR>" },
   { "x", "<cmd>bd<CR>" },
   { "q", "<cmd>noh<CR>" },
+  { "ch", "<cmd>checkhealth<CR>" },
   { "d", utils.toggle_diagnostics },
 }
 
@@ -44,6 +44,7 @@ local catppuccin = {
 local neotree = {
   name = "neo-tree",
   prefix = "<leader>n",
+  { "n", "<cmd>Neotree toggle<CR>" },
   { "r", "<cmd>Neotree reveal<CR>" },
 }
 
