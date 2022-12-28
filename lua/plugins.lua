@@ -151,7 +151,7 @@ return {
   {
     'steelsojka/pears.nvim',
     event = 'InsertEnter',
-    config = function() require('pears').setup() end,
+    config = true
   },
 
   {
