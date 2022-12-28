@@ -151,17 +151,19 @@ return {
   {
     'steelsojka/pears.nvim',
     event = 'InsertEnter',
-    config = function() require('pears').setup() end
+    config = function() require('pears').setup() end,
   },
 
   {
     'numToStr/Comment.nvim',
-    config = function() require('config.comments') end,
+    keys = { 'gc' },
+    config = true,
   },
 
   {
     'kylechui/nvim-surround',
-    config = function() require('config.surround') end
+    keys = { 'ys', 'ds', 'cs' },
+    config = true,
   },
 
   {
