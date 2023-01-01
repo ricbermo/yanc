@@ -12,6 +12,7 @@ treesitter_config.setup({
     "json",
     "typescript",
     "lua",
+    "vim",
   },
   highlight = {
     enable = true,

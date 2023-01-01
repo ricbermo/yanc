@@ -84,14 +84,14 @@ local leader = {
   h = {
     name = "+help",
     t = {
-      name = "Theming",
+      name = "+theming",
       l = { "<CMD>Catppuccin latte<CR>", "Catppuccin Latte" },
       f = { "<CMD>Catppuccin frappe<CR>", "Catppuccin frappe" },
       m = { "<CMD>Catppuccin macchiato<CR>", "Catppuccin Macchiato" },
       c = { "<CMD>Catppuccin mocha<CR>", "Catppuccin Mocha" },
     },
     p = {
-      name = "Package Management",
+      name = "+package-management",
       i = { "<CMD>Lazy install<CR>", "Install Packages" },
       u = { "<CMD>Lazy update<CR>", "Update Packages" },
       c = { "<CMD>Lazy clear<CR>", "Clear Unused" },

@@ -1,15 +1,10 @@
-local neotree = prequire('neo-tree')
+local neotree = require('neo-tree')
 if not neotree then
   return
 end
 
 local utils = require("utils")
 local signs = utils.signs
-
-utils.set_custom_symbol("DiagnosticsSignError", signs.Error)
-utils.set_custom_symbol("DiagnosticsSignInfo", signs.Info)
-utils.set_custom_symbol("DiagnosticsSignHint", signs.Hint)
-utils.set_custom_symbol("DiagnosticsSignWarn", signs.Warn)
 
 neotree.setup({
   popup_border_style = "rounded",
@@ -32,7 +27,7 @@ neotree.setup({
         ignored   = "",
         unstaged  = "",
         staged    = "",
-        conflict  = "",
+        conflict  = signs.Branch,
       }
     },
   },
