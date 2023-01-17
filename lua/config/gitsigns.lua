@@ -35,6 +35,9 @@ gitsigns.setup({
     }
   },
   keymaps = {},
-  current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
-  diff_opts = { internal = false }
+  current_line_blame = false,
+  diff_opts = { internal = false },
+  preview_config = {
+    border = 'rounded',
+  },
 })

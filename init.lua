@@ -3,7 +3,7 @@ local util = require("utils")
 local require = util.require
 
 require("options") -- vim options
-require("config.lazy") -- Lazy plugin manager
+require("config.plugin_manager") -- Lazy plugin manager
 
 vim.api.nvim_create_autocmd("User", {
   pattern = "VeryLazy",

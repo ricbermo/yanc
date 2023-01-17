@@ -1,6 +1,5 @@
 -- All plugins are lazy-loaded by default
 return {
-  -- Eye Candy
   {
     'catppuccin/nvim',
     name = 'catppuccin',
@@ -46,13 +45,11 @@ return {
   {
     'folke/trouble.nvim',
     cmd = { 'TroubleToggle', 'Trouble' },
-    config = {
+    opts = {
       auto_open = false,
       use_diagnostic_signs = true,
     },
   },
-
-  -- File Management
 
   {
     'nvim-treesitter/nvim-treesitter',
@@ -85,16 +82,12 @@ return {
 
   { 'nvim-pack/nvim-spectre' },
 
-  -- Startup page
-
   {
     'goolord/alpha-nvim',
     lazy = false,
     dependencies = { 'kyazdani42/nvim-web-devicons' },
     config = function() require('config.alpha') end
   },
-
-  -- LSP & Completion
 
   {
     'L3MON4D3/LuaSnip',
@@ -139,8 +132,6 @@ return {
     config = function() require('config.lsp') end,
   },
 
-  -- Utils
-
   { 'folke/which-key.nvim' },
 
   {
@@ -152,7 +143,7 @@ return {
   {
     'steelsojka/pears.nvim',
     event = 'InsertEnter',
-    config = true
+    config = function() require("pears").setup() end
   },
 
   {
@@ -178,9 +169,24 @@ return {
     config = function() require('config.testing') end,
   },
 
-  { 'mattn/emmet-vim' },
+  {
+    'kevinhwang91/nvim-ufo',
+    event = 'BufReadPost',
+    dependencies = {
+      'kevinhwang91/promise-async'
+    },
+    opts = {
+      provider_selector = function(bufnr, filetype, buftype)
+        return { 'treesitter', 'indent' }
+      end
+    }
+  },
 
-  -- Git Utils
+  {
+    'luukvbaal/statuscol.nvim',
+    event = 'BufReadPost',
+    config = function() require('config.statuscol') end,
+  },
 
   {
     'lewis6991/gitsigns.nvim',

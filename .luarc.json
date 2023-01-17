@@ -1,10 +1,11 @@
 {
-    "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
-    "Lua.diagnostics.disable": [
-        "unused-local"
-    ],
-    "Lua.diagnostics.globals": [
-        "vim",
-        "packer_plugins"
-    ]
+  "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+  "Lua.diagnostics.disable": [
+    "unused-local"
+  ],
+  "Lua.diagnostics.globals": [
+    "vim",
+    "packer_plugins"
+  ],
+  "runtime.version": "Lua 5.4"
 }

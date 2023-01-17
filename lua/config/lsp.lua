@@ -15,6 +15,7 @@ mason_lsp.setup({
     "eslint",
     "tsserver",
     "jsonls",
+    "emmet_ls"
   },
   automatic_installation = true
 })
@@ -25,6 +26,18 @@ mason_lsp.setup_handlers {
       on_attach = lspUtils.on_attach,
       capabilities = lspUtils.capabilities
     }
+  end,
+  ['emmet_ls'] = function ()
+    lsp.emmet_ls.setup({
+    capabilities = lspUtils.capabilities,
+      filetypes = {
+        'html',
+        'css',
+        'typescriptreact',
+        'javascriptreact',
+        'javascript',
+      },
+    })
   end
 }
 
