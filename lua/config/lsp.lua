@@ -24,12 +24,21 @@ mason_lsp.setup_handlers {
   function(server_name)
     lsp[server_name].setup {
       on_attach = lspUtils.on_attach,
-      capabilities = lspUtils.capabilities
+      capabilities = lspUtils.capabilities,
+      handlers = {
+        ['eslint/noLibrary'] = function()
+          vim.notify('[lspconfig] Unable to find ESLint library.', vim.log.levels.WARN)
+          return {}
+        end,
+      }
     }
   end,
-  ['emmet_ls'] = function ()
+  ['emmet_ls'] = function()
+    local cap = lspUtils.capabilities
+    cap.textDocument.completion.completionItem.snippetSupport = true
+
     lsp.emmet_ls.setup({
-    capabilities = lspUtils.capabilities,
+      capabilities = cap,
       filetypes = {
         'html',
         'css',

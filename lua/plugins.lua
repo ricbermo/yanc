@@ -39,6 +39,7 @@ return {
 
   {
     'glepnir/lspsaga.nvim',
+    cmd = { 'Lspsaga' },
     config = function() require('config.lspsaga') end,
   },
 
@@ -167,19 +168,6 @@ return {
       'haydenmeade/neotest-jest'
     },
     config = function() require('config.testing') end,
-  },
-
-  {
-    'kevinhwang91/nvim-ufo',
-    event = 'BufReadPost',
-    dependencies = {
-      'kevinhwang91/promise-async'
-    },
-    opts = {
-      provider_selector = function(bufnr, filetype, buftype)
-        return { 'treesitter', 'indent' }
-      end
-    }
   },
 
   {

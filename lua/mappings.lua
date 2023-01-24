@@ -147,9 +147,8 @@ local leader = {
   },
   x = {
     name = "+errors",
-    x = { "<CMD>TroubleToggle workspace_diagnostics<CR>", "Trouble" },
-    l = { "<CMD>TroubleToggle loclist<CR>", "Open Location List" },
-    q = { "<CMD>TroubleToggle quickfix<CR>", "Open Quickfix List" },
+    x = { "<CMD>Lspsaga show_buf_diagnostics<CR>", "Open Saga Diagnostics" },
+    s = { "<CMD>TroubleToggle workspace_diagnostics<CR>", "Trouble" },
   },
   b = {
     name = "+buffer",
