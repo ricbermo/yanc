@@ -56,7 +56,14 @@ return {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     event = 'BufReadPost',
-    cmd = 'TSUpdate',
+    cmd = {
+      'TSUpdate',
+      'TSInstallInfo',
+      'TSEnable',
+      'TSDisable',
+      'TSModuleInfo',
+      'TSUninstall',
+    },
     config = function() require('config.treesitter') end
   },
 
@@ -184,15 +191,15 @@ return {
   },
 
   {
-    'sindrets/diffview.nvim',
-    dependencies = 'nvim-lua/plenary.nvim',
-    cmd = { 'DiffviewOpen', 'DiffviewClose', 'DiffviewToggleFiles', 'DiffviewFocusFiles' },
-    config = function() require('config.diffview') end
-  },
-
-  {
-    'akinsho/git-conflict.nvim',
-    cmd = { 'GitConflictListQf' },
-    config = true
+    'mattn/emmet-vim',
+    event = 'BufReadPost',
+    ft = {
+      'typescript',
+      'typescriptreact',
+      'javascript',
+      'javascriptreact',
+      'html',
+      'css',
+    }
   }
 }

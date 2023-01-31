@@ -15,7 +15,6 @@ mason_lsp.setup({
     "eslint",
     "tsserver",
     "jsonls",
-    "emmet_ls"
   },
   automatic_installation = true
 })
@@ -32,21 +31,6 @@ mason_lsp.setup_handlers {
         end,
       }
     }
-  end,
-  ['emmet_ls'] = function()
-    local cap = lspUtils.capabilities
-    cap.textDocument.completion.completionItem.snippetSupport = true
-
-    lsp.emmet_ls.setup({
-      capabilities = cap,
-      filetypes = {
-        'html',
-        'css',
-        'typescriptreact',
-        'javascriptreact',
-        'javascript',
-      },
-    })
   end
 }
 

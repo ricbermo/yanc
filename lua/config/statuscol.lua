@@ -5,4 +5,5 @@ statuscol.setup({
   setopt = true,
   relculright = true,
   order = "SNsFs",
+  foldfunc = "builtin",
 })

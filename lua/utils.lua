@@ -60,8 +60,8 @@ M.signs = {
   Cmd = " ",
   Event = " ",
   Init = " ",
-  Collapsed = "",
-  Expanded = "",
+  Expanded = "",
+  Collapsed = "",
 }
 
 M.colors = {

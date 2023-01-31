@@ -5,7 +5,6 @@ treesitter_config.setup({
   ensure_installed = {
     "javascript",
     "ruby",
-    "comment",
     "css",
     "html",
     "dart",
