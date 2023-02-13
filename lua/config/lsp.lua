@@ -11,7 +11,7 @@ local lspUtils = require("config.lsp_utils")
 
 mason_lsp.setup({
   ensure_installed = {
-    "sumneko_lua",
+    "lua_ls",
     "eslint",
     "tsserver",
     "jsonls",

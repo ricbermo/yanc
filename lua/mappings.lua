@@ -40,6 +40,10 @@ vim.keymap.set("n", "<C-s>", "<CMD>:w<CR><esc>")
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
+-- better folding
+vim.keymap.set("n", "zR", require("ufo").openAllFolds)
+vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+
 local leader = {
   g = {
     name = "+git",
@@ -152,12 +156,8 @@ local leader = {
   },
   b = {
     name = "+buffer",
-    ["b"] = { "<CMD>:e #<CR>", "Switch to Other Buffer" },
-    ["p"] = { "<CMD>:BufferLineCyclePrev<CR>", "Previous Buffer" },
-    ["["] = { "<CMD>:BufferLineCyclePrev<CR>", "Previous Buffer" },
-    ["n"] = { "<CMD>:BufferLineCycleNext<CR>", "Next Buffer" },
-    ["]"] = { "<CMD>:BufferLineCycleNext<CR>", "Next Buffer" },
-    ["x"] = { "<CMD>:bd<CR>", "Delete Buffer & Window" },
+    x = { "<CMD>:bd<CR>", "Delete Current Buffer & Window" },
+    c = { "<CMD>:%bd|e#|bd#<CR>", "Delete all buffers but current" }
   },
 }
 
