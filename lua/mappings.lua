@@ -107,7 +107,7 @@ local leader = {
   },
   s = {
     name = "+search",
-    g = { "<CMD>Telescope live_grep<CR>", "Grep" },
+    g = { "<CMD>lua require('telescope').extensions.menufacture.live_grep()<CR>", "Grep" },
     b = { "<CMD>Telescope current_buffer_fuzzy_find<CR>", "Buffer" },
     s = {
       function()
@@ -134,7 +134,7 @@ local leader = {
   },
   f = {
     name = "+file",
-    f = { "<CMD>Telescope find_files<CR>", "Find File" },
+    f = { "<CMD>lua require('telescope').extensions.menufacture.find_files()<CR>", "Find File" },
     r = { "<CMD>Telescope oldfiles<CR>", "Open Recent File" },
     n = { "<CMD>enew<CR>", "New File" },
   },

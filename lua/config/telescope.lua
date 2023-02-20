@@ -67,7 +67,13 @@ telescope.setup {
       override_file_sorter = true,
       case_mode = "smart_case"
     },
+    menufacture = {
+      mappings = {
+        main_menu = { [{ 'i', 'n' }] = '<C-p>' },
+      },
+    },
   }
 }
 
 telescope.load_extension('fzf')
+telescope.load_extension('menufacture')

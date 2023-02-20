@@ -71,6 +71,7 @@ return {
     'nvim-telescope/telescope.nvim',
     dependencies = {
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+      { 'molecule-man/telescope-menufacture' }
     },
     cmd = 'Telescope',
     config = function() require('config.telescope') end
