@@ -215,5 +215,7 @@ return {
       'html',
       'css',
     }
-  }
+  },
+
+  {'akinsho/toggleterm.nvim', version = "*", config = true}
 }

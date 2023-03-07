@@ -9,7 +9,7 @@ wk.setup({
   key_labels = { ["<leader>"] = "SPC" },
 })
 
--- Resize window using <ctrl> arrow keys
+-- Resize window using <Shift+> arrow keys
 vim.keymap.set("n", "<S-Up>", "<CMD>resize +2<CR>")
 vim.keymap.set("n", "<S-Down>", "<CMD>resize -2<CR>")
 vim.keymap.set("n", "<S-Left>", "<CMD>vertical resize -2<CR>")
@@ -50,6 +50,7 @@ local leader = {
     c = { "<CMD>Telescope git_commits<CR>", "commits" },
     b = { "<CMD>lua require('gitsigns').blame_line{full=false}<CR>", "blame" },
     s = { "<CMD>Telescope git_status<CR>", "status" },
+    l = { require('utils').lazygit_toggle, "lazygit" },
     d = {
       name = "+diff",
       o = { "<CMD>DiffviewOpen<CR>", "open" },

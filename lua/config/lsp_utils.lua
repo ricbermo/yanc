@@ -64,6 +64,7 @@ function M.set_keys(client, buffer)
     ["<leader>"] = {
       c = {
         name = "+code",
+        t = { util.toggle_diagnostics, "Toggle Diagnostics" },
         r = { "<CMD>Lspsaga rename<CR>", "Rename" },
         a = {
           { "<CMD>Lspsaga code_action<CR>", "Code Action" },

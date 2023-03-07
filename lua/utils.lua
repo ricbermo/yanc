@@ -152,4 +152,18 @@ function M.info(msg, name)
   vim.notify(msg, vim.log.levels.INFO, { title = name or "init.lua" })
 end
 
+function M.lazygit_toggle()
+  local Terminal  = require('toggleterm.terminal').Terminal
+  local lazygit = Terminal:new({
+    cmd = "lazygit",
+    hidden = true,
+    direction = 'float',
+    float_opts = {
+      border = 'double',
+    },
+  })
+
+  lazygit:toggle()
+end
+
 return M;
