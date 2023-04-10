@@ -10,6 +10,7 @@ treesitter_config.setup({
     "dart",
     "json",
     "typescript",
+    "tsx",
     "lua",
     "vim",
   },
