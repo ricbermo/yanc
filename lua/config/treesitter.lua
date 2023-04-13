@@ -13,6 +13,8 @@ treesitter_config.setup({
     "tsx",
     "lua",
     "vim",
+    "markdown",
+    "markdown_inline"
   },
   highlight = {
     enable = true,
