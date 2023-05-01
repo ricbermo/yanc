@@ -1,5 +1,5 @@
 -- shortcuts
-local g = vim.g -- global variables
+local g = vim.g     -- global variables
 local opt = vim.opt -- editor options
 
 -- set leader key to Space
@@ -59,8 +59,8 @@ opt.shadafile = "NONE"
 g.noswapfile = true
 g.nobackup = true
 
-g.copy_cut = true -- copy cut text ( x key ), visual and normal mode
-g.copy_del = true -- copy deleted text ( dd key ), visual and normal mode
+g.copy_cut = true   -- copy cut text ( x key ), visual and normal mode
+g.copy_del = true   -- copy deleted text ( dd key ), visual and normal mode
 g.insert_nav = true -- navigation in insertmode
 
 opt.cmdheight = 1

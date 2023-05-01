@@ -35,11 +35,12 @@ M.powerline = {
 M.signs = {
   Error = "",
   Warn = "",
-  Hint = "",
+  Hint = "",
   Info = "",
   GitAdded = "",
   GitModified = "",
   GitRemoved = "",
+  GitRenamed = "",
   Running = "",
   PassCheck = "",
   CheckAlt = " ",
@@ -47,6 +48,7 @@ M.signs = {
   FolderClosed = "",
   FolderOpen = "",
   FolderEmpty = "",
+  FolderEmptyOpen = "",
   LightBulb = "",
   Config = "",
   Branch = "",
@@ -62,6 +64,7 @@ M.signs = {
   Init = " ",
   Expanded = "",
   Collapsed = "",
+  Bookmark = ""
 }
 
 M.colors = {
@@ -153,8 +156,8 @@ function M.info(msg, name)
 end
 
 function M.lazygit_toggle()
-  local Terminal  = require('toggleterm.terminal').Terminal
-  local lazygit = Terminal:new({
+  local Terminal = require('toggleterm.terminal').Terminal
+  local lazygit  = Terminal:new({
     cmd = "lazygit",
     hidden = true,
     direction = 'float',

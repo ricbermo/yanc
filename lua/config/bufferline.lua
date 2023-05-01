@@ -20,5 +20,6 @@ bufferline.setup {
     separator_style = "thin",
     always_show_bufferline = true,
     diagnostics = 'nvim_lsp',
+    highlights = require("catppuccin.groups.integrations.bufferline").get()
   }
 }

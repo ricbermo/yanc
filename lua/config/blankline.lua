@@ -5,9 +5,9 @@ end
 
 blankline.setup {
   indentLine_enabled = 1,
+  show_current_context = true,
   char = "▏",
   space_char_blankline = " ",
   buftype_exclude = { "terminal" },
-  filetype_exclude = { "help", "terminal", "dashboard", "packer", "alpha" },
-  show_current_context = true
+  filetype_exclude = { "help", "terminal", "dashboard", "alpha" },
 }

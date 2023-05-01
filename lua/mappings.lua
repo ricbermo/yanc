@@ -141,8 +141,8 @@ local leader = {
   },
   n = {
     name = "+filetree",
-    n = { "<CMD>Neotree toggle<CR>", "File Explorer" },
-    r = { "<CMD>Neotree reveal<CR>", "Reveal" }
+    n = { "<CMD>NvimTreeToggle<CR>", "File Explorer" },
+    r = { "<CMD>NvimTreeFindFileToggle<CR>", "Reveal" }
   },
   t = {
     name = "+testing",

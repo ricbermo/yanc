@@ -78,15 +78,11 @@ return {
   },
 
   {
-    'nvim-neo-tree/neo-tree.nvim',
-    cmd = 'Neotree',
-    branch = 'v2.x',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'kyazdani42/nvim-web-devicons',
-      'MunifTanjim/nui.nvim'
-    },
-    config = function() require('config.neotree') end,
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    dependencies = { 'kyazdani42/nvim-web-devicons' },
+    cmd = { 'NvimTreeToggle', 'NvimTreeOpen', 'NvimTreeRefresh', 'NvimTreeFindFileToggle' },
+    config = function() require('config.nvimtree') end
   },
 
   { 'nvim-pack/nvim-spectre' },
@@ -172,7 +168,6 @@ return {
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-treesitter/nvim-treesitter',
-      'antoinemadec/FixCursorHold.nvim',
       'haydenmeade/neotest-jest'
     },
     config = function() require('config.testing') end,
@@ -182,19 +177,14 @@ return {
     'kevinhwang91/nvim-ufo',
     event = 'BufReadPost',
     dependencies = {
-      'kevinhwang91/promise-async'
+      'kevinhwang91/promise-async',
+      {
+        'luukvbaal/statuscol.nvim',
+        event = 'BufReadPost',
+        config = function() require('config.statuscol') end,
+      },
     },
-    opts = {
-      provider_selector = function(bufnr, filetype, buftype)
-        return { 'treesitter', 'indent' }
-      end
-    }
-  },
-
-  {
-    'luukvbaal/statuscol.nvim',
-    event = 'BufReadPost',
-    config = function() require('config.statuscol') end,
+    config = function() require('config.ufo') end,
   },
 
   {
