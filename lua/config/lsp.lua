@@ -15,6 +15,7 @@ mason_lsp.setup({
     "eslint",
     "tsserver",
     "jsonls",
+    "pyright"
   },
   automatic_installation = true
 })

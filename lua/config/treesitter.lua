@@ -14,7 +14,8 @@ treesitter_config.setup({
     "lua",
     "vim",
     "markdown",
-    "markdown_inline"
+    "markdown_inline",
+    "python"
   },
   highlight = {
     enable = true,
