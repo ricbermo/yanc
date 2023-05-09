@@ -40,7 +40,10 @@ function M.on_attach(client, bufnr)
   end
 
   if (client.name == "eslint") then
-    cmd('autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll')
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      command = "EslintFixAll",
+    })
   end
 end
 

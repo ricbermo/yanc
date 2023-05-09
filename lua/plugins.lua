@@ -9,14 +9,14 @@ return {
   },
 
   {
-    'kyazdani42/nvim-web-devicons',
+    'nvim-tree/nvim-web-devicons',
     event = 'BufRead'
   },
 
   {
     'nvim-lualine/lualine.nvim',
     event = 'VeryLazy',
-    dependencies = { 'kyazdani42/nvim-web-devicons' },
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function() require('config.lualine') end
   },
 
@@ -80,7 +80,7 @@ return {
   {
     "nvim-tree/nvim-tree.lua",
     version = "*",
-    dependencies = { 'kyazdani42/nvim-web-devicons' },
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
     cmd = { 'NvimTreeToggle', 'NvimTreeOpen', 'NvimTreeRefresh', 'NvimTreeFindFileToggle' },
     config = function() require('config.nvimtree') end
   },
@@ -90,7 +90,7 @@ return {
   {
     'goolord/alpha-nvim',
     lazy = false,
-    dependencies = { 'kyazdani42/nvim-web-devicons' },
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function() require('config.alpha') end
   },
 
@@ -185,7 +185,7 @@ return {
         config = function() require('config.statuscol') end,
       },
     },
-    config = function() require('config.ufo') end,
+    config = function() require('config.folding') end,
   },
 
   {
