@@ -1,7 +1,9 @@
-local nvimtree = prequire("nvim-tree")
-if not nvimtree then return end
+local nvimtree = prequire "nvim-tree"
+if not nvimtree then
+  return
+end
 
-local utils = require("utils")
+local utils = require "utils"
 local signs = utils.signs
 
 nvimtree.setup {
@@ -12,10 +14,10 @@ nvimtree.setup {
       info = signs.Info,
       warning = signs.Warn,
       error = signs.Error,
-    }
+    },
   },
   update_focused_file = {
-    enable = false
+    enable = false,
   },
   filters = {
     dotfiles = false,
@@ -54,6 +56,6 @@ nvimtree.setup {
           ignored = "",
         },
       },
-    }
-  }
+    },
+  },
 }

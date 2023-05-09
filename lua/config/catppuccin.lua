@@ -1,4 +1,4 @@
-local catppuccin = prequire("catppuccin")
+local catppuccin = prequire "catppuccin"
 
 if not catppuccin then
   return
@@ -6,7 +6,7 @@ end
 
 vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
 
-require("catppuccin").setup({
+require("catppuccin").setup {
   dim_inactive = {
     enabled = false,
     shade = "dark",
@@ -65,6 +65,6 @@ require("catppuccin").setup({
   },
   color_overrides = {},
   highlight_overrides = {},
-})
+}
 
 vim.cmd [[colorscheme catppuccin]]

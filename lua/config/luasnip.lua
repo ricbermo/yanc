@@ -1,5 +1,7 @@
-local luasnip = prequire("luasnip")
-if not luasnip then return end
+local luasnip = prequire "luasnip"
+if not luasnip then
+  return
+end
 
 luasnip.config.set_config {
   history = true,

@@ -1,16 +1,18 @@
-local saga = prequire("lspsaga")
-if not saga then return end
+local saga = prequire "lspsaga"
+if not saga then
+  return
+end
 
 local signs = require("utils").signs
 
-saga.setup({
+saga.setup {
   ui = {
-    border = 'rounded',
+    border = "rounded",
     code_action = signs.LightBulb,
     diagnostic = signs.Hint,
     expand = signs.Expanded,
     collapse = signs.Collapsed,
     hover = signs.File,
     kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
-  }
-})
+  },
+}

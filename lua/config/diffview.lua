@@ -1,9 +1,11 @@
-local diffview = prequire("diffview")
-if not diffview then return end
+local diffview = prequire "diffview"
+if not diffview then
+  return
+end
 
 local signs = require("utils").signs
 
-diffview.setup({
+diffview.setup {
   diff_binaries = false, -- Show diffs for binaries
   enhanced_diff_hl = true, -- See ':h diffview-config-enhanced_diff_hl'
   git_cmd = { "git" }, -- The git executable followed by default args.
@@ -37,4 +39,4 @@ diffview.setup({
       height = 16,
     },
   },
-})
+}

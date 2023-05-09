@@ -1,12 +1,12 @@
 -- shortcuts
-local g = vim.g     -- global variables
+local g = vim.g -- global variables
 local opt = vim.opt -- editor options
 
 -- set leader key to Space
 g.mapleader = " "
 
 -- set system clipboard as default
-opt.clipboard:append("unnamedplus")
+opt.clipboard:append "unnamedplus"
 
 -- enable current line highlighting
 opt.cursorline = true
@@ -18,7 +18,7 @@ opt.fillchars = { eob = " " }
 opt.pumheight = 10
 
 -- complete even if there's only one item; do not autoselect item
-opt.completeopt = 'menu,menuone,noselect'
+opt.completeopt = "menu,menuone,noselect"
 
 -- set minimal number of screeen lines above and below cursor
 opt.scrolloff = 1000
@@ -34,7 +34,7 @@ g.loaded_node_provider = 0
 g.loaded_ruby_provider = 0
 g.loaded_perl_provider = 0
 
-g.python3_host_prog = '/Users/ricardo/.asdf/shims/python'
+g.python3_host_prog = "/Users/ricardo/.asdf/shims/python"
 
 -- number stuff
 opt.number = true
@@ -47,7 +47,7 @@ opt.expandtab = true
 opt.shiftwidth = 2
 
 -- disable intro
-opt.shortmess:append("sI")
+opt.shortmess:append "sI"
 
 -- enable terminal colors
 opt.termguicolors = true
@@ -59,8 +59,8 @@ opt.shadafile = "NONE"
 g.noswapfile = true
 g.nobackup = true
 
-g.copy_cut = true   -- copy cut text ( x key ), visual and normal mode
-g.copy_del = true   -- copy deleted text ( dd key ), visual and normal mode
+g.copy_cut = true -- copy cut text ( x key ), visual and normal mode
+g.copy_del = true -- copy deleted text ( dd key ), visual and normal mode
 g.insert_nav = true -- navigation in insertmode
 
 opt.cmdheight = 1
@@ -76,7 +76,7 @@ opt.updatetime = 250
 
 -- blankline support
 opt.list = true
-opt.listchars:append({ space = "⋅" })
+opt.listchars:append { space = "⋅" }
 
 -- disable built-in plugins
 local disabled_built_ins = {
@@ -106,20 +106,20 @@ end
 
 g.do_filetype_lua = 1
 
-vim.filetype.add({
+vim.filetype.add {
   -- extension = {
   --     foo = "fooscript",
   -- },
   filename = {
-    ['Podfile'] = 'ruby',
+    ["Podfile"] = "ruby",
   },
   pattern = {
-    ['.*git/config'] = 'gitconfig',
-    ['.*env.*'] = 'sh',
-  }
-})
+    [".*git/config"] = "gitconfig",
+    [".*env.*"] = "sh",
+  },
+}
 
-vim.o.foldcolumn = '1'
+vim.o.foldcolumn = "1"
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true

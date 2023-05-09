@@ -1,9 +1,11 @@
-local bufferline = prequire("bufferline")
-if not bufferline then return end
+local bufferline = prequire "bufferline"
+if not bufferline then
+  return
+end
 
 bufferline.setup {
   options = {
-    numbers = 'ordinal',
+    numbers = "ordinal",
     offsets = { { filetype = "alpha", text = "", padding = 1 } },
     buffer_close_icon = "",
     modified_icon = "",
@@ -19,7 +21,7 @@ bufferline.setup {
     show_buffer_close_icons = true,
     separator_style = "thin",
     always_show_bufferline = true,
-    diagnostics = 'nvim_lsp',
-    highlights = require("catppuccin.groups.integrations.bufferline").get()
-  }
+    diagnostics = "nvim_lsp",
+    highlights = require("catppuccin.groups.integrations.bufferline").get(),
+  },
 }

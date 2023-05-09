@@ -1,43 +1,45 @@
-local gitsigns = prequire("gitsigns")
-if not gitsigns then return end
+local gitsigns = prequire "gitsigns"
+if not gitsigns then
+  return
+end
 
-gitsigns.setup({
+gitsigns.setup {
   signs = {
     add = {
       hl = "GitSignsAdd",
       text = "│",
       numhl = "GitSignsAddNr",
-      linehl = "GitSignsAddLn"
+      linehl = "GitSignsAddLn",
     },
     change = {
       hl = "GitSignsChange",
       text = "~",
       numhl = "GitSignsChangeNr",
-      linehl = "GitSignsChangeLn"
+      linehl = "GitSignsChangeLn",
     },
     delete = {
       hl = "GitSignsDelete",
       text = "-",
       numhl = "GitSignsDeleteNr",
-      linehl = "GitSignsDeleteLn"
+      linehl = "GitSignsDeleteLn",
     },
     topdelete = {
       hl = "GitSignsDelete",
       text = "‾",
       numhl = "GitSignsDeleteNr",
-      linehl = "GitSignsDeleteLn"
+      linehl = "GitSignsDeleteLn",
     },
     changedelete = {
       hl = "GitSignsChange",
       text = ">",
       numhl = "GitSignsChangeNr",
-      linehl = "GitSignsChangeLn"
-    }
+      linehl = "GitSignsChangeLn",
+    },
   },
   keymaps = {},
   current_line_blame = false,
   diff_opts = { internal = false },
   preview_config = {
-    border = 'rounded',
+    border = "rounded",
   },
-})
+}

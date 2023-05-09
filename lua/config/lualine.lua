@@ -1,5 +1,7 @@
-local lualine = prequire("lualine")
-if not lualine then return end
+local lualine = prequire "lualine"
+if not lualine then
+  return
+end
 
 local colors = require("utils").colors
 local signs = require("utils").signs
@@ -41,7 +43,7 @@ local config = {
     globalstatus = true,
     component_separators = "",
     section_separators = "",
-    theme = 'catppuccin'
+    theme = "catppuccin",
   },
   sections = {
     lualine_a = {},
@@ -85,11 +87,7 @@ ins_left {
 ins_left {
   function()
     vim.api.nvim_command(
-      "hi LualineViMode guifg="
-      .. mode_color[vim.fn.mode()]
-      .. " guibg="
-      .. colors.grey14
-      .. " gui=bold cterm=bold"
+      "hi LualineViMode guifg=" .. mode_color[vim.fn.mode()] .. " guibg=" .. colors.grey14 .. " gui=bold cterm=bold"
     )
     return require("lualine.utils.mode").get_mode()
   end,
@@ -126,7 +124,7 @@ ins_left {
     error = signs.Error .. " ",
     warn = signs.Warn .. " ",
     info = signs.Info .. " ",
-    hint = signs.Hint .. " "
+    hint = signs.Hint .. " ",
   },
   diagnostics_color = {
     color_error = { fg = colors.red },
@@ -180,7 +178,7 @@ ins_right {
   symbols = {
     added = signs.GitAdded .. " ",
     modified = signs.GitModified .. " ",
-    removed = signs.GitRemoved .. " "
+    removed = signs.GitRemoved .. " ",
   },
   diff_color = {
     added = { fg = colors.green, bg = colors.grey14 },

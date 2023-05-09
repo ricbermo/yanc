@@ -1,12 +1,12 @@
-local neotree = require('neo-tree')
+local neotree = require "neo-tree"
 if not neotree then
   return
 end
 
-local utils = require("utils")
+local utils = require "utils"
 local signs = utils.signs
 
-neotree.setup({
+neotree.setup {
   popup_border_style = "rounded",
   enable_git_status = true,
   default_component_configs = {
@@ -18,17 +18,17 @@ neotree.setup({
     git_status = {
       symbols = {
         -- Change type
-        added     = signs.GitAdded,
-        deleted   = signs.GitRemoved,
-        modified  = signs.GitModified,
-        renamed   = "",
+        added = signs.GitAdded,
+        deleted = signs.GitRemoved,
+        modified = signs.GitModified,
+        renamed = "",
         -- Status type
         untracked = "",
-        ignored   = "",
-        unstaged  = "",
-        staged    = "",
-        conflict  = signs.Branch,
-      }
+        ignored = "",
+        unstaged = "",
+        staged = "",
+        conflict = signs.Branch,
+      },
     },
   },
   window = {
@@ -45,6 +45,6 @@ neotree.setup({
           setlocal relativenumber
         ]]
       end,
-    }
+    },
   },
-})
+}

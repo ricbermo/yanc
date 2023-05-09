@@ -1,4 +1,4 @@
-local blankline = prequire("indent_blankline")
+local blankline = prequire "indent_blankline"
 if not blankline then
   return
 end

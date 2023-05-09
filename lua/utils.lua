@@ -12,7 +12,6 @@ end
 
 local M = {}
 
-
 M.powerline = {
   circle = {
     left = "",
@@ -64,7 +63,7 @@ M.signs = {
   Init = " ",
   Expanded = "",
   Collapsed = "",
-  Bookmark = ""
+  Bookmark = "",
 }
 
 M.colors = {
@@ -156,17 +155,17 @@ function M.info(msg, name)
 end
 
 function M.lazygit_toggle()
-  local Terminal = require('toggleterm.terminal').Terminal
-  local lazygit  = Terminal:new({
+  local Terminal = require("toggleterm.terminal").Terminal
+  local lazygit = Terminal:new {
     cmd = "lazygit",
     hidden = true,
-    direction = 'float',
+    direction = "float",
     float_opts = {
-      border = 'double',
+      border = "double",
     },
-  })
+  }
 
   lazygit:toggle()
 end
 
-return M;
+return M

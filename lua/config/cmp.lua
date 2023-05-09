@@ -1,8 +1,12 @@
-local cmp = prequire("cmp")
-if not cmp then return end
+local cmp = prequire "cmp"
+if not cmp then
+  return
+end
 
-local luasnip = prequire("luasnip")
-if not luasnip then return end
+local luasnip = prequire "luasnip"
+if not luasnip then
+  return
+end
 
 local lsp_symbols = {
   Text = "   (Text) ",
@@ -29,12 +33,12 @@ local lsp_symbols = {
   Struct = " ﳤ  (Struct)",
   Event = "   (Event)",
   Operator = "   (Operator)",
-  TypeParameter = "   (TypeParameter)"
+  TypeParameter = "   (TypeParameter)",
 }
 
-local cmp_select_opts = {behavior = cmp.SelectBehavior.Select}
+local cmp_select_opts = { behavior = cmp.SelectBehavior.Select }
 
-cmp.setup({
+cmp.setup {
   experimental = {
     native_menu = false,
     ghost_text = false,
@@ -52,17 +56,17 @@ cmp.setup({
     { name = "nvim_lsp", keyword_length = 3 },
     { name = "path", keyword_length = 3 },
     { name = "buffer" },
-    { name = "nvim_lsp_signature_help", keyword_length = 3 }
+    { name = "nvim_lsp_signature_help", keyword_length = 3 },
   },
   mapping = {
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-Space>"] = cmp.mapping.complete(),
     ["<C-q>"] = cmp.mapping.close(),
-    ["<CR>"] = cmp.mapping.confirm({ select = false }),
+    ["<CR>"] = cmp.mapping.confirm { select = false },
     ["<Up>"] = cmp.mapping.select_prev_item(),
     ["<Down>"] = cmp.mapping.select_next_item(),
-    ['<C-e>'] = cmp.mapping(function(fallback)
+    ["<C-e>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.close()
         fallback()
@@ -73,27 +77,27 @@ cmp.setup({
     -- when menu is visible, navigate to next item
     -- when line is empty, insert a tab character
     -- else, activate completion
-    ['<Tab>'] = cmp.mapping(function(fallback)
-      local col = vim.fn.col('.') - 1
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      local col = vim.fn.col "." - 1
 
       if cmp.visible() then
         cmp.select_next_item(cmp_select_opts)
-      elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+      elseif col == 0 or vim.fn.getline("."):sub(col, col):match "%s" then
         fallback()
       else
         cmp.complete()
       end
-    end, {'i', 's'}),
+    end, { "i", "s" }),
 
     -- when menu is visible, navigate to previous item on list
     -- else, revert to default behavior
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item(cmp_select_opts)
       else
         fallback()
       end
-    end, {'i', 's'}),
+    end, { "i", "s" }),
   },
   formatting = {
     format = function(entry, item)
@@ -106,21 +110,21 @@ cmp.setup({
       })[entry.source.name]
 
       return item
-    end
+    end,
   },
-  snippet = { expand = function(args) luasnip.lsp_expand(args.body) end },
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
+  },
   preselect = cmp.PreselectMode.None,
   window = {
-    documentation = vim.tbl_deep_extend(
-      'force',
-      cmp.config.window.bordered(),
-      {
-        max_height = 15,
-        max_width = 60,
-      }
-    )
-  }
-})
+    documentation = vim.tbl_deep_extend("force", cmp.config.window.bordered(), {
+      max_height = 15,
+      max_width = 60,
+    }),
+  },
+}
 
 -- enables autocompletion when entering / or :
 

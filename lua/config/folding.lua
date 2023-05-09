@@ -1,9 +1,11 @@
-local ufo = prequire("ufo")
-if not ufo then return end
+local ufo = prequire "ufo"
+if not ufo then
+  return
+end
 
-ufo.setup({
+ufo.setup {
   provider_selector = function(bufnr, filetype, buftype)
-    return { 'treesitter', 'indent' }
+    return { "treesitter", "indent" }
   end,
   open_fold_hl_timeout = 400,
   close_fold_kinds = { "imports", "comment" },
@@ -18,5 +20,5 @@ ufo.setup({
       jumpTop = "[",
       jumpBot = "]",
     },
-  }
-})
+  },
+}

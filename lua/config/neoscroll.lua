@@ -1,11 +1,11 @@
-local neoscroll = prequire("neoscroll")
+local neoscroll = prequire "neoscroll"
 if not neoscroll then
   return
 end
 
-neoscroll.setup({
+neoscroll.setup {
   mappings = { "<C-u>", "<C-d>", "<C-y>", "<C-e>", "zt", "zz", "zb" },
-})
+}
 
 local map = {}
 

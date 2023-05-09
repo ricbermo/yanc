@@ -1,5 +1,7 @@
-local telescope = prequire("telescope")
-if not telescope then return end
+local telescope = prequire "telescope"
+if not telescope then
+  return
+end
 
 telescope.setup {
   defaults = {
@@ -28,12 +30,12 @@ telescope.setup {
       horizontal = {
         prompt_position = "top",
         preview_width = 0.55,
-        results_width = 0.8
+        results_width = 0.8,
       },
       vertical = { mirror = false },
       width = 0.87,
       height = 0.80,
-      preview_cutoff = 120
+      preview_cutoff = 120,
     },
     file_sorter = require("telescope.sorters").get_fuzzy_file,
     file_ignore_patterns = { "node_modules", ".git/", "dist/", "build/" },
@@ -65,15 +67,15 @@ telescope.setup {
       fuzzy = true,
       override_generic_sorter = true,
       override_file_sorter = true,
-      case_mode = "smart_case"
+      case_mode = "smart_case",
     },
     menufacture = {
       mappings = {
-        main_menu = { [{ 'i', 'n' }] = '<C-p>' },
+        main_menu = { [{ "i", "n" }] = "<C-p>" },
       },
     },
-  }
+  },
 }
 
-telescope.load_extension('fzf')
-telescope.load_extension('menufacture')
+telescope.load_extension "fzf"
+telescope.load_extension "menufacture"

@@ -1,13 +1,15 @@
-local neotest = prequire("neotest")
-if not neotest then return end
+local neotest = prequire "neotest"
+if not neotest then
+  return
+end
 
 local signs = require("utils").signs
 
-neotest.setup({
+neotest.setup {
   adapters = {
-    require('neotest-jest')({
-      jestCommand = "npm test --"
-    }),
+    require "neotest-jest" {
+      jestCommand = "npm test --",
+    },
   },
   icons = {
     child_indent = "│",
@@ -21,6 +23,6 @@ neotest.setup({
     passed = signs.PassCheck,
     running = signs.Running,
     skipped = signs.Forbidden,
-    unknown = ""
+    unknown = "",
   },
-})
+}

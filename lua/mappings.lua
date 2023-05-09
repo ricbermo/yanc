@@ -1,13 +1,13 @@
-local wk = require("which-key")
+local wk = require "which-key"
 
 vim.o.timeoutlen = 300
 
-wk.setup({
+wk.setup {
   show_help = false,
   triggers = "auto",
   plugins = { spelling = true },
   key_labels = { ["<leader>"] = "SPC" },
-})
+}
 
 -- Resize window using <Shift+> arrow keys
 vim.keymap.set("n", "<S-Up>", "<CMD>resize +2<CR>")
@@ -50,7 +50,7 @@ local leader = {
     c = { "<CMD>Telescope git_commits<CR>", "commits" },
     b = { "<CMD>lua require('gitsigns').blame_line{full=false}<CR>", "blame" },
     s = { "<CMD>Telescope git_status<CR>", "status" },
-    l = { require('utils').lazygit_toggle, "lazygit" },
+    l = { require("utils").lazygit_toggle, "lazygit" },
     d = {
       name = "+diff",
       o = { "<CMD>DiffviewOpen<CR>", "open" },
@@ -65,7 +65,7 @@ local leader = {
   l = {
     name = "+lsp",
     i = { "<CMD>Mason<CR>", "manage servers" },
-    l = { "<CMD>MasonLog<CR>", "see logs" }
+    l = { "<CMD>MasonLog<CR>", "see logs" },
   },
   w = {
     name = "+window",
@@ -112,7 +112,7 @@ local leader = {
     b = { "<CMD>Telescope current_buffer_fuzzy_find<CR>", "buffer" },
     s = {
       function()
-        require("telescope.builtin").lsp_document_symbols({
+        require("telescope.builtin").lsp_document_symbols {
           symbols = {
             "Class",
             "Function",
@@ -125,7 +125,7 @@ local leader = {
             "Field",
             "Property",
           },
-        })
+        }
       end,
       "Goto Symbol",
     },
@@ -142,13 +142,13 @@ local leader = {
   n = {
     name = "+filetree",
     n = { "<CMD>NvimTreeToggle<CR>", "file explorer" },
-    r = { "<CMD>NvimTreeFindFileToggle<CR>", "reveal" }
+    r = { "<CMD>NvimTreeFindFileToggle<CR>", "reveal" },
   },
   t = {
     name = "+testing",
     f = { "<CMD>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "test file" },
     o = { "<CMD>lua require('neotest').output.open({enter = true})<CR>", "open output" },
-    s = { "<CMD>lua require('neotest').summary.toggle()<CR>", "toggle summary" }
+    s = { "<CMD>lua require('neotest').summary.toggle()<CR>", "toggle summary" },
   },
   x = {
     name = "+errors",
@@ -158,9 +158,9 @@ local leader = {
   b = {
     name = "+buffer",
     x = { "<CMD>:bd<CR>", "delete current buffer & window" },
-    c = { "<CMD>:%bd|e#|bd#<CR>", "delete all buffers but current" }
+    c = { "<CMD>:%bd|e#|bd#<CR>", "delete all buffers but current" },
   },
 }
 
 wk.register(leader, { prefix = "<leader>" })
-wk.register({ g = { name = "+goto" } })
+wk.register { g = { name = "+goto" } }
