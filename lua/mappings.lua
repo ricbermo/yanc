@@ -64,8 +64,8 @@ local leader = {
   },
   l = {
     name = "+lsp",
-    i = { "<CMD>Mason<CR>", "Manage Servers" },
-    l = { "<CMD>MasonLog<CR>", "See logs" }
+    i = { "<CMD>Mason<CR>", "manage servers" },
+    l = { "<CMD>MasonLog<CR>", "see logs" }
   },
   w = {
     name = "+window",
@@ -90,26 +90,26 @@ local leader = {
     name = "+help",
     t = {
       name = "+theming",
-      l = { "<CMD>Catppuccin latte<CR>", "Catppuccin Latte" },
-      f = { "<CMD>Catppuccin frappe<CR>", "Catppuccin frappe" },
-      m = { "<CMD>Catppuccin macchiato<CR>", "Catppuccin Macchiato" },
-      c = { "<CMD>Catppuccin mocha<CR>", "Catppuccin Mocha" },
+      l = { "<CMD>Catppuccin latte<CR>", "catppuccin latte" },
+      f = { "<CMD>Catppuccin frappe<CR>", "catppuccin frappe" },
+      m = { "<CMD>Catppuccin macchiato<CR>", "catppuccin macchiato" },
+      c = { "<CMD>Catppuccin mocha<CR>", "catppuccin mocha" },
     },
     p = {
       name = "+package-management",
-      i = { "<CMD>Lazy install<CR>", "Install Packages" },
-      u = { "<CMD>Lazy update<CR>", "Update Packages" },
-      c = { "<CMD>Lazy clear<CR>", "Clear Unused" },
-      s = { "<CMD>Lazy sync<CR>", "Sync All" },
+      i = { "<CMD>Lazy install<CR>", "install packages" },
+      u = { "<CMD>Lazy update<CR>", "update packages" },
+      c = { "<CMD>Lazy clear<CR>", "clear unused" },
+      s = { "<CMD>Lazy sync<CR>", "sync all" },
     },
-    h = { "<CMD>:checkhealth<CR>", "Check Health" },
-    c = { "<CMD>:Telescope commands<CR>", "Commands" },
-    s = { "<CMD>:Telescope highlights<CR>", "Search Highlight Groups" },
+    h = { "<CMD>:checkhealth<CR>", "check health" },
+    c = { "<CMD>:Telescope commands<CR>", "commands" },
+    s = { "<CMD>:Telescope highlights<CR>", "search highlight groups" },
   },
   s = {
     name = "+search",
-    g = { "<CMD>lua require('telescope').extensions.menufacture.live_grep()<CR>", "Grep" },
-    b = { "<CMD>Telescope current_buffer_fuzzy_find<CR>", "Buffer" },
+    g = { "<CMD>lua require('telescope').extensions.menufacture.live_grep()<CR>", "grep" },
+    b = { "<CMD>Telescope current_buffer_fuzzy_find<CR>", "buffer" },
     s = {
       function()
         require("telescope.builtin").lsp_document_symbols({
@@ -129,36 +129,36 @@ local leader = {
       end,
       "Goto Symbol",
     },
-    h = { "<CMD>Telescope command_history<CR>", "Command History" },
+    h = { "<CMD>Telescope command_history<CR>", "command history" },
     m = { "<CMD>Telescope marks<CR>", "Jump to Mark" },
-    r = { "<CMD>lua require('spectre').open()<CR>", "Replace (Spectre)" },
+    r = { "<CMD>lua require('spectre').open()<CR>", "replace (spectre)" },
   },
   f = {
     name = "+file",
-    f = { "<CMD>lua require('telescope').extensions.menufacture.find_files()<CR>", "Find File" },
-    r = { "<CMD>Telescope oldfiles<CR>", "Open Recent File" },
-    n = { "<CMD>enew<CR>", "New File" },
+    f = { "<CMD>lua require('telescope').extensions.menufacture.find_files()<CR>", "find file" },
+    r = { "<CMD>Telescope oldfiles<CR>", "open recent file" },
+    n = { "<CMD>enew<CR>", "new file" },
   },
   n = {
     name = "+filetree",
-    n = { "<CMD>NvimTreeToggle<CR>", "File Explorer" },
-    r = { "<CMD>NvimTreeFindFileToggle<CR>", "Reveal" }
+    n = { "<CMD>NvimTreeToggle<CR>", "file explorer" },
+    r = { "<CMD>NvimTreeFindFileToggle<CR>", "reveal" }
   },
   t = {
     name = "+testing",
-    f = { "<CMD>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "Test File" },
-    o = { "<CMD>lua require('neotest').output.open({enter = true})<CR>", "Open Output" },
-    s = { "<CMD>lua require('neotest').summary.toggle()<CR>", "Toggle Summary" }
+    f = { "<CMD>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "test file" },
+    o = { "<CMD>lua require('neotest').output.open({enter = true})<CR>", "open output" },
+    s = { "<CMD>lua require('neotest').summary.toggle()<CR>", "toggle summary" }
   },
   x = {
     name = "+errors",
-    x = { "<CMD>Lspsaga show_buf_diagnostics<CR>", "Open Saga Diagnostics" },
-    s = { "<CMD>TroubleToggle workspace_diagnostics<CR>", "Trouble" },
+    x = { "<CMD>Lspsaga show_buf_diagnostics<CR>", "open saga diagnostics" },
+    s = { "<CMD>TroubleToggle workspace_diagnostics<CR>", "trouble" },
   },
   b = {
     name = "+buffer",
-    x = { "<CMD>:bd<CR>", "Delete Current Buffer & Window" },
-    c = { "<CMD>:%bd|e#|bd#<CR>", "Delete all buffers but current" }
+    x = { "<CMD>:bd<CR>", "delete current buffer & window" },
+    c = { "<CMD>:%bd|e#|bd#<CR>", "delete all buffers but current" }
   },
 }
 

@@ -67,41 +67,41 @@ function M.set_keys(client, buffer)
     ["<leader>"] = {
       c = {
         name = "+code",
-        t = { util.toggle_diagnostics, "Toggle Diagnostics" },
-        r = { "<CMD>Lspsaga rename<CR>", "Rename" },
+        t = { util.toggle_diagnostics, "toggle diagnostics" },
+        r = { "<CMD>Lspsaga rename<CR>", "rename" },
         a = {
-          { "<CMD>Lspsaga code_action<CR>", "Code Action" },
-          { "<CMD>Lspsaga code_action<CR>", "Code Action", mode = "v" },
+          { "<CMD>Lspsaga code_action<CR>", "code action" },
+          { "<CMD>Lspsaga code_action<CR>", "code action", mode = "v" },
         },
         f = {
           {
             M.format,
-            "Format Document",
+            "format document",
             cond = cap.documentFormatting,
           },
           {
             M.format,
-            "Format Range",
+            "format range",
             cond = cap.documentRangeFormatting,
             mode = "v",
           },
         },
-        d = { "<CMD>Lspsaga show_line_diagnostics<CR>", "Line Diagnostics" },
+        d = { "<CMD>Lspsaga show_line_diagnostics<CR>", "line diagnostics" },
         g = {
           name = "+goto",
-          d = { "<CMD>Telescope lsp_definitions<CR>", "Goto Definition" },
-          r = { "<CMD>Lspsaga lsp_finder<CR>", "References" },
-          R = { "<CMD>Trouble lsp_references<CR>", "Trouble References" },
-          D = { "<CMD>Telescope lsp_declarations<CR>", "Goto Declaration" },
-          I = { "<CMD>Telescope lsp_implementations<CR>", "Goto Implementation" },
-          t = { "<CMD>Telescope lsp_type_definitions<CR>", "Goto Type Definition" },
+          d = { "<CMD>Telescope lsp_definitions<CR>", "goto definition" },
+          r = { "<CMD>Lspsaga lsp_finder<CR>", "find references" },
+          R = { "<CMD>Trouble lsp_references<CR>", "find references (Trouble)" },
+          D = { "<CMD>Telescope lsp_declarations<CR>", "goto declaration" },
+          I = { "<CMD>Telescope lsp_implementations<CR>", "goto implementation" },
+          t = { "<CMD>Telescope lsp_type_definitions<CR>", "goto type definition" },
         },
       },
     },
-    ["<C-k>"] = { "<CMD>lua vim.lsp.buf.signature_help()<CR>", "Signature Help", mode = { "n", "i" } },
-    ["K"] = { "<CMD>lua vim.lsp.buf.hover()<CR>", "Hover" },
-    ["[d"] = { "<CMD>lua vim.diagnostic.goto_prev()<CR>", "Next Diagnostic" },
-    ["]d"] = { "<CMD>lua vim.diagnostic.goto_next()<CR>", "Prev Diagnostic" },
+    ["<C-k>"] = { "<CMD>lua vim.lsp.buf.signature_help()<CR>", "signature help", mode = { "n", "i" } },
+    ["K"] = { "<CMD>lua vim.lsp.buf.hover()<CR>", "hover" },
+    ["[d"] = { "<CMD>lua vim.diagnostic.goto_prev()<CR>", "next diagnostic" },
+    ["]d"] = { "<CMD>lua vim.diagnostic.goto_next()<CR>", "prev diagnostic" },
   }
 
   wk.register(keymap)
