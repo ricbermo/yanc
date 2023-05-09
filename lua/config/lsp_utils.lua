@@ -1,62 +1,23 @@
-local wk = require("which-key")
-local util = require("utils")
+local wk = require "which-key"
+local util = require "utils"
 
 local M = {}
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 M.capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-local lsp_formatting = function(bufnr)
-  vim.lsp.buf.format({
-    filter = function(c)
-      return c.name ~= "tsserver"
-    end,
-    bufnr = bufnr,
-  })
-end
-
-local cmd = vim.api.nvim_command
-
 function M.on_attach(client, bufnr)
   local function buf_set_option(...)
     vim.api.nvim_buf_set_option(bufnr, ...)
   end
 
-  local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
-  M.set_keys(client, bufnr)
-
   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
-  if client.supports_method("textDocument/formatting") then
-    vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      group = augroup,
-      buffer = bufnr,
-      callback = function()
-        lsp_formatting(bufnr)
-      end,
-    })
-  end
-
-  if (client.name == "eslint") then
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      buffer = bufnr,
-      command = "EslintFixAll",
-    })
-  end
+  M.set_keys(client, bufnr)
 end
 
-M.autoformat = true
-
 function M.format()
-  if M.autoformat then
-    if vim.lsp.buf.format then
-      vim.lsp.buf.format()
-    else
-      vim.lsp.buf.formatting_sync()
-    end
-  end
+  vim.lsp.buf.format()
 end
 
 function M.set_keys(client, buffer)

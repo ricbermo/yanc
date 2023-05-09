@@ -1,38 +1,31 @@
-local mason_lsp = prequire("mason-lspconfig")
-local lsp = prequire("lspconfig")
+local mason_lsp = prequire "mason-lspconfig"
+local lsp = prequire "lspconfig"
 
 if not mason_lsp then
   return
 end
 
-local utils = require("utils")
+local utils = require "utils"
 local signs = utils.signs
-local lspUtils = require("config.lsp_utils")
+local lspUtils = require "config.lsp_utils"
 
-mason_lsp.setup({
+mason_lsp.setup {
   ensure_installed = {
     "lua_ls",
-    "eslint",
     "tsserver",
     "jsonls",
-    "pyright"
+    "pyright",
   },
-  automatic_installation = true
-})
+  automatic_installation = true,
+}
 
 mason_lsp.setup_handlers {
   function(server_name)
     lsp[server_name].setup {
       on_attach = lspUtils.on_attach,
       capabilities = lspUtils.capabilities,
-      handlers = {
-        ['eslint/noLibrary'] = function()
-          vim.notify('[lspconfig] Unable to find ESLint library.', vim.log.levels.WARN)
-          return {}
-        end,
-      }
     }
-  end
+  end,
 }
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -44,20 +37,20 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
   code_action_icon = signs.LightBulb,
   float = {
     focusable = false,
-    style = 'minimal',
-    border = 'rounded',
-    source = 'always',
-    header = '',
-    prefix = '',
+    style = "minimal",
+    border = "rounded",
+    source = "always",
+    header = "",
+    prefix = "",
   },
 })
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = 'rounded'
+  border = "rounded",
 })
 
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-  border = 'rounded'
+  border = "rounded",
 })
 
 vim.fn.sign_define("DiagnosticSignError", { text = signs.Error, texthl = "DiagnosticSignError" })
