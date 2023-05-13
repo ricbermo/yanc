@@ -47,5 +47,5 @@ vim.cmd(string.format(
     au FileType alpha set showtabline=0 laststatus=0 noruler | au BufUnload <buffer> set showtabline=2 ruler laststatus=%d
   augroup END
   ]],
-  vim.fn.has "nvim-0.7" == 1 and 3 or 2
+  vim.fn.has "nvim-0.9" == 1 and 3 or 2
 ))

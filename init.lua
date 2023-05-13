@@ -10,5 +10,6 @@ vim.api.nvim_create_autocmd("User", {
   callback = function()
     require "commands"
     require "mappings"
+    require "icons"
   end,
 })

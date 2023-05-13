@@ -13,6 +13,6 @@ saga.setup {
     expand = signs.Expanded,
     collapse = signs.Collapsed,
     hover = signs.File,
-    kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
+    -- kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
   },
 }

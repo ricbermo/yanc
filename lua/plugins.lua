@@ -11,11 +11,6 @@ return {
   },
 
   {
-    "nvim-tree/nvim-web-devicons",
-    event = "BufRead",
-  },
-
-  {
     "nvim-lualine/lualine.nvim",
     event = "BufReadPost",
     dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -49,7 +44,8 @@ return {
 
   {
     "nvimdev/lspsaga.nvim",
-    cmd = { "Lspsaga" },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    event = "LspAttach",
     config = function()
       require "config.lspsaga"
     end,
@@ -102,8 +98,6 @@ return {
       require "config.nvimtree"
     end,
   },
-
-  { "nvim-pack/nvim-spectre" },
 
   {
     "goolord/alpha-nvim",
@@ -178,8 +172,6 @@ return {
     end,
   },
 
-  { "folke/which-key.nvim" },
-
   {
     "karb94/neoscroll.nvim",
     keys = { "<C-u>", "<C-d>", "gg", "G" },
@@ -248,6 +240,21 @@ return {
   },
 
   {
+    "mfussenegger/nvim-dap",
+    event = "BufReadPost",
+    dependencies = {
+      "mfussenegger/nvim-dap-python",
+      {
+        "rcarriga/nvim-dap-ui",
+        config = true,
+      },
+    },
+    config = function()
+      require "config.debugging"
+    end,
+  },
+
+  {
     "mattn/emmet-vim",
     event = "BufReadPost",
     ft = {
@@ -261,4 +268,8 @@ return {
   },
 
   { "akinsho/toggleterm.nvim", version = "*", config = true },
+
+  { "nvim-pack/nvim-spectre" },
+
+  { "folke/which-key.nvim" },
 }

@@ -160,6 +160,15 @@ local leader = {
     x = { "<CMD>:bd<CR>", "delete current buffer & window" },
     c = { "<CMD>:%bd|e#|bd#<CR>", "delete all buffers but current" },
   },
+  d = {
+    name = "+debugging",
+    b = { "<CMD>lua require('dap').toggle_breakpoint()<CR>", "toggle breakpoint" },
+    c = { "<CMD>lua require('dap').continue()<CR>", "start/continue" },
+    d = { "<CMD>lua require('dap').repl.open()<CR>", "open REPL" },
+    o = { "<CMD>lua require('dap').step_over()<CR>", "step over" },
+    i = { "<CMD>lua require('dap').step_into()<CR>", "step into" },
+    e = { "<CMD>lua require('dap').step_out()<CR>", "step out" },
+  },
 }
 
 wk.register(leader, { prefix = "<leader>" })
