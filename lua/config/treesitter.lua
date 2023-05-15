@@ -9,7 +9,6 @@ treesitter_config.setup {
     "ruby",
     "css",
     "html",
-    "dart",
     "json",
     "typescript",
     "tsx",

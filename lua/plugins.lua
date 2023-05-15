@@ -163,6 +163,15 @@ return {
   },
 
   {
+    "lewis6991/gitsigns.nvim",
+    event = "BufReadPost",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require "config.gitsigns"
+    end,
+  },
+
+  {
     "nvim-neotest/neotest",
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -171,15 +180,6 @@ return {
     },
     config = function()
       require "config.testing"
-    end,
-  },
-
-  {
-    "lewis6991/gitsigns.nvim",
-    event = "BufReadPost",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require "config.gitsigns"
     end,
   },
 
