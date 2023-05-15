@@ -26,13 +26,21 @@ function M.set_keys(client, buffer)
   local keymap = {
     buffer = buffer,
     ["<leader>"] = {
+      j = {
+        name = "+goto",
+        D = { vim.lsp.buf.declaration, "declaration" },
+        d = { vim.lsp.buf.definition, "definition" },
+        r = { vim.lsp.buf.references, "find references" },
+        i = { vim.lsp.buf.implementation, "implementation" },
+        t = { vim.lsp.buf.type_definition, "type definition" },
+      },
       c = {
         name = "+code",
         t = { util.toggle_diagnostics, "toggle diagnostics" },
-        r = { "<CMD>Lspsaga rename<CR>", "rename" },
+        r = { vim.lsp.buf.rename, "rename" },
         a = {
-          { "<CMD>Lspsaga code_action<CR>", "code action" },
-          { "<CMD>Lspsaga code_action<CR>", "code action", mode = "v" },
+          { vim.lsp.buf.code_action, "code action" },
+          { vim.lsp.buf.code_action, "code action", mode = "v" },
         },
         f = {
           {
@@ -47,22 +55,13 @@ function M.set_keys(client, buffer)
             mode = "v",
           },
         },
-        d = { "<CMD>Lspsaga show_line_diagnostics<CR>", "line diagnostics" },
-        g = {
-          name = "+goto",
-          d = { "<CMD>Telescope lsp_definitions<CR>", "goto definition" },
-          r = { "<CMD>Lspsaga lsp_finder<CR>", "find references" },
-          R = { "<CMD>Trouble lsp_references<CR>", "find references (Trouble)" },
-          D = { "<CMD>Telescope lsp_declarations<CR>", "goto declaration" },
-          I = { "<CMD>Telescope lsp_implementations<CR>", "goto implementation" },
-          t = { "<CMD>Telescope lsp_type_definitions<CR>", "goto type definition" },
-        },
+        d = { vim.diagnostic.open_float, "line diagnostics" },
       },
     },
-    ["<C-k>"] = { "<CMD>lua vim.lsp.buf.signature_help()<CR>", "signature help", mode = { "n", "i" } },
-    ["K"] = { "<CMD>lua vim.lsp.buf.hover()<CR>", "hover" },
-    ["[d"] = { "<CMD>lua vim.diagnostic.goto_prev()<CR>", "next diagnostic" },
-    ["]d"] = { "<CMD>lua vim.diagnostic.goto_next()<CR>", "prev diagnostic" },
+    ["<C-k>"] = { vim.lsp.buf.signature_help, "signature help", mode = { "n", "i" } },
+    ["K"] = { vim.lsp.buf.hover, "hover" },
+    ["[d"] = { vim.diagnostic.goto_prev, "next diagnostic" },
+    ["]d"] = { vim.diagnostic.goto_next, "prev diagnostic" },
   }
 
   wk.register(keymap)

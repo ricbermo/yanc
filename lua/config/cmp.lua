@@ -8,6 +8,8 @@ if not luasnip then
   return
 end
 
+local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+
 local lsp_symbols = {
   Text = "   (Text) ",
   Method = "   (Method)",
@@ -39,15 +41,6 @@ local lsp_symbols = {
 local cmp_select_opts = { behavior = cmp.SelectBehavior.Select }
 
 cmp.setup {
-  experimental = {
-    native_menu = false,
-    ghost_text = false,
-  },
-  confirmation = {
-    get_commit_characters = function()
-      return {}
-    end,
-  },
   completion = {
     completeopt = "menu,menuone,noinsert",
   },
@@ -119,10 +112,8 @@ cmp.setup {
   },
   preselect = cmp.PreselectMode.None,
   window = {
-    documentation = vim.tbl_deep_extend("force", cmp.config.window.bordered(), {
-      max_height = 15,
-      max_width = 60,
-    }),
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
 }
 
@@ -143,3 +134,5 @@ cmp.setup.cmdline(":", {
     { name = "cmdline" },
   }),
 })
+
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())

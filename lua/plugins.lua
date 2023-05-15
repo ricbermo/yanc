@@ -13,7 +13,7 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     event = "BufReadPost",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = { "nvim-tree/nvim-web-devicons", "arkav/lualine-lsp-progress" },
     config = function()
       require "config.lualine"
     end,
@@ -21,7 +21,7 @@ return {
 
   {
     "akinsho/bufferline.nvim",
-    event = "BufReadPre",
+    event = "BufReadPost",
     config = function()
       require "config.bufferline"
     end,
@@ -29,35 +29,10 @@ return {
 
   {
     "lukas-reineke/indent-blankline.nvim",
-    event = "BufReadPre",
+    event = "BufReadPost",
     config = function()
       require "config.blankline"
     end,
-  },
-
-  {
-    url = "https://gitlab.com/yorickpeterse/nvim-pqf.git",
-    config = function()
-      require "config.pqf"
-    end,
-  },
-
-  {
-    "nvimdev/lspsaga.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    event = "LspAttach",
-    config = function()
-      require "config.lspsaga"
-    end,
-  },
-
-  {
-    "folke/trouble.nvim",
-    cmd = { "TroubleToggle", "Trouble" },
-    opts = {
-      auto_open = false,
-      use_diagnostic_signs = true,
-    },
   },
 
   {
@@ -96,15 +71,6 @@ return {
     cmd = { "NvimTreeToggle", "NvimTreeOpen", "NvimTreeRefresh", "NvimTreeFindFileToggle" },
     config = function()
       require "config.nvimtree"
-    end,
-  },
-
-  {
-    "goolord/alpha-nvim",
-    lazy = false,
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require "config.alpha"
     end,
   },
 
@@ -175,17 +141,13 @@ return {
   {
     "karb94/neoscroll.nvim",
     keys = { "<C-u>", "<C-d>", "gg", "G" },
-    config = function()
-      require "config.neoscroll"
-    end,
+    config = true,
   },
 
   {
-    "steelsojka/pears.nvim",
+    "windwp/nvim-autopairs",
     event = "InsertEnter",
-    config = function()
-      require("pears").setup()
-    end,
+    config = true,
   },
 
   {
@@ -213,26 +175,8 @@ return {
   },
 
   {
-    "kevinhwang91/nvim-ufo",
-    event = "BufReadPost",
-    dependencies = {
-      "kevinhwang91/promise-async",
-      {
-        "luukvbaal/statuscol.nvim",
-        event = "BufReadPost",
-        config = function()
-          require "config.statuscol"
-        end,
-      },
-    },
-    config = function()
-      require "config.folding"
-    end,
-  },
-
-  {
     "lewis6991/gitsigns.nvim",
-    event = "BufReadPre",
+    event = "BufReadPost",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       require "config.gitsigns"
@@ -248,6 +192,9 @@ return {
         "rcarriga/nvim-dap-ui",
         config = true,
       },
+    },
+    ft = {
+      "python",
     },
     config = function()
       require "config.debugging"
@@ -266,10 +213,6 @@ return {
       "css",
     },
   },
-
-  { "akinsho/toggleterm.nvim", version = "*", config = true },
-
-  { "nvim-pack/nvim-spectre" },
 
   { "folke/which-key.nvim" },
 }

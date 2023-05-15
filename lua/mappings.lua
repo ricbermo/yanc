@@ -40,17 +40,12 @@ vim.keymap.set("n", "<C-s>", "<CMD>:w<CR><esc>")
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
--- better folding
-vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
-
 local leader = {
   g = {
     name = "+git",
     c = { "<CMD>Telescope git_commits<CR>", "commits" },
     b = { "<CMD>lua require('gitsigns').blame_line{full=false}<CR>", "blame" },
     s = { "<CMD>Telescope git_status<CR>", "status" },
-    l = { require("utils").lazygit_toggle, "lazygit" },
     d = {
       name = "+diff",
       o = { "<CMD>DiffviewOpen<CR>", "open" },
@@ -92,8 +87,8 @@ local leader = {
       name = "+theming",
       l = { "<CMD>Catppuccin latte<CR>", "catppuccin latte" },
       f = { "<CMD>Catppuccin frappe<CR>", "catppuccin frappe" },
-      m = { "<CMD>Catppuccin macchiato<CR>", "catppuccin macchiato" },
-      c = { "<CMD>Catppuccin mocha<CR>", "catppuccin mocha" },
+      c = { "<CMD>Catppuccin macchiato<CR>", "catppuccin macchiato" },
+      m = { "<CMD>Catppuccin mocha<CR>", "catppuccin mocha" },
     },
     p = {
       name = "+package-management",
@@ -131,7 +126,6 @@ local leader = {
     },
     h = { "<CMD>Telescope command_history<CR>", "command history" },
     m = { "<CMD>Telescope marks<CR>", "Jump to Mark" },
-    r = { "<CMD>lua require('spectre').open()<CR>", "replace (spectre)" },
   },
   f = {
     name = "+file",
