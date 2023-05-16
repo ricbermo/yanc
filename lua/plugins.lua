@@ -172,36 +172,6 @@ return {
   },
 
   {
-    "nvim-neotest/neotest",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-      "haydenmeade/neotest-jest",
-    },
-    config = function()
-      require "config.testing"
-    end,
-  },
-
-  {
-    "mfussenegger/nvim-dap",
-    event = "BufReadPost",
-    dependencies = {
-      "mfussenegger/nvim-dap-python",
-      {
-        "rcarriga/nvim-dap-ui",
-        config = true,
-      },
-    },
-    ft = {
-      "python",
-    },
-    config = function()
-      require "config.debugging"
-    end,
-  },
-
-  {
     "mattn/emmet-vim",
     event = "BufReadPost",
     ft = {
