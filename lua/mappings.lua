@@ -9,6 +9,12 @@ wk.setup {
   key_labels = { ["<leader>"] = "SPC" },
 }
 
+-- Better window navigation
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
+
 -- Resize window using <Shift+> arrow keys
 vim.keymap.set("n", "<S-Up>", "<CMD>resize +2<CR>")
 vim.keymap.set("n", "<S-Down>", "<CMD>resize -2<CR>")
