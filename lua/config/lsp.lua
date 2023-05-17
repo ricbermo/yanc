@@ -14,7 +14,7 @@ mason_lsp.setup {
     "lua_ls",
     "tsserver",
     "jsonls",
-    "ruff_lsp",
+    "pyright",
   },
   automatic_installation = true,
 }
