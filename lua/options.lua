@@ -106,6 +106,7 @@ end
 
 g.do_filetype_lua = 1
 
+-- override filetype
 vim.filetype.add {
   -- extension = {
   --     foo = "fooscript",
@@ -119,8 +120,9 @@ vim.filetype.add {
   },
 }
 
-vim.o.foldcolumn = "1"
-vim.o.foldlevel = 99
-vim.o.foldlevelstart = 99
-vim.o.foldenable = true
+-- set global rounder border
+vim.diagnostic.config {
+  float = { border = "rounded" },
+}
+
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:,diff:/]]

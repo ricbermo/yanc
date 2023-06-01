@@ -1,4 +1,4 @@
-local utils = require("utils")
+local utils = require "utils"
 
 vim.api.nvim_create_autocmd("OptionSet", {
   pattern = "background",

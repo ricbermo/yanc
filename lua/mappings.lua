@@ -46,19 +46,15 @@ vim.keymap.set("n", "<C-s>", "<CMD>:w<CR><esc>")
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
+-- Open filetree
+vim.keymap.set("n", "<C-n>", "<CMD>NvimTreeToggle<CR>")
+
 local leader = {
   g = {
     name = "+git",
     c = { "<CMD>Telescope git_commits<CR>", "commits" },
     b = { "<CMD>lua require('gitsigns').blame_line{full=false}<CR>", "blame" },
     s = { "<CMD>Telescope git_status<CR>", "status" },
-    d = {
-      name = "+diff",
-      o = { "<CMD>DiffviewOpen<CR>", "open" },
-      c = { "<CMD>DiffviewClose<CR>", "close" },
-      f = { "<CMD>DiffviewFocusFiles<CR>", "focus" },
-      h = { "<CMD>DiffviewFileHistory<CR>", "history" },
-    },
   },
   c = {
     name = "+code",
