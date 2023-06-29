@@ -166,9 +166,7 @@ return {
     "lewis6991/gitsigns.nvim",
     event = "BufReadPost",
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require "config.gitsigns"
-    end,
+    config = true,
   },
 
   {
@@ -185,4 +183,6 @@ return {
   },
 
   { "folke/which-key.nvim" },
+
+  { "kevinhwang91/nvim-bqf", ft = "qf" },
 }
