@@ -1,4 +1,4 @@
-local blankline = prequire "indent_blankline"
+local blankline = prequire "ibl"
 if not blankline then
   return
 end
