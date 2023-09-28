@@ -5,18 +5,19 @@ end
 
 treesitter_config.setup {
   ensure_installed = {
+    "lua",
+    "vim",
+    "c",
     "javascript",
-    "ruby",
-    "css",
-    "html",
     "json",
     "typescript",
     "tsx",
-    "lua",
-    "vim",
     "markdown",
     "markdown_inline",
-    "python",
+    -- "python",
+    -- "ruby",
+    -- "css",
+    -- "html",
   },
   highlight = {
     enable = true,
