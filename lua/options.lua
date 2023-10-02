@@ -34,7 +34,7 @@ g.loaded_node_provider = 0
 g.loaded_ruby_provider = 0
 g.loaded_perl_provider = 0
 
-g.python3_host_prog = "/Users/ricardo/.asdf/shims/python"
+g.python3_host_prog = "$HOME/.asdf/shims/python"
 
 -- number stuff
 opt.number = true

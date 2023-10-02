@@ -31,9 +31,9 @@ return {
     "lukas-reineke/indent-blankline.nvim",
     event = "BufReadPost",
     main = "ibl",
-    config = function()
-      require "config.blankline"
-    end,
+    opts = {
+      scope = { enabled = false },
+    },
   },
 
   {
