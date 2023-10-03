@@ -45,6 +45,9 @@ M.signs = {
   Expanded = "",
   Collapsed = "",
   Bookmark = "",
+  PendingSave = "",
+  Left = "",
+  Right = "",
 }
 
 function M.setSpacesSize(filetypes)

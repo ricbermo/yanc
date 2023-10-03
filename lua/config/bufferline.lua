@@ -3,15 +3,17 @@ if not bufferline then
   return
 end
 
+local signs = require("utils").signs
+
 bufferline.setup {
   options = {
+    buffer_close_icon = signs.Error,
+    modified_icon = signs.PendingSave,
+    close_icon = signs.Error,
+    left_trunc_marker = signs.Left,
+    right_trunc_marker = signs.Right,
     numbers = "ordinal",
     offsets = { { filetype = "alpha", text = "", padding = 1 } },
-    buffer_close_icon = "",
-    modified_icon = "",
-    close_icon = "",
-    left_trunc_marker = "",
-    right_trunc_marker = "",
     max_name_length = 18,
     max_prefix_length = 15,
     tab_size = 20,

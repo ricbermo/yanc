@@ -5,7 +5,7 @@ end
 
 telescope.setup {
   defaults = {
-    prompt_prefix = "  ",
+    prompt_prefix = " ",
     layout_config = {
       horizontal = {
         prompt_position = "top",
