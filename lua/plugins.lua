@@ -128,7 +128,7 @@ return {
   },
 
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     event = "BufReadPost",
     dependencies = {
       "lukas-reineke/lsp-format.nvim",
@@ -167,7 +167,9 @@ return {
     "lewis6991/gitsigns.nvim",
     event = "BufReadPost",
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = true,
+    config = function()
+      require "config.gitsigns"
+    end,
   },
 
   {

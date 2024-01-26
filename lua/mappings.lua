@@ -53,7 +53,6 @@ local leader = {
   g = {
     name = "+git",
     c = { "<CMD>Telescope git_commits<CR>", "commits" },
-    b = { "<CMD>lua require('gitsigns').blame_line{full=false}<CR>", "blame" },
     s = { "<CMD>Telescope git_status<CR>", "status" },
   },
   c = {
