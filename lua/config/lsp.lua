@@ -5,13 +5,14 @@ if not mason_lsp then
   return
 end
 
-local lspUtils = require "config.lsp_utils"
+local utils = require "config.lsp_utils"
 
 mason_lsp.setup {
   ensure_installed = {
     "lua_ls",
     "tsserver",
     "jsonls",
+    "eslint",
   },
   automatic_installation = true,
 }
@@ -19,9 +20,9 @@ mason_lsp.setup {
 mason_lsp.setup_handlers {
   function(server_name)
     lsp[server_name].setup {
-      on_attach = lspUtils.on_attach,
-      capabilities = lspUtils.capabilities,
-      handlers = lspUtils.handlers,
+      on_attach = utils.on_attach,
+      capabilities = utils.capabilities,
+      handlers = utils.handlers,
     }
   end,
 }
