@@ -14,11 +14,30 @@ function M.on_attach(client, bufnr)
 
   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
+  if client.server_capabilities.inlayHintProvider then
+    vim.lsp.inlay_hint.enable(true)
+  end
+
   M.set_keys(client, bufnr)
 end
 
 function M.format()
   vim.lsp.buf.format()
+end
+
+M.diagnostics_active = true
+
+function M.toggle_diagnostics()
+  M.diagnostics_active = not M.diagnostics_active
+  if M.diagnostics_active then
+    vim.diagnostic.show()
+  else
+    vim.diagnostic.hide()
+  end
+end
+
+function M.format_sync()
+  vim.lsp.buf.format { async = true }
 end
 
 function M.set_keys(client, buffer)
@@ -37,7 +56,7 @@ function M.set_keys(client, buffer)
       },
       c = {
         name = "+code",
-        t = { utils.toggle_diagnostics, "toggle diagnostics" },
+        t = { M.toggle_diagnostics, "toggle diagnostics" },
         r = { vim.lsp.buf.rename, "rename" },
         a = {
           { vim.lsp.buf.code_action, "code action" },
@@ -94,5 +113,22 @@ M.handlers = {
     border = "rounded",
   }),
 }
+
+function M.init_options(server_name)
+  if server_name == "tsserver" then
+    return {
+      preferences = {
+        includeInlayParameterNameHints = "all",
+        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true,
+        importModuleSpecifierPreference = "non-relative",
+      },
+    }
+  end
+end
 
 return M

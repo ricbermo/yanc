@@ -74,6 +74,9 @@ opt.timeoutlen = 400
 opt.ruler = false
 opt.updatetime = 250
 
+-- nice confirmation dialog
+opt.confirm = true
+
 -- blankline support
 opt.list = true
 opt.listchars:append { space = "⋅" }

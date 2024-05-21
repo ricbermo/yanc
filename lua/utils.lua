@@ -58,21 +58,6 @@ function M.setSpacesSize(filetypes)
   end
 end
 
-M.diagnostics_active = true
-
-function M.toggle_diagnostics()
-  M.diagnostics_active = not M.diagnostics_active
-  if M.diagnostics_active then
-    vim.diagnostic.show()
-  else
-    vim.diagnostic.hide()
-  end
-end
-
-function M.format_sync()
-  vim.lsp.buf.format { async = true }
-end
-
 function M.try(fn, ...)
   local args = { ... }
 

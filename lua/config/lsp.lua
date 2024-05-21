@@ -23,6 +23,7 @@ mason_lsp.setup_handlers {
       on_attach = utils.on_attach,
       capabilities = utils.capabilities,
       handlers = utils.handlers,
+      init_options = utils.init_options(server_name),
     }
   end,
 }

@@ -118,6 +118,9 @@ return {
   {
     "neovim/nvim-lspconfig",
     event = "BufReadPost",
+    opts = {
+      inlay_hints = { enabled = true },
+    },
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "williamboman/mason-lspconfig.nvim",
@@ -148,12 +151,6 @@ return {
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
-    config = true,
-  },
-
-  {
-    "numToStr/Comment.nvim",
-    keys = { "gc" },
     config = true,
   },
 
