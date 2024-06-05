@@ -14,10 +14,6 @@ function M.on_attach(client, bufnr)
 
   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
-  if client.server_capabilities.inlayHintProvider then
-    vim.lsp.inlay_hint.enable(true)
-  end
-
   M.set_keys(client, bufnr)
 end
 
@@ -34,6 +30,10 @@ function M.toggle_diagnostics()
   else
     vim.diagnostic.hide()
   end
+end
+
+function M.toggle_hints()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = 0 }, { bufnr = 0 })
 end
 
 function M.format_sync()
@@ -57,6 +57,7 @@ function M.set_keys(client, buffer)
       c = {
         name = "+code",
         t = { M.toggle_diagnostics, "toggle diagnostics" },
+        h = { M.toggle_hints, "toggle inlay hints" },
         r = { vim.lsp.buf.rename, "rename" },
         a = {
           { vim.lsp.buf.code_action, "code action" },

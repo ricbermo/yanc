@@ -83,6 +83,8 @@ return {
     config = function()
       require "config.luasnip"
     end,
+    version = "v2.*",
+    build = "make install_jsregexp",
   },
 
   {
@@ -118,9 +120,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     event = "BufReadPost",
-    opts = {
-      inlay_hints = { enabled = true },
-    },
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "williamboman/mason-lspconfig.nvim",

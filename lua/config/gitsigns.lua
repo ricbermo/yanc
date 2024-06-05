@@ -7,7 +7,7 @@ gitsigns.setup {
     local keymap = {
       buffer = bufnr,
       ["<leader>"] = {
-        g = {
+        m = {
           name = "+git",
           b = { "<CMD>lua require('gitsigns').blame_line{full=false}<CR>", "blame" },
           n = {

@@ -50,7 +50,7 @@ vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("n", "<C-n>", "<CMD>NvimTreeToggle<CR>")
 
 local leader = {
-  g = {
+  m = {
     name = "+git",
     c = { "<CMD>Telescope git_commits<CR>", "commits" },
     s = { "<CMD>Telescope git_status<CR>", "status" },
