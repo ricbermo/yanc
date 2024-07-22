@@ -4,38 +4,36 @@ local gitsigns = prequire "gitsigns"
 gitsigns.setup {
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
-    local keymap = {
-      buffer = bufnr,
-      ["<leader>"] = {
-        m = {
-          name = "+git",
-          b = { "<CMD>lua require('gitsigns').blame_line{full=false}<CR>", "blame" },
-          n = {
-            function()
-              if vim.wo.diff then
-                return "]c"
-              end
-              vim.schedule(function()
-                gs.next_hunk()
-              end)
-            end,
-            "next git change",
-          },
-          p = {
-            function()
-              if vim.wo.diff then
-                return "[c"
-              end
-              vim.schedule(function()
-                gs.prev_hunk()
-              end)
-            end,
-            "prev git change",
-          },
-        },
+
+    wk.add {
+      { "<leader>m", buffer = 1, group = "git" },
+      { "<leader>mb", "<CMD>lua require('gitsigns').blame_line{full=false}<CR>", buffer = 1, desc = "blame" },
+      {
+        "<leader>mn",
+        function()
+          if vim.wo.diff then
+            return "]c"
+          end
+          vim.schedule(function()
+            gs.next_hunk()
+          end)
+        end,
+        buffer = 1,
+        desc = "next git change",
+      },
+      {
+        "<leader>mp",
+        function()
+          if vim.wo.diff then
+            return "[c"
+          end
+          vim.schedule(function()
+            gs.prev_hunk()
+          end)
+        end,
+        buffer = 1,
+        desc = "prev git change",
       },
     }
-
-    wk.register(keymap)
   end,
 }

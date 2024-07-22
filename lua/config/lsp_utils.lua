@@ -43,49 +43,22 @@ end
 function M.set_keys(client, buffer)
   local cap = client.server_capabilities
 
-  local keymap = {
-    buffer = buffer,
-    ["<leader>"] = {
-      j = {
-        name = "+goto",
-        D = { vim.lsp.buf.declaration, "declaration" },
-        d = { vim.lsp.buf.definition, "definition" },
-        r = { vim.lsp.buf.references, "find references" },
-        i = { vim.lsp.buf.implementation, "implementation" },
-        t = { vim.lsp.buf.type_definition, "type definition" },
-      },
-      c = {
-        name = "+code",
-        t = { M.toggle_diagnostics, "toggle diagnostics" },
-        h = { M.toggle_hints, "toggle inlay hints" },
-        r = { vim.lsp.buf.rename, "rename" },
-        a = {
-          { vim.lsp.buf.code_action, "code action" },
-          { vim.lsp.buf.code_action, "code action", mode = "v" },
-        },
-        f = {
-          {
-            M.format,
-            "format document",
-            cond = cap.documentFormatting,
-          },
-          {
-            M.format,
-            "format range",
-            cond = cap.documentRangeFormatting,
-            mode = "v",
-          },
-        },
-        d = { vim.diagnostic.open_float, "line diagnostics" },
-      },
-    },
-    ["<C-k>"] = { vim.lsp.buf.signature_help, "signature help", mode = { "n", "i" } },
-    ["K"] = { vim.lsp.buf.hover, "hover" },
-    ["[d"] = { vim.diagnostic.goto_prev, "next diagnostic" },
-    ["]d"] = { vim.diagnostic.goto_next, "prev diagnostic" },
+  wk.add {
+    { "<leader>ca", vim.lsp.buf.code_action, desc = "code action", mode = { "n", "v" } },
+    { "<leader>cs", vim.lsp.buf.signature_help, desc = "signature help", buffer = 1, mode = { "n", "i" } },
+    { "<leader>cd", vim.diagnostic.open_float, desc = "line diagnostics" },
+    { "<leader>cf", M.format, desc = "format document" },
+    { "<leader>ch", M.toggle_hints, desc = "toggle inlay hints" },
+    { "<leader>c", group = "code" },
+    { "<leader>cr", vim.lsp.buf.rename, desc = "rename" },
+    { "<leader>ct", M.toggle_diagnostics, desc = "toggle diagnostics" },
+    { "<leader>j", group = "goto" },
+    { "<leader>jD", vim.lsp.buf.declaration, desc = "declaration" },
+    { "<leader>jd", vim.lsp.buf.definition, desc = "definition" },
+    { "<leader>ji", vim.lsp.buf.implementation, desc = "implementation" },
+    { "<leader>jr", vim.lsp.buf.references, desc = "find references" },
+    { "<leader>jT", vim.lsp.buf.type_definition, desc = "type definition" },
   }
-
-  wk.register(keymap)
 end
 
 M.handlers = {
