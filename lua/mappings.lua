@@ -107,6 +107,8 @@ wk.add {
   { "<leader>wv", "<C-W>v", desc = "split-window-right" },
   { "<leader>ww", "<C-W>p", desc = "other-window" },
   { "<leader>w|", "<C-W>v", desc = "split-window-right" },
+  { "<leader>c", group = "code" },
+  { "<leader>j", group = "goto" },
   -- { "<leader>x", group = "errors" },
   -- { "<leader>xs", "<CMD>TroubleToggle workspace_diagnostics<CR>", desc = "trouble" },
   -- { "<leader>xx", "<CMD>Lspsaga show_buf_diagnostics<CR>", desc = "open saga diagnostics" },

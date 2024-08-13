@@ -6,7 +6,6 @@ gitsigns.setup {
     local gs = package.loaded.gitsigns
 
     wk.add {
-      { "<leader>m", buffer = 1, group = "git" },
       { "<leader>mb", "<CMD>lua require('gitsigns').blame_line{full=false}<CR>", buffer = 1, desc = "blame" },
       {
         "<leader>mn",
