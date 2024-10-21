@@ -10,7 +10,7 @@ local utils = require "config.lsp_utils"
 mason_lsp.setup {
   ensure_installed = {
     "lua_ls",
-    "tsserver",
+    "ts_ls",
     "jsonls",
     "eslint",
   },
