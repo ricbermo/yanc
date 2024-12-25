@@ -76,30 +76,22 @@ return {
   },
 
   {
-    "L3MON4D3/LuaSnip",
-    dependencies = {
-      "rafamadriz/friendly-snippets",
-    },
-    config = function()
-      require "config.luasnip"
-    end,
-    version = "v2.*",
-    build = "make install_jsregexp",
-  },
-
-  {
-    "hrsh7th/nvim-cmp",
+    "saghen/blink.cmp",
+    version = "v0.8.2",
     event = "InsertEnter",
-    dependencies = {
-      { "hrsh7th/cmp-buffer" },
-      { "hrsh7th/cmp-nvim-lsp" },
-      { "hrsh7th/cmp-path" },
-      { "hrsh7th/cmp-nvim-lsp-signature-help" },
-      { "saadparwaiz1/cmp_luasnip" },
+    dependencies = "rafamadriz/friendly-snippets",
+    opts = {
+      keymap = { preset = "super-tab" },
+      completion = {
+        menu = { border = "single" },
+        documentation = { window = { border = "rounded" } },
+      },
+      signature = { window = { border = "rounded" }, enabled = true },
+      sources = {
+        default = { "lsp", "path", "snippets", "buffer" },
+      },
     },
-    config = function()
-      require "config.cmp"
-    end,
+    opts_extend = { "sources.default" },
   },
 
   {
@@ -121,7 +113,6 @@ return {
     "neovim/nvim-lspconfig",
     event = "BufReadPost",
     dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
       "williamboman/mason-lspconfig.nvim",
     },
     config = function()
