@@ -86,7 +86,7 @@ M.handlers = {
 }
 
 function M.init_options(server_name)
-  if server_name == "tsserver" then
+  if server_name == "ts_ls" then
     return {
       preferences = {
         includeInlayParameterNameHints = "all",
