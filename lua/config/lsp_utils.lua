@@ -55,6 +55,8 @@ function M.set_keys(client, buffer)
     { "<leader>ji", vim.lsp.buf.implementation, desc = "implementation" },
     { "<leader>jr", vim.lsp.buf.references, desc = "find references" },
     { "<leader>jT", vim.lsp.buf.type_definition, desc = "type definition" },
+    { "<leader>jn", vim.diagnostic.goto_next, desc = "next error" },
+    { "<leader>jp", vim.diagnostic.goto_prev, desc = "prev error" },
   }
 end
 

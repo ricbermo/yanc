@@ -41,6 +41,7 @@ return {
     event = "BufReadPost",
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
+      "saghen/blink.cmp",
     },
     config = function()
       require "config.lsp"

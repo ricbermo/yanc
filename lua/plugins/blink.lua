@@ -1,6 +1,6 @@
 return {
   "saghen/blink.cmp",
-  version = "v0.9.2",
+  version = "v0.13.0",
   event = "InsertEnter",
   dependencies = "rafamadriz/friendly-snippets",
   opts = {
@@ -40,15 +40,12 @@ return {
         window = { border = "rounded" },
       },
       list = {
-        selection = "auto_insert",
+        selection = { preselect = true, auto_insert = true },
       },
     },
     signature = { window = { border = "rounded" }, enabled = true },
     sources = {
       default = { "lsp", "path", "snippets", "buffer" },
-      cmdline = {
-        min_keyword_length = 2,
-      },
     },
   },
   opts_extend = { "sources.default" },
