@@ -13,6 +13,8 @@ mason_lsp.setup {
     "ts_ls",
     "jsonls",
     "eslint",
+    "tailwindcss",
+    "astro",
   },
   automatic_installation = true,
 }
