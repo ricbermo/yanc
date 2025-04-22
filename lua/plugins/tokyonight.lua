@@ -3,7 +3,7 @@ return {
   lazy = false,
   priority = 1000,
   opts = {
-    style = "storm",
+    style = "moon",
   },
   init = function()
     vim.o.background = "dark"

@@ -1,6 +1,5 @@
 return {
   { "folke/which-key.nvim" },
-  { "kevinhwang91/nvim-bqf", ft = "qf" },
   {
     "mattn/emmet-vim",
     event = "BufReadPost",

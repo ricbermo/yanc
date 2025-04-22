@@ -1,8 +1,15 @@
 return {
   "saghen/blink.cmp",
-  version = "v0.13.0",
+  version = "v1.1.1",
   event = "InsertEnter",
-  dependencies = "rafamadriz/friendly-snippets",
+  dependencies = {
+    {
+      "rafamadriz/friendly-snippets",
+    },
+    {
+      "giuxtaposition/blink-cmp-copilot",
+    },
+  },
   opts = {
     keymap = {
       ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
@@ -45,7 +52,15 @@ return {
     },
     signature = { window = { border = "rounded" }, enabled = true },
     sources = {
-      default = { "lsp", "path", "snippets", "buffer" },
+      default = { "lsp", "path", "snippets", "buffer", "copilot" },
+      providers = {
+        copilot = {
+          name = "copilot",
+          module = "blink-cmp-copilot",
+          score_offset = 100,
+          async = true,
+        },
+      },
     },
   },
   opts_extend = { "sources.default" },
