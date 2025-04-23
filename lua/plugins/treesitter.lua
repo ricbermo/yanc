@@ -29,6 +29,8 @@ return {
       "html",
       "gitignore",
       "yaml",
+      "typst",
+      "latex",
     },
     highlight = {
       enable = true,
