@@ -9,7 +9,7 @@ return {
       local gs = package.loaded.gitsigns
 
       wk.add {
-        { "<leader>mb", "<CMD>lua require('gitsigns').blame_line{full=false}<CR>", buffer = 1, desc = "blame" },
+        { "<leader>mb", "<CMD>Gitsigns blame_line<CR>", buffer = 1, desc = "blame" },
         {
           "<leader>mn",
           function()

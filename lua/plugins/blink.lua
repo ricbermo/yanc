@@ -61,6 +61,9 @@ return {
           async = true,
         },
       },
+      per_filetype = {
+        codecompanion = { "codecompanion" },
+      },
     },
   },
   opts_extend = { "sources.default" },
