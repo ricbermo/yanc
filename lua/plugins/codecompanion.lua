@@ -1,5 +1,5 @@
 return {
-  -- enabled = false,
+  enabled = false,
   "olimorris/codecompanion.nvim",
   cmd = { "CodeCompanionChat", "CodeCompanionActions", "CodeCompanion" },
   dependencies = {
@@ -10,7 +10,7 @@ return {
   opts = {
     strategies = {
       chat = {
-        adapter = "anthropic",
+        adapter = "copilot",
       },
       inline = {
         adapter = "copilot",
