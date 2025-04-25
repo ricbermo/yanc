@@ -43,7 +43,7 @@ function M.set_keys(client, buffer)
   local cap = client.server_capabilities
 
   wk.add {
-    { "<leader>ca", vim.lsp.buf.code_action, desc = "code action", mode = { "n", "v" } },
+    { "<leader>ca", '<cmd>lua require("fastaction").code_action()<CR>', desc = "code action", mode = { "n", "v" } },
     { "<leader>cs", vim.lsp.buf.signature_help, desc = "signature help", buffer = 1, mode = { "n", "i" } },
     { "<leader>cd", vim.diagnostic.open_float, desc = "line diagnostics" },
     { "<leader>cf", M.format, desc = "format document" },

@@ -1,5 +1,6 @@
 local mason_lsp = prequire "mason-lspconfig"
 local lsp = prequire "lspconfig"
+local signs = utils.signs
 
 if not mason_lsp then
   return
@@ -28,4 +29,22 @@ mason_lsp.setup_handlers {
       init_options = utils.init_options(server_name),
     }
   end,
+}
+
+vim.diagnostic.config {
+  underline = false,
+  virtual_text = {
+    spacing = 2,
+    prefix = "●",
+  },
+  update_in_insert = false,
+  severity_sort = true,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = signs.Error,
+      [vim.diagnostic.severity.WARN] = signs.Warn,
+      [vim.diagnostic.severity.HINT] = signs.Hint,
+      [vim.diagnostic.severity.INFO] = signs.Info,
+    },
+  },
 }
