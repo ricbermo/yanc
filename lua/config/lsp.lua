@@ -1,12 +1,12 @@
 local mason_lsp = prequire "mason-lspconfig"
 local lsp = prequire "lspconfig"
-local signs = utils.signs
+local utils = require "utils"
 
 if not mason_lsp then
   return
 end
 
-local utils = require "config.lsp_utils"
+local lsp_utils = require "config.lsp_utils"
 
 mason_lsp.setup {
   ensure_installed = {
@@ -23,13 +23,15 @@ mason_lsp.setup {
 mason_lsp.setup_handlers {
   function(server_name)
     lsp[server_name].setup {
-      on_attach = utils.on_attach,
-      capabilities = utils.capabilities,
-      handlers = utils.handlers,
-      init_options = utils.init_options(server_name),
+      on_attach = lsp_utils.on_attach,
+      capabilities = lsp_utils.capabilities,
+      handlers = lsp_utils.handlers,
+      init_options = lsp_utils.init_options(server_name),
     }
   end,
 }
+
+local signs = utils.signs
 
 vim.diagnostic.config {
   underline = false,
