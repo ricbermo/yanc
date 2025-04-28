@@ -6,19 +6,25 @@ return {
   dependencies = { "nvim-lua/plenary.nvim" },
   opts = {
     on_attach = function(bufnr)
-      local gs = package.loaded.gitsigns
+      local gitsigns = require "gitsigns"
 
       wk.add {
-        { "<leader>mb", "<CMD>Gitsigns blame_line<CR>", buffer = 1, desc = "blame" },
+        {
+          "<leader>mb",
+          function()
+            gitsigns.blame_line { full = true }
+          end,
+          buffer = 1,
+          desc = "blame",
+        },
         {
           "<leader>mn",
           function()
             if vim.wo.diff then
-              return "]c"
+              vim.cmd.normal { "]c", bang = true }
+            else
+              gitsigns.nav_hunk "next"
             end
-            vim.schedule(function()
-              gs.next_hunk()
-            end)
           end,
           buffer = 1,
           desc = "next git change",
@@ -27,14 +33,37 @@ return {
           "<leader>mp",
           function()
             if vim.wo.diff then
-              return "[c"
+              vim.cmd.normal { "[c", bang = true }
+            else
+              gitsigns.nav_hunk "prev"
             end
-            vim.schedule(function()
-              gs.prev_hunk()
-            end)
           end,
           buffer = 1,
           desc = "prev git change",
+        },
+        {
+          "<leader>ms",
+          gitsigns.stage_hunk,
+          buffer = 1,
+          desc = "stage hunk",
+        },
+        {
+          "<leader>mr",
+          gitsigns.reset_hunk,
+          buffer = 1,
+          desc = "reset hunk",
+        },
+        {
+          "<leader>mS",
+          gitsigns.stage_buffer,
+          buffer = 1,
+          desc = "stage buffer",
+        },
+        {
+          "<leader>mR",
+          gitsigns.reset_buffer,
+          buffer = 1,
+          desc = "reset buffer",
         },
       }
     end,
