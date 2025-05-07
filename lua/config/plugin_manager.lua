@@ -23,7 +23,6 @@ require("lazy").setup("plugins", {
   debug = false,
   ui = {
     size = { width = 0.8, height = 0.8 },
-    border = "rounded",
     icons = {
       loaded = signs.PassCheck,
       not_loaded = signs.QuestionMark,

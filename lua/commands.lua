@@ -1,8 +1,28 @@
-local utils = require "utils"
+local lsp_utils = require "config/lsp_utils"
 
-vim.api.nvim_create_autocmd("OptionSet", {
-  pattern = "background",
-  callback = function()
-    vim.cmd("Catppuccin " .. (vim.v.option_new == "light" and "latte" or "mocha"))
+-- for Catppuccin
+-- vim.api.nvim_create_autocmd("OptionSet", {
+--   pattern = "background",
+--   callback = function()
+--     vim.cmd("Catppuccin " .. (vim.v.option_new == "light" and "latte" or "mocha"))
+--   end,
+-- })
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(ev)
+    local bufnr = ev.buf
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+
+    if client then
+      lsp_utils.on_attach(client, bufnr)
+    end
+
+    if client == "ts_ls" then
+      client.config.init_options = lsp_utils.ts_init_options
+    end
+
+    if client.supports_method "textDocument/inlayHint" then
+      vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+    end
   end,
 })

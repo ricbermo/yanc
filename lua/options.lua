@@ -76,6 +76,7 @@ opt.updatetime = 250
 
 -- nice confirmation dialog
 opt.confirm = true
+vim.o.winborder = "rounded"
 
 -- blankline support
 opt.list = true
@@ -121,11 +122,6 @@ vim.filetype.add {
     [".*git/config"] = "gitconfig",
     [".*env.*"] = "sh",
   },
-}
-
--- set global rounder border
-vim.diagnostic.config {
-  float = { border = "rounded" },
 }
 
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:,diff:/]]

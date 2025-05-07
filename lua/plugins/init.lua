@@ -36,17 +36,6 @@ return {
     },
   },
   {
-    "neovim/nvim-lspconfig",
-    event = "BufReadPost",
-    dependencies = {
-      "williamboman/mason-lspconfig.nvim",
-      "saghen/blink.cmp",
-    },
-    config = function()
-      require "config.lsp"
-    end,
-  },
-  {
     "nvimtools/none-ls.nvim",
     event = "BufReadPost",
     dependencies = {

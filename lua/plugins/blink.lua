@@ -1,6 +1,6 @@
 return {
   "saghen/blink.cmp",
-  version = "v1.1.1",
+  version = "v1.2.0",
   event = "InsertEnter",
   dependencies = {
     {
@@ -12,45 +12,19 @@ return {
   },
   opts = {
     keymap = {
-      ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
-      ["<C-e>"] = { "hide", "fallback" },
       ["<CR>"] = { "accept", "fallback" },
-
-      ["<Tab>"] = {
-        function(cmp)
-          return cmp.select_next()
-        end,
-        "snippet_forward",
-        "fallback",
-      },
-      ["<S-Tab>"] = {
-        function(cmp)
-          return cmp.select_prev()
-        end,
-        "snippet_backward",
-        "fallback",
-      },
-
-      ["<Up>"] = { "select_prev", "fallback" },
-      ["<Down>"] = { "select_next", "fallback" },
-      ["<C-p>"] = { "select_prev", "fallback" },
-      ["<C-n>"] = { "select_next", "fallback" },
-      ["<C-up>"] = { "scroll_documentation_up", "fallback" },
-      ["<C-down>"] = { "scroll_documentation_down", "fallback" },
     },
     completion = {
-      menu = { border = "rounded" },
       documentation = {
         auto_show = true,
         auto_show_delay_ms = 250,
         treesitter_highlighting = true,
-        window = { border = "rounded" },
       },
       list = {
-        selection = { preselect = true, auto_insert = true },
+        selection = { preselect = false, auto_insert = true },
       },
     },
-    signature = { window = { border = "rounded" }, enabled = true },
+    signature = { enabled = true },
     sources = {
       default = { "lsp", "path", "snippets", "buffer", "copilot" },
       providers = {

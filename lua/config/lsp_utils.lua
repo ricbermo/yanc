@@ -40,8 +40,6 @@ function M.format_sync()
 end
 
 function M.set_keys(client, buffer)
-  local cap = client.server_capabilities
-
   wk.add {
     { "<leader>ca", '<cmd>lua require("fastaction").code_action()<CR>', desc = "code action", mode = { "n", "v" } },
     { "<leader>cs", vim.lsp.buf.signature_help, desc = "signature help", buffer = 1, mode = { "n", "i" } },
@@ -54,54 +52,30 @@ function M.set_keys(client, buffer)
     { "<leader>jd", vim.lsp.buf.definition, desc = "definition" },
     { "<leader>ji", vim.lsp.buf.implementation, desc = "implementation" },
     { "<leader>jr", vim.lsp.buf.references, desc = "find references" },
-    { "<leader>jT", vim.lsp.buf.type_definition, desc = "type definition" },
-    { "<leader>jn", vim.diagnostic.goto_next, desc = "next error" },
+
     { "<leader>jp", vim.diagnostic.goto_prev, desc = "prev error" },
   }
-end
 
-M.handlers = {
-  ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = true,
-    signs = true,
-    update_in_insert = false,
-    underline = true,
-    severity_sort = true,
-    code_action_icon = signs.LightBulb,
-    float = {
-      focusable = false,
-      style = "minimal",
-      border = "rounded",
-      source = "always",
-      header = "",
-      prefix = "",
-    },
-  }),
-
-  ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    border = "rounded",
-  }),
-
-  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-    border = "rounded",
-  }),
-}
-
-function M.init_options(server_name)
-  if server_name == "ts_ls" then
-    return {
-      preferences = {
-        includeInlayParameterNameHints = "all",
-        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-        includeInlayFunctionParameterTypeHints = true,
-        includeInlayVariableTypeHints = true,
-        includeInlayPropertyDeclarationTypeHints = true,
-        includeInlayFunctionLikeReturnTypeHints = true,
-        includeInlayEnumMemberValueHints = true,
-        importModuleSpecifierPreference = "non-relative",
-      },
+  if client.name == "ts_ls" then
+    wk.add {
+      { "<leader>cT", "<cmd>LspTypescriptSourceAction<cr>", desc = "TS actions" },
     }
   end
+end
+
+function M.ts_init_options()
+  return {
+    preferences = {
+      includeInlayParameterNameHints = "all",
+      includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+      includeInlayFunctionParameterTypeHints = true,
+      includeInlayVariableTypeHints = true,
+      includeInlayPropertyDeclarationTypeHints = true,
+      includeInlayFunctionLikeReturnTypeHints = true,
+      includeInlayEnumMemberValueHints = true,
+      importModuleSpecifierPreference = "non-relative",
+    },
+  }
 end
 
 return M

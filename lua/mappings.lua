@@ -76,7 +76,7 @@ wk.add {
   { "<leader>ll", "<CMD>MasonLog<CR>", desc = "see logs" },
   { "<leader>m", group = "git" },
   { "<leader>mc", "<CMD>Telescope git_commits<CR>", desc = "commits" },
-  { "<leader>ms", "<CMD>Telescope git_status<CR>", desc = "status" },
+  { "<leader>mm", "<CMD>Telescope git_status<CR>", desc = "status" },
   { "<leader>n", group = "filetree" },
   { "<leader>nn", "<CMD>NvimTreeToggle<CR>", desc = "file explorer" },
   { "<leader>nr", "<CMD>NvimTreeFindFileToggle<CR>", desc = "reveal" },
