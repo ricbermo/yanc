@@ -2,7 +2,7 @@ local utils = require "utils"
 local signs = utils.signs
 
 vim.diagnostic.config {
-  underline = false,
+  underline = true,
   virtual_text = {
     spacing = 2,
     prefix = "●",
