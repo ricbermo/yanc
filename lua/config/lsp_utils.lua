@@ -52,7 +52,7 @@ function M.set_keys(client, buffer)
     { "<leader>jd", vim.lsp.buf.definition, desc = "definition" },
     { "<leader>ji", vim.lsp.buf.implementation, desc = "implementation" },
     { "<leader>jr", vim.lsp.buf.references, desc = "find references" },
-
+    { "<leader>jn", vim.diagnostic.goto_next, desc = "next error" },
     { "<leader>jp", vim.diagnostic.goto_prev, desc = "prev error" },
   }
 
