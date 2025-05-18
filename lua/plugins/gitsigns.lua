@@ -1,5 +1,3 @@
-local wk = require "which-key"
-
 return {
   "lewis6991/gitsigns.nvim",
   event = "BufReadPost",
@@ -7,6 +5,7 @@ return {
   opts = {
     on_attach = function(bufnr)
       local gitsigns = require "gitsigns"
+      local wk = require "which-key"
 
       wk.add {
         {

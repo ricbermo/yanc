@@ -55,27 +55,6 @@ function M.set_keys(client, buffer)
     { "<leader>jn", vim.diagnostic.goto_next, desc = "next error" },
     { "<leader>jp", vim.diagnostic.goto_prev, desc = "prev error" },
   }
-
-  if client.name == "ts_ls" then
-    wk.add {
-      { "<leader>cT", "<cmd>LspTypescriptSourceAction<cr>", desc = "TS actions" },
-    }
-  end
-end
-
-function M.ts_init_options()
-  return {
-    preferences = {
-      includeInlayParameterNameHints = "all",
-      includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-      includeInlayFunctionParameterTypeHints = true,
-      includeInlayVariableTypeHints = true,
-      includeInlayPropertyDeclarationTypeHints = true,
-      includeInlayFunctionLikeReturnTypeHints = true,
-      includeInlayEnumMemberValueHints = true,
-      importModuleSpecifierPreference = "non-relative",
-    },
-  }
 end
 
 return M

@@ -1,5 +1,4 @@
 return {
-  { "folke/which-key.nvim" },
   {
     "mattn/emmet-vim",
     event = "BufReadPost",
