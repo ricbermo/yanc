@@ -22,7 +22,7 @@ require "config.plugin_manager" -- Lazy plugin manager
 vim.api.nvim_create_autocmd("User", {
   pattern = "VeryLazy",
   callback = function()
-    require "commands"
+    require "listeners"
     require "mappings"
     require "diagnostics"
     require "capabilities"

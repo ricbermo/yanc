@@ -1,4 +1,4 @@
 return {
   "Chaitanyabsprip/fastaction.nvim",
-  opts = {},
+  opts = { dismiss_keys = { "<c-c>" } }, -- TODO remove
 }
