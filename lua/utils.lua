@@ -122,4 +122,25 @@ function M.telescope_find()
   }
 end
 
+function M.copy_git_root_path()
+  -- intenta obtener root del repo git
+  local git_root = vim.fn.systemlist("git rev-parse --show-toplevel")[1]
+  local path = ""
+
+  if vim.v.shell_error ~= 0 or git_root == nil or git_root == "" then
+    -- fallback: ruta absoluta
+    path = vim.fn.expand "%:p"
+  else
+    -- ruta relativa al root git
+    path = vim.fn.expand("%:p"):gsub("^" .. vim.pesc(git_root .. "/"), "")
+  end
+
+  -- copiar al portapapeles
+  vim.fn.setreg("+", path) -- portapapeles del sistema
+  vim.fn.setreg("*", path) -- selección primaria (Linux/X11)
+
+  -- mostrar en la línea de comandos
+  vim.notify("📋 Copiado: " .. path, vim.log.levels.INFO, { title = "Neovim" })
+end
+
 return M

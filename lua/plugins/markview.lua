@@ -2,7 +2,7 @@
 return {
   "OXY2DEV/markview.nvim",
   lazy = false,
-  priority = 2000, -- load after theme (using 1000)
+  priority = 2, -- load after theme
   opts = {
     preview = {
       filetypes = { "markdown", "codecompanion" },

@@ -49,6 +49,9 @@ vim.keymap.set("v", ">", ">gv")
 -- Open filetree
 vim.keymap.set("n", "<C-n>", "<CMD>NvimTreeToggle<CR>")
 
+-- Print and copy to clipboard the current file path
+vim.keymap.set("n", "<C-g>", utils.copy_git_root_path, { noremap = true, silent = true })
+
 wk.add {
   { "<leader>b", group = "buffer" },
   { "<leader>bc", "<CMD>:%bd|e#|bd#<CR>", desc = "delete all buffers but current" },

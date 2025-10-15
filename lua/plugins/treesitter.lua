@@ -3,6 +3,8 @@ return {
   build = ":TSUpdate",
   event = "BufReadPost",
   auto_install = false,
+  dependencies = { "OXY2DEV/markview.nvim" },
+  lazy = false,
   cmd = {
     "TSInstall",
     "TSUpdate",

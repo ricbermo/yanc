@@ -6,9 +6,9 @@ return {
     {
       "rafamadriz/friendly-snippets",
     },
-    {
-      "giuxtaposition/blink-cmp-copilot",
-    },
+    -- {
+    --   "giuxtaposition/blink-cmp-copilot",
+    -- },
   },
   opts = {
     keymap = {
@@ -26,15 +26,15 @@ return {
     },
     signature = { enabled = true },
     sources = {
-      default = { "lsp", "path", "snippets", "buffer", "copilot" },
-      providers = {
-        copilot = {
-          name = "copilot",
-          module = "blink-cmp-copilot",
-          score_offset = 100,
-          async = true,
-        },
-      },
+      default = { "lsp", "path", "snippets", "buffer", },
+      -- providers = {
+      --   copilot = {
+      --     name = "copilot",
+      --     module = "blink-cmp-copilot",
+      --     score_offset = 100,
+      --     async = true,
+      --   },
+      -- },
       per_filetype = {
         codecompanion = { "codecompanion" },
       },
