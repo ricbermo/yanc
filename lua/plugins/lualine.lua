@@ -40,7 +40,7 @@ return {
       icons_enabled = true,
       component_separators = "",
       section_separators = "",
-      theme = "tokyonight",
+      -- theme = "tokyonight",
       globalstatus = false,
     },
     sections = {

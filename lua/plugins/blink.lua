@@ -1,6 +1,6 @@
 return {
   "saghen/blink.cmp",
-  version = "v1.2.0",
+  version = "v1.7.0",
   event = "InsertEnter",
   dependencies = {
     {
@@ -12,7 +12,7 @@ return {
   },
   opts = {
     keymap = {
-      ["<CR>"] = { "accept", "fallback" },
+      preset = "super-tab",
     },
     completion = {
       documentation = {
@@ -26,7 +26,7 @@ return {
     },
     signature = { enabled = true },
     sources = {
-      default = { "lsp", "path", "snippets", "buffer", },
+      default = { "lsp", "path", "snippets", "buffer" },
       -- providers = {
       --   copilot = {
       --     name = "copilot",
@@ -35,9 +35,9 @@ return {
       --     async = true,
       --   },
       -- },
-      per_filetype = {
-        codecompanion = { "codecompanion" },
-      },
+      -- per_filetype = {
+      --   codecompanion = { "codecompanion" },
+      -- },
     },
   },
   opts_extend = { "sources.default" },
