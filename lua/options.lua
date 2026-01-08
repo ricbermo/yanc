@@ -112,9 +112,9 @@ g.do_filetype_lua = 1
 
 -- override filetype
 vim.filetype.add {
-  -- extension = {
-  --     foo = "fooscript",
-  -- },
+  extension = {
+      podspec = "ruby",
+  },
   filename = {
     ["Podfile"] = "ruby",
   },
