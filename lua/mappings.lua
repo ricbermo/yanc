@@ -1,8 +1,6 @@
 local wk = require "which-key"
 local utils = require "utils"
 
-vim.o.timeoutlen = 300
-
 wk.setup {
   show_help = false,
   plugins = { spelling = true },

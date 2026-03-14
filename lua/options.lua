@@ -21,20 +21,21 @@ opt.pumheight = 10
 opt.completeopt = "menu,menuone,noselect"
 
 -- set minimal number of screeen lines above and below cursor
-opt.scrolloff = 1000
+opt.scrolloff = 8
 
 -- make splits open to down and right
 opt.splitbelow = true
 opt.splitright = true
 
 -- disable providers
-g.python_host_skip_check = 0
-g.loaded_python_provider = 0
 g.loaded_node_provider = 0
 g.loaded_ruby_provider = 0
 g.loaded_perl_provider = 0
 
-g.python3_host_prog = "$HOME/.asdf/shims/python"
+local asdf_python = vim.fn.expand "$HOME/.asdf/shims/python"
+if vim.fn.executable(asdf_python) == 1 then
+  g.python3_host_prog = asdf_python
+end
 
 -- number stuff
 opt.number = true
@@ -56,8 +57,8 @@ opt.termguicolors = true
 opt.shadafile = "NONE"
 
 -- disable swap
-g.noswapfile = true
-g.nobackup = true
+opt.swapfile = false
+opt.backup = false
 
 g.copy_cut = true -- copy cut text ( x key ), visual and normal mode
 g.copy_del = true -- copy deleted text ( dd key ), visual and normal mode
@@ -68,9 +69,8 @@ opt.hidden = true
 opt.ignorecase = true
 
 opt.mouse = "a"
-opt.shiftwidth = 2
 opt.smartindent = true
-opt.timeoutlen = 400
+opt.timeoutlen = 300
 opt.ruler = false
 opt.updatetime = 250
 
