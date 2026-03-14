@@ -1,12 +1,6 @@
 local wk = require "which-key"
 local utils = require "utils"
 
-wk.setup {
-  show_help = false,
-  plugins = { spelling = true },
-  replace = { ["<leader>"] = "SPC" },
-}
-
 -- Better window navigation
 vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
@@ -61,6 +55,7 @@ wk.add {
   { "<leader>h", group = "help" },
   { "<leader>hc", "<CMD>:Telescope commands<CR>", desc = "commands" },
   { "<leader>hh", "<CMD>:checkhealth<CR>", desc = "check health" },
+  { "<leader>hk", "<CMD>Telescope keymaps<CR>", desc = "keymaps" },
   { "<leader>hp", group = "package-management" },
   { "<leader>hpc", "<CMD>Lazy clear<CR>", desc = "clear unused" },
   { "<leader>hpi", "<CMD>Lazy install<CR>", desc = "install packages" },
