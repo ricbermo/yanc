@@ -8,11 +8,11 @@ return {
   opts = {
     ensure_installed = {
       "lua_ls",
-      "ts_ls",
       "jsonls",
       "eslint",
-      "biome",
+      -- "biome",
       "tailwindcss",
+      -- "ts_ls",
       -- "astro",
     },
     automatic_installation = true,
