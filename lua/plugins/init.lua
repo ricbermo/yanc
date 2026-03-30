@@ -1,7 +1,7 @@
 return {
   {
     "mattn/emmet-vim",
-    event = "BufReadPost",
+    event = { "BufReadPre", "BufNewFile" },
     ft = {
       "typescript",
       "typescriptreact",
@@ -28,7 +28,7 @@ return {
   },
   {
     "lukas-reineke/indent-blankline.nvim",
-    event = "BufReadPost",
+    event = { "BufReadPre", "BufNewFile" },
     main = "ibl",
     opts = {
       scope = { enabled = false },
@@ -36,7 +36,7 @@ return {
   },
   {
     "nvimtools/none-ls.nvim",
-    event = "BufReadPost",
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       "lukas-reineke/lsp-format.nvim",
       "nvim-lua/plenary.nvim",

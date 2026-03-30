@@ -33,7 +33,7 @@ end
 
 return {
   "nvim-lualine/lualine.nvim",
-  event = "BufReadPost",
+  event = "VeryLazy",
   dependencies = { "nvim-tree/nvim-web-devicons", "arkav/lualine-lsp-progress" },
   opts = {
     options = {
