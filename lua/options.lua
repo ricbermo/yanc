@@ -32,7 +32,12 @@ g.loaded_node_provider = 0
 g.loaded_ruby_provider = 0
 g.loaded_perl_provider = 0
 
-local asdf_python = vim.fn.expand "$HOME/.asdf/shims/python"
+local asdf_shims = vim.fn.expand "$HOME/.asdf/shims"
+if vim.fn.isdirectory(asdf_shims) == 1 then
+  vim.env.PATH = asdf_shims .. ":" .. vim.env.PATH
+end
+
+local asdf_python = asdf_shims .. "/python"
 if vim.fn.executable(asdf_python) == 1 then
   g.python3_host_prog = asdf_python
 end
