@@ -1,13 +1,6 @@
 return {
   "lewis6991/gitsigns.nvim",
-<<<<<<< HEAD
   event = { "BufReadPre", "BufNewFile" },
-||||||| parent of f55a647 (before ia)
-  event = "BufReadPost",
-  dependencies = { "nvim-lua/plenary.nvim" },
-=======
-  event = "BufReadPost",
->>>>>>> f55a647 (before ia)
   opts = {
     on_attach = function(bufnr)
       local gitsigns = require "gitsigns"
