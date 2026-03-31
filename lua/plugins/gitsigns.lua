@@ -1,7 +1,6 @@
 return {
   "lewis6991/gitsigns.nvim",
-  event = "BufReadPost",
-  dependencies = { "nvim-lua/plenary.nvim" },
+  event = { "BufReadPre", "BufNewFile" },
   opts = {
     on_attach = function(bufnr)
       local gitsigns = require "gitsigns"
@@ -13,7 +12,6 @@ return {
           function()
             gitsigns.blame_line { full = true }
           end,
-          buffer = 1,
           desc = "blame",
         },
         {
@@ -25,7 +23,6 @@ return {
               gitsigns.nav_hunk "next"
             end
           end,
-          buffer = 1,
           desc = "next git change",
         },
         {
@@ -37,7 +34,6 @@ return {
               gitsigns.nav_hunk "prev"
             end
           end,
-          buffer = 1,
           desc = "prev git change",
         },
         {
@@ -49,19 +45,16 @@ return {
         {
           "<leader>mr",
           gitsigns.reset_hunk,
-          buffer = 1,
           desc = "reset hunk",
         },
         {
           "<leader>mS",
           gitsigns.stage_buffer,
-          buffer = 1,
           desc = "stage buffer",
         },
         {
           "<leader>mR",
           gitsigns.reset_buffer,
-          buffer = 1,
           desc = "reset buffer",
         },
       }

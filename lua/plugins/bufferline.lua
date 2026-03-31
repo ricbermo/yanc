@@ -2,7 +2,7 @@ local signs = require("utils").signs
 
 return {
   "akinsho/bufferline.nvim",
-  event = "BufReadPost",
+  event = "VeryLazy",
   opts = {
     options = {
       buffer_close_icon = signs.Error,

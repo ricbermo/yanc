@@ -1,16 +1,24 @@
 -- bootstrap from github
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
   vim.fn.system {
     "git",
     "clone",
     "--filter=blob:none",
     "--single-branch",
-    "git@github.com:folke/lazy.nvim.git",
+    lazyrepo,
     lazypath,
   }
+
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({ { "Failed to clone lazy.nvim from " .. lazyrepo, "ErrorMsg" } }, true, {})
+  end
 end
-vim.opt.runtimepath:prepend(lazypath)
+
+if vim.loop.fs_stat(lazypath) then
+  vim.opt.runtimepath:prepend(lazypath)
+end
 
 -- source lua files
 local util = require "utils"

@@ -43,8 +43,10 @@ return {
       },
     },
   },
-  init = function()
-    require("telescope").load_extension "fzf"
-    require("telescope").load_extension "menufacture"
+  config = function(_, opts)
+    local telescope = require "telescope"
+    telescope.setup(opts)
+    telescope.load_extension "fzf"
+    telescope.load_extension "menufacture"
   end,
 }

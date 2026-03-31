@@ -1,6 +1,6 @@
 return {
   "mason-org/mason-lspconfig.nvim",
-  event = "BufReadPost",
+  event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "mason-org/mason.nvim",
     "neovim/nvim-lspconfig",
@@ -8,11 +8,12 @@ return {
   opts = {
     ensure_installed = {
       "lua_ls",
-      -- "ts_ls",
       "jsonls",
       "eslint",
-      -- "tailwindcss",
-      "astro",
+      -- "biome",
+      "tailwindcss",
+      -- "ts_ls",
+      -- "astro",
     },
     automatic_installation = true,
   },

@@ -1,8 +1,7 @@
 -- For `plugins/markview.lua` users.
 return {
   "OXY2DEV/markview.nvim",
-  lazy = false,
-  priority = 2, -- load after theme
+  ft = { "markdown", "codecompanion" },
   opts = {
     preview = {
       filetypes = { "markdown", "codecompanion" },
