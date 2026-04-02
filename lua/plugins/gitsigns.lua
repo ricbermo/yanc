@@ -8,7 +8,7 @@ return {
 
       wk.add {
         {
-          "<leader>mb",
+          "<leader>gb",
           function()
             gitsigns.blame_line { full = true }
           end,
@@ -16,7 +16,7 @@ return {
           desc = "blame",
         },
         {
-          "<leader>mn",
+          "<leader>gn",
           function()
             if vim.wo.diff then
               vim.cmd.normal { "]c", bang = true }
@@ -25,10 +25,10 @@ return {
             end
           end,
           buffer = bufnr,
-          desc = "next git change",
+          desc = "next hunk",
         },
         {
-          "<leader>mp",
+          "<leader>gp",
           function()
             if vim.wo.diff then
               vim.cmd.normal { "[c", bang = true }
@@ -37,31 +37,37 @@ return {
             end
           end,
           buffer = bufnr,
-          desc = "prev git change",
+          desc = "prev hunk",
         },
         {
-          "<leader>ms",
+          "<leader>gh",
           gitsigns.stage_hunk,
           buffer = bufnr,
           desc = "stage hunk",
         },
         {
-          "<leader>mr",
+          "<leader>gr",
           gitsigns.reset_hunk,
           buffer = bufnr,
           desc = "reset hunk",
         },
         {
-          "<leader>mS",
+          "<leader>gH",
           gitsigns.stage_buffer,
           buffer = bufnr,
           desc = "stage buffer",
         },
         {
-          "<leader>mR",
+          "<leader>gR",
           gitsigns.reset_buffer,
           buffer = bufnr,
           desc = "reset buffer",
+        },
+        {
+          "<leader>gd",
+          gitsigns.diffthis,
+          buffer = bufnr,
+          desc = "diff file",
         },
       }
     end,

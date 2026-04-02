@@ -46,12 +46,12 @@ function M.set_keys(buffer)
     { "<leader>ch", M.toggle_hints, desc = "toggle inlay hints", buffer = buffer },
     { "<leader>cr", vim.lsp.buf.rename, desc = "rename", buffer = buffer },
     { "<leader>ct", M.toggle_diagnostics, desc = "toggle diagnostics", buffer = buffer },
-    { "<leader>jD", vim.lsp.buf.declaration, desc = "declaration", buffer = buffer },
-    { "<leader>jd", vim.lsp.buf.definition, desc = "definition", buffer = buffer },
-    { "<leader>ji", vim.lsp.buf.implementation, desc = "implementation", buffer = buffer },
-    { "<leader>jr", vim.lsp.buf.references, desc = "find references", buffer = buffer },
-    { "<leader>jn", function() vim.diagnostic.jump { count = 1 } end, desc = "next error", buffer = buffer },
-    { "<leader>jp", function() vim.diagnostic.jump { count = -1 } end, desc = "prev error", buffer = buffer },
+    { "<leader>ci", "<CMD>Mason<CR>", desc = "manage servers", buffer = buffer },
+    { "<leader>cl", "<CMD>MasonLog<CR>", desc = "server logs", buffer = buffer },
+    { "gd", vim.lsp.buf.definition, desc = "goto definition", buffer = buffer },
+    { "gD", vim.lsp.buf.declaration, desc = "goto declaration", buffer = buffer },
+    { "gi", vim.lsp.buf.implementation, desc = "goto implementation", buffer = buffer },
+    { "gr", vim.lsp.buf.references, desc = "find references", buffer = buffer },
   }
 end
 

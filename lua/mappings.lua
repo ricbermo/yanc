@@ -44,10 +44,27 @@ vim.keymap.set("n", "<C-n>", "<CMD>NvimTreeToggle<CR>")
 -- Print and copy to clipboard the current file path
 vim.keymap.set("n", "<C-g>", utils.copy_git_root_path, { noremap = true, silent = true })
 
+-- Move lines up/down
+vim.keymap.set("n", "<A-j>", "<CMD>m .+1<CR>==")
+vim.keymap.set("n", "<A-k>", "<CMD>m .-2<CR>==")
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
+
+-- Paste without losing register in visual mode
+vim.keymap.set("x", "p", "P")
+
+-- Quickfix navigation
+vim.keymap.set("n", "]q", "<CMD>cnext<CR>")
+vim.keymap.set("n", "[q", "<CMD>cprev<CR>")
+
+-- Diagnostic navigation (without leader)
+vim.keymap.set("n", "]d", function() vim.diagnostic.jump { count = 1 } end, { desc = "next diagnostic" })
+vim.keymap.set("n", "[d", function() vim.diagnostic.jump { count = -1 } end, { desc = "prev diagnostic" })
+
 wk.add {
   { "<leader>b", group = "buffer" },
   { "<leader>bc", "<CMD>:%bd|e#|bd#<CR>", desc = "delete all buffers but current" },
-  { "<leader>bx", "<CMD>:bd<CR>", desc = "delete current buffer & window" },
+  { "<leader>bd", "<CMD>bp|bd #<CR>", desc = "delete buffer" },
   { "<leader>f", group = "file" },
   { "<leader>ff", "<CMD>FzfLua files<CR>", desc = "find file" },
   { "<leader>fn", "<CMD>enew<CR>", desc = "new file" },
@@ -56,23 +73,16 @@ wk.add {
   { "<leader>hc", "<CMD>FzfLua commands<CR>", desc = "commands" },
   { "<leader>hh", "<CMD>:checkhealth<CR>", desc = "check health" },
   { "<leader>hk", "<CMD>FzfLua keymaps<CR>", desc = "keymaps" },
-  { "<leader>hp", group = "package-management" },
-  { "<leader>hpc", "<CMD>Lazy clear<CR>", desc = "clear unused" },
-  { "<leader>hpi", "<CMD>Lazy install<CR>", desc = "install packages" },
-  { "<leader>hps", "<CMD>Lazy sync<CR>", desc = "sync all" },
-  { "<leader>hpu", "<CMD>Lazy update<CR>", desc = "update packages" },
+  { "<leader>hp", "<CMD>Lazy<CR>", desc = "package manager" },
   { "<leader>hs", "<CMD>FzfLua highlights<CR>", desc = "search highlight groups" },
   { "<leader>ht", group = "theming" },
   { "<leader>htc", "<CMD>Catppuccin macchiato<CR>", desc = "catppuccin macchiato" },
   { "<leader>htf", "<CMD>Catppuccin frappe<CR>", desc = "catppuccin frappe" },
   { "<leader>htl", "<CMD>Catppuccin latte<CR>", desc = "catppuccin latte" },
   { "<leader>htm", "<CMD>Catppuccin mocha<CR>", desc = "catppuccin mocha" },
-  { "<leader>l", group = "lsp" },
-  { "<leader>li", "<CMD>Mason<CR>", desc = "manage servers" },
-  { "<leader>ll", "<CMD>MasonLog<CR>", desc = "see logs" },
-  { "<leader>m", group = "git" },
-  { "<leader>mc", "<CMD>FzfLua git_commits<CR>", desc = "commits" },
-  { "<leader>mm", "<CMD>FzfLua git_status<CR>", desc = "status" },
+  { "<leader>g", group = "git" },
+  { "<leader>gc", "<CMD>FzfLua git_commits<CR>", desc = "commits" },
+  { "<leader>gs", "<CMD>FzfLua git_status<CR>", desc = "status" },
   { "<leader>n", group = "filetree" },
   { "<leader>nn", "<CMD>NvimTreeToggle<CR>", desc = "file explorer" },
   { "<leader>nr", "<CMD>NvimTreeFindFileToggle<CR>", desc = "reveal" },
@@ -80,25 +90,13 @@ wk.add {
   { "<leader>sb", "<CMD>FzfLua blines<CR>", desc = "buffer" },
   { "<leader>sg", "<CMD>FzfLua live_grep<CR>", desc = "grep" },
   { "<leader>sh", "<CMD>FzfLua command_history<CR>", desc = "command history" },
-  { "<leader>sm", "<CMD>FzfLua marks<CR>", desc = "Jump to Mark" },
-  { "<leader>ss", utils.lsp_document_symbols, desc = "Goto Symbol" },
+  { "<leader>sm", "<CMD>FzfLua marks<CR>", desc = "jump to mark" },
+  { "<leader>ss", utils.lsp_document_symbols, desc = "goto symbol" },
   { "<leader>w", group = "window" },
-  { "<leader>w-", "<C-W>s", desc = "split-window-below" },
-  { "<leader>w2", "<C-W>v", desc = "layout-double-columns" },
-  { "<leader>w=", "<C-W>=", desc = "balance-window" },
-  { "<leader>wH", "<C-W>5<", desc = "expand-window-left" },
-  { "<leader>wJ", ":resize +5", desc = "expand-window-below" },
-  { "<leader>wK", ":resize -5", desc = "expand-window-up" },
-  { "<leader>wL", "<C-W>5>", desc = "expand-window-right" },
-  { "<leader>wd", "<C-W>c", desc = "delete-window" },
-  { "<leader>wh", "<C-W>h", desc = "window-left" },
-  { "<leader>wj", "<C-W>j", desc = "window-below" },
-  { "<leader>wk", "<C-W>k", desc = "window-up" },
-  { "<leader>wl", "<C-W>l", desc = "window-right" },
-  { "<leader>ws", "<C-W>s", desc = "split-window-below" },
-  { "<leader>wv", "<C-W>v", desc = "split-window-right" },
-  { "<leader>ww", "<C-W>p", desc = "other-window" },
-  { "<leader>w|", "<C-W>v", desc = "split-window-right" },
+  { "<leader>ws", "<C-W>s", desc = "split below" },
+  { "<leader>wv", "<C-W>v", desc = "split right" },
+  { "<leader>w=", "<C-W>=", desc = "balance" },
+  { "<leader>wd", "<C-W>c", desc = "delete window" },
+  { "<leader>ww", "<C-W>p", desc = "other window" },
   { "<leader>c", group = "code" },
-  { "<leader>j", group = "goto" },
 }
