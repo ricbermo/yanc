@@ -1,21 +1,14 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  branch = "main",
+  lazy = false,
   build = ":TSUpdate",
-  event = { "BufReadPre", "BufNewFile" },
   dependencies = { "OXY2DEV/markview.nvim" },
-  cmd = {
-    "TSInstall",
-    "TSUpdate",
-    "TSInstallInfo",
-    "TSEnable",
-    "TSDisable",
-    "TSModuleInfo",
-    "TSUninstall",
-  },
-  opts = {
-    ensure_installed = {
+  config = function()
+    require("nvim-treesitter").install({
       "lua",
       "vim",
+      "vimdoc",
       "c",
       "javascript",
       "json",
@@ -31,13 +24,6 @@ return {
       "yaml",
       "typst",
       "latex",
-    },
-    highlight = {
-      enable = true,
-      additional_vim_regex_highlighting = false,
-    },
-    indent = {
-      enable = true,
-    },
-  },
+    })
+  end,
 }
