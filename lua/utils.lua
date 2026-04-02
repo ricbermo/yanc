@@ -106,19 +106,8 @@ function M.lazygit_toggle()
 end
 
 function M.telescope_find()
-  require("telescope.builtin").lsp_document_symbols {
-    symbols = {
-      "Class",
-      "Function",
-      "Method",
-      "Constructor",
-      "Interface",
-      "Module",
-      "Struct",
-      "Trait",
-      "Field",
-      "Property",
-    },
+  require("fzf-lua").lsp_document_symbols {
+    regex_filter = "Class|Function|Method|Constructor|Interface|Module|Struct|Trait|Field|Property",
   }
 end
 

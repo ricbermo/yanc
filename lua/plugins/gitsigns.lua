@@ -12,6 +12,7 @@ return {
           function()
             gitsigns.blame_line { full = true }
           end,
+          buffer = bufnr,
           desc = "blame",
         },
         {
@@ -23,6 +24,7 @@ return {
               gitsigns.nav_hunk "next"
             end
           end,
+          buffer = bufnr,
           desc = "next git change",
         },
         {
@@ -34,27 +36,31 @@ return {
               gitsigns.nav_hunk "prev"
             end
           end,
+          buffer = bufnr,
           desc = "prev git change",
         },
         {
           "<leader>ms",
           gitsigns.stage_hunk,
-          buffer = 1,
+          buffer = bufnr,
           desc = "stage hunk",
         },
         {
           "<leader>mr",
           gitsigns.reset_hunk,
+          buffer = bufnr,
           desc = "reset hunk",
         },
         {
           "<leader>mS",
           gitsigns.stage_buffer,
+          buffer = bufnr,
           desc = "stage buffer",
         },
         {
           "<leader>mR",
           gitsigns.reset_buffer,
+          buffer = bufnr,
           desc = "reset buffer",
         },
       }
