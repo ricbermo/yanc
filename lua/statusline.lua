@@ -132,8 +132,6 @@ local function diagnostics()
   local map = {
     { severity = vim.diagnostic.severity.ERROR, sign = signs.Error, hl = "DiagnosticError" },
     { severity = vim.diagnostic.severity.WARN, sign = signs.Warn, hl = "DiagnosticWarn" },
-    { severity = vim.diagnostic.severity.INFO, sign = signs.Info, hl = "DiagnosticInfo" },
-    { severity = vim.diagnostic.severity.HINT, sign = signs.Hint, hl = "DiagnosticHint" },
   }
   for _, item in ipairs(map) do
     local count = counts[item.severity] or 0

@@ -9,7 +9,6 @@ return {
     ensure_installed = {
       "lua_ls",
       "jsonls",
-      "eslint",
       "tailwindcss",
       "biome",
       "astro",

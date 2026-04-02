@@ -15,8 +15,7 @@ return {
       yaml = { "prettierd" },
       markdown = { "prettierd" },
     },
-    format_on_save = {
-      timeout_ms = 2000,
+    format_after_save = {
       lsp_fallback = true,
     },
   },

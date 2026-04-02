@@ -21,7 +21,7 @@ return {
       if has_config(biome_configs) then
         return { "biomejs" }
       elseif has_config(eslint_configs) then
-        return { "eslint" }
+        return { "eslint_d" }
       end
       return {}
     end
