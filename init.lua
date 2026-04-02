@@ -1,6 +1,6 @@
 -- bootstrap from github
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
   vim.fn.system {
     "git",
@@ -16,7 +16,7 @@ if not vim.loop.fs_stat(lazypath) then
   end
 end
 
-if vim.loop.fs_stat(lazypath) then
+if vim.uv.fs_stat(lazypath) then
   vim.opt.runtimepath:prepend(lazypath)
 end
 
@@ -34,5 +34,6 @@ vim.api.nvim_create_autocmd("User", {
     require "mappings"
     require "diagnostics"
     require "capabilities"
+    require "statusline"
   end,
 })

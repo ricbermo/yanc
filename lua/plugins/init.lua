@@ -12,11 +12,6 @@ return {
     },
   },
   {
-    "karb94/neoscroll.nvim",
-    keys = { "<C-u>", "<C-d>", "gg", "G" },
-    config = true,
-  },
-  {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
     config = true,
@@ -33,16 +28,5 @@ return {
     opts = {
       scope = { enabled = false },
     },
-  },
-  {
-    "nvimtools/none-ls.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-      "lukas-reineke/lsp-format.nvim",
-      "nvim-lua/plenary.nvim",
-    },
-    config = function()
-      require "config.null_ls"
-    end,
   },
 }

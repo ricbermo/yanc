@@ -11,7 +11,7 @@ function M.on_attach(_, bufnr)
 end
 
 function M.format()
-  vim.lsp.buf.format()
+  require("conform").format { lsp_fallback = true }
 end
 
 M.diagnostics_active = true
@@ -30,7 +30,7 @@ function M.toggle_hints()
 end
 
 function M.format_sync()
-  vim.lsp.buf.format { async = true }
+  require("conform").format { async = true, lsp_fallback = true }
 end
 
 function M.set_keys(buffer)

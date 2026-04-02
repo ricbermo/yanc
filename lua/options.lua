@@ -23,6 +23,9 @@ opt.completeopt = "menu,menuone,noselect"
 -- set minimal number of screeen lines above and below cursor
 opt.scrolloff = 8
 
+-- native smooth scrolling (replaces neoscroll.nvim)
+opt.smoothscroll = true
+
 -- make splits open to down and right
 opt.splitbelow = true
 opt.splitright = true
@@ -82,6 +85,9 @@ opt.updatetime = 250
 -- nice confirmation dialog
 opt.confirm = true
 vim.o.winborder = "rounded"
+
+-- show filename in winbar (replaces bufferline)
+opt.winbar = "%t %m"
 
 -- blankline support
 opt.list = true
