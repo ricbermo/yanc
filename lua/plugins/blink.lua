@@ -3,12 +3,7 @@ return {
   version = "v1.7.0",
   event = "InsertEnter",
   dependencies = {
-    {
-      "rafamadriz/friendly-snippets",
-    },
-    -- {
-    --   "giuxtaposition/blink-cmp-copilot",
-    -- },
+    "rafamadriz/friendly-snippets",
   },
   opts = {
     keymap = {
@@ -27,17 +22,6 @@ return {
     signature = { enabled = true },
     sources = {
       default = { "lsp", "path", "snippets", "buffer" },
-      -- providers = {
-      --   copilot = {
-      --     name = "copilot",
-      --     module = "blink-cmp-copilot",
-      --     score_offset = 100,
-      --     async = true,
-      --   },
-      -- },
-      -- per_filetype = {
-      --   codecompanion = { "codecompanion" },
-      -- },
     },
   },
   opts_extend = { "sources.default" },

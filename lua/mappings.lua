@@ -81,11 +81,7 @@ wk.add {
   { "<leader>sg", "<CMD>FzfLua live_grep<CR>", desc = "grep" },
   { "<leader>sh", "<CMD>FzfLua command_history<CR>", desc = "command history" },
   { "<leader>sm", "<CMD>FzfLua marks<CR>", desc = "Jump to Mark" },
-  { "<leader>ss", utils.telescope_find, desc = "Goto Symbol" },
-  { "<leader>t", group = "testing" },
-  { "<leader>tf", "<CMD>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", desc = "test file" },
-  { "<leader>to", "<CMD>lua require('neotest').output.open({enter = true})<CR>", desc = "open output" },
-  { "<leader>ts", "<CMD>lua require('neotest').summary.toggle()<CR>", desc = "toggle summary" },
+  { "<leader>ss", utils.lsp_document_symbols, desc = "Goto Symbol" },
   { "<leader>w", group = "window" },
   { "<leader>w-", "<C-W>s", desc = "split-window-below" },
   { "<leader>w2", "<C-W>v", desc = "layout-double-columns" },
@@ -105,5 +101,4 @@ wk.add {
   { "<leader>w|", "<C-W>v", desc = "split-window-right" },
   { "<leader>c", group = "code" },
   { "<leader>j", group = "goto" },
-  { "<leader>a", group = "copilot" },
 }

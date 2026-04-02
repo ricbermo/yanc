@@ -1,15 +1,3 @@
-_G.prequire = function(plugin, verbose)
-  local present, plug = pcall(require, plugin)
-  if present then
-    return plug
-  end
-  local errmsg = string.format("Could not load %s", plugin)
-  if verbose then
-    errmsg = string.format("%s\nError:%s", plug)
-  end
-  print(errmsg)
-end
-
 local M = {}
 
 M.signs = {
@@ -50,14 +38,6 @@ M.signs = {
   Right = "",
 }
 
-function M.setSpacesSize(filetypes)
-  for filetype, size in pairs(filetypes) do
-    vim.cmd(string.format("autocmd FileType %s set sw=%s", filetype, size))
-    vim.cmd(string.format("autocmd FileType %s set ts=%s", filetype, size))
-    vim.cmd(string.format("autocmd FileType %s set sts=%s", filetype, size))
-  end
-end
-
 function M.try(fn, ...)
   local args = { ... }
 
@@ -79,33 +59,11 @@ function M.require(mod)
   return ok and ret
 end
 
-function M.warn(msg, name)
-  vim.notify(msg, vim.log.levels.WARN, { title = name or "init.lua" })
-end
-
 function M.error(msg, name)
   vim.notify(msg, vim.log.levels.ERROR, { title = name or "init.lua" })
 end
 
-function M.info(msg, name)
-  vim.notify(msg, vim.log.levels.INFO, { title = name or "init.lua" })
-end
-
-function M.lazygit_toggle()
-  local Terminal = require("toggleterm.terminal").Terminal
-  local lazygit = Terminal:new {
-    cmd = "lazygit",
-    hidden = true,
-    direction = "float",
-    float_opts = {
-      border = "double",
-    },
-  }
-
-  lazygit:toggle()
-end
-
-function M.telescope_find()
+function M.lsp_document_symbols()
   require("fzf-lua").lsp_document_symbols {
     regex_filter = "Class|Function|Method|Constructor|Interface|Module|Struct|Trait|Field|Property",
   }

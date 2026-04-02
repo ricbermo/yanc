@@ -68,10 +68,6 @@ opt.shadafile = "NONE"
 opt.swapfile = false
 opt.backup = false
 
-g.copy_cut = true -- copy cut text ( x key ), visual and normal mode
-g.copy_del = true -- copy deleted text ( dd key ), visual and normal mode
-g.insert_nav = true -- navigation in insertmode
-
 opt.cmdheight = 1
 opt.hidden = true
 opt.ignorecase = true
@@ -118,8 +114,6 @@ local disabled_built_ins = {
 for _, plugin in pairs(disabled_built_ins) do
   g["loaded_" .. plugin] = 1
 end
-
-g.do_filetype_lua = 1
 
 -- override filetype
 vim.filetype.add {
