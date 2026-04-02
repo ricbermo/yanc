@@ -1,5 +1,5 @@
 vim.lsp.config("*", {
-  capabilities = {
+  capabilities = require("blink.cmp").get_lsp_capabilities {
     textDocument = {
       semanticTokens = {
         multilineTokenSupport = true,

@@ -11,9 +11,6 @@ opt.clipboard:append "unnamedplus"
 -- enable current line highlighting
 opt.cursorline = true
 
--- disable ~ on eob
-opt.fillchars = { eob = " " }
-
 -- set maximum amount of completion items to 10
 opt.pumheight = 10
 
@@ -87,33 +84,8 @@ opt.winbar = "%t %m"
 
 -- blankline support
 opt.list = true
-opt.listchars:append { space = "⋅" }
+opt.listchars:append { lead = "⋅" }
 
--- disable built-in plugins
-local disabled_built_ins = {
-  "2html_plugin",
-  "getscript",
-  "getscriptPlugin",
-  "gzip",
-  "logipat",
-  "netrw",
-  "netrwPlugin",
-  "netrwSettings",
-  "netrwFileHandlers",
-  "matchit",
-  "tar",
-  "tarPlugin",
-  "rrhelper",
-  "spellfile_plugin",
-  "vimball",
-  "vimballPlugin",
-  "zip",
-  "zipPlugin",
-}
-
-for _, plugin in pairs(disabled_built_ins) do
-  g["loaded_" .. plugin] = 1
-end
 
 -- override filetype
 vim.filetype.add {

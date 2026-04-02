@@ -12,7 +12,6 @@ return {
       "eslint",
       "tailwindcss",
       "biome",
-      "ts_ls",
       "astro",
     },
     automatic_installation = true,

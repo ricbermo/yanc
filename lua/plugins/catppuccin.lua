@@ -12,6 +12,6 @@ return {
     auto_integrations = true,
   },
   init = function()
-    vim.cmd [[colorscheme catppuccin-nvim]]
+    vim.cmd [[colorscheme catppuccin]]
   end,
 }

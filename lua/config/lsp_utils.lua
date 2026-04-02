@@ -2,8 +2,6 @@ local wk = require "which-key"
 
 local M = {}
 
-M.capabilities = require("blink.cmp").get_lsp_capabilities()
-
 function M.on_attach(_, bufnr)
   vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
 
@@ -37,7 +35,7 @@ function M.set_keys(buffer)
   wk.add {
     {
       "<leader>ca",
-      '<cmd>lua require("fastaction").code_action()<CR>',
+      vim.lsp.buf.code_action,
       desc = "code action",
       mode = { "n", "v" },
       buffer = buffer,
@@ -52,8 +50,8 @@ function M.set_keys(buffer)
     { "<leader>jd", vim.lsp.buf.definition, desc = "definition", buffer = buffer },
     { "<leader>ji", vim.lsp.buf.implementation, desc = "implementation", buffer = buffer },
     { "<leader>jr", vim.lsp.buf.references, desc = "find references", buffer = buffer },
-    { "<leader>jn", vim.diagnostic.goto_next, desc = "next error", buffer = buffer },
-    { "<leader>jp", vim.diagnostic.goto_prev, desc = "prev error", buffer = buffer },
+    { "<leader>jn", function() vim.diagnostic.jump { count = 1 } end, desc = "next error", buffer = buffer },
+    { "<leader>jp", function() vim.diagnostic.jump { count = -1 } end, desc = "prev error", buffer = buffer },
   }
 end
 
