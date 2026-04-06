@@ -35,12 +35,13 @@ function M.set_keys(buffer)
   wk.add {
     {
       "<leader>ca",
-      vim.lsp.buf.code_action,
+      function() require("fzf-lua").lsp_code_actions() end,
       desc = "code action",
       mode = { "n", "v" },
       buffer = buffer,
     },
-    { "<leader>cs", vim.lsp.buf.signature_help, desc = "signature help", mode = { "n", "i" }, buffer = buffer },
+    { "K", function() vim.lsp.buf.hover { border = "rounded" } end, desc = "hover", buffer = buffer },
+    { "<leader>cs", function() vim.lsp.buf.signature_help { border = "rounded" } end, desc = "signature help", mode = { "n", "i" }, buffer = buffer },
     { "<leader>cd", vim.diagnostic.open_float, desc = "line diagnostics", buffer = buffer },
     { "<leader>cf", M.format, desc = "format document", buffer = buffer },
     { "<leader>ch", M.toggle_hints, desc = "toggle inlay hints", buffer = buffer },
@@ -51,7 +52,7 @@ function M.set_keys(buffer)
     { "gd", vim.lsp.buf.definition, desc = "goto definition", buffer = buffer },
     { "gD", vim.lsp.buf.declaration, desc = "goto declaration", buffer = buffer },
     { "gi", vim.lsp.buf.implementation, desc = "goto implementation", buffer = buffer },
-    { "gr", vim.lsp.buf.references, desc = "find references", buffer = buffer },
+    { "gr", function() require("fzf-lua").lsp_references() end, desc = "find references", buffer = buffer },
   }
 end
 
