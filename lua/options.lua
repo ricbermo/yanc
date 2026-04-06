@@ -52,8 +52,7 @@ opt.tabstop = 2
 opt.expandtab = true
 opt.shiftwidth = 2
 
--- disable intro
-opt.shortmess:append "sI"
+opt.shortmess:append "s"
 
 -- enable terminal colors
 opt.termguicolors = true

@@ -10,6 +10,11 @@ return {
     config = true,
   },
   {
+    "folke/ts-comments.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
+  {
     "lukas-reineke/indent-blankline.nvim",
     event = { "BufReadPre", "BufNewFile" },
     main = "ibl",
