@@ -10,6 +10,7 @@ return {
       "lua_ls",
       "jsonls",
       "tailwindcss",
+      "emmet_ls",
       "biome",
       "astro",
     },

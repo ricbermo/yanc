@@ -42,6 +42,18 @@ vim.lsp.config("tailwindcss", {
   },
 })
 
+vim.lsp.config("emmet_ls", {
+  filetypes = {
+    "html",
+    "css",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "astro",
+  },
+})
+
 vim.lsp.config("jsonls", {
   settings = {
     json = {

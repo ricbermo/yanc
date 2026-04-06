@@ -1,17 +1,5 @@
 return {
   {
-    "mattn/emmet-vim",
-    event = { "BufReadPre", "BufNewFile" },
-    ft = {
-      "typescript",
-      "typescriptreact",
-      "javascript",
-      "javascriptreact",
-      "html",
-      "css",
-    },
-  },
-  {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
     config = true,
