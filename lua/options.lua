@@ -79,8 +79,6 @@ opt.updatetime = 250
 opt.confirm = true
 vim.o.winborder = "rounded"
 
--- show filename in winbar (replaces bufferline)
-opt.winbar = "%t %m"
 
 -- blankline support
 opt.list = true

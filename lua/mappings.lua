@@ -14,8 +14,8 @@ vim.keymap.set("n", "<S-Left>", "<CMD>vertical resize -2<CR>")
 vim.keymap.set("n", "<S-Right>", "<CMD>vertical resize +2<CR>")
 
 -- Switch buffers with tab
-vim.keymap.set("n", "<S-TAB>", "<CMD>bprevious<CR>")
-vim.keymap.set("n", "<TAB>", "<CMD>bnext<CR>")
+vim.keymap.set("n", "<S-TAB>", "<CMD>BufferLineCyclePrev<CR>")
+vim.keymap.set("n", "<TAB>", "<CMD>BufferLineCycleNext<CR>")
 
 -- Clear search with <esc>
 vim.keymap.set({ "i", "n" }, "<esc>", "<CMD>noh<CR><esc>")
@@ -63,8 +63,11 @@ vim.keymap.set("n", "[d", function() vim.diagnostic.jump { count = -1 } end, { d
 
 wk.add {
   { "<leader>b", group = "buffer" },
-  { "<leader>bc", "<CMD>:%bd|e#|bd#<CR>", desc = "delete all buffers but current" },
+  { "<leader>bc", "<CMD>BufferLineCloseOthers<CR>", desc = "delete all buffers but current" },
   { "<leader>bd", "<CMD>bp|bd #<CR>", desc = "delete buffer" },
+  { "<leader>bp", "<CMD>BufferLineTogglePin<CR>", desc = "pin buffer" },
+  { "<leader>bl", "<CMD>BufferLineMoveNext<CR>", desc = "move buffer right" },
+  { "<leader>bh", "<CMD>BufferLineMovePrev<CR>", desc = "move buffer left" },
   { "<leader>f", group = "file" },
   { "<leader>ff", "<CMD>FzfLua files<CR>", desc = "find file" },
   { "<leader>fn", "<CMD>enew<CR>", desc = "new file" },
